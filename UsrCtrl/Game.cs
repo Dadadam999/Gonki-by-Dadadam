@@ -45,7 +45,7 @@ namespace Gonki_by_Dadadam
 
             _road = new RoadController(Width, Height);
 
-            _finish = new Finish(1, Width, Height);
+            _finish = new Finish(10, Width, Height);
             
 
             Focus();
@@ -62,7 +62,8 @@ namespace Gonki_by_Dadadam
             _car_player.set_start_position();
             _car_enemy.set_start_position();
         }
-        
+
+
         private void Game_Loop_Tick(object sender, EventArgs e)
         {
             string pressed_key = MainSpace.selfref.Pressed_Key;
@@ -100,10 +101,11 @@ namespace Gonki_by_Dadadam
                 _finish.move(_car_player.Car.Current_Speed);
                 _finish.check_win(_car_player.Car.Cover_Distance, _car_enemy.Car.Cover_Distance);
                 
-               // if(!_finish.Win)
+               if(!_finish.Win)
                     Win_test.Text = _finish.Result + " " + _car_enemy.Left + " " + _car_enemy.Car.Cover_Distance + "\n " + _finish.Left;
                 
                 Speed_Info.Text = $"Скорость: {_car_player.Car.Current_Speed} test: {_car_enemy.Car.Current_Speed}\nНитро: {_car_player.Car.Curent_Boost_Charge}\ndist {_finish.Distance * Width}\nplayer {_car_player.Car.Cover_Distance }\nenemy {_car_enemy.Car.Cover_Distance}\nf_pos {_finish.Left } ";
+
             }
             Repaint();
         }
@@ -126,10 +128,23 @@ namespace Gonki_by_Dadadam
             }
         }
         void collision_handler(string name1, string name2) {
-           // if (name1test == "Player_Car" || name2test == "Player_Car")
-           // {
+            if (name1 == "Player_Car" && name2 == "Enemy_Car" )
+            {
+                Win_test.Text = "Crash car";
+                _play_game = false;
+            }
 
-           // }
+            if (name1 == "Player_Car" && name2 == "Left_Board" || name2 == "Right_Board")
+            {
+                Win_test.Text = "Crash Player on border";
+                _play_game = false;
+            }
+
+            if (name1 == "Enemy_Car" && name2 == "Left_Board" || name2 == "Right_Board")
+            {
+                Win_test.Text = "Crash Enemy on border";
+                _play_game = false;
+            }
         }
     }
 }

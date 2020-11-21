@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\AnimationSprite.cs" />
     <Compile Include="Classes\EnemyController.cs" />
     <Compile Include="Classes\PlayerController.cs" />
     <Compile Include="Classes\Car.cs" />
@@ -58,6 +59,11 @@
     <Compile Include="Classes\Collision.cs" />
     <Compile Include="Classes\CollisionManager.cs" />
     <Compile Include="Classes\Finish.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="UsrCtrl\Game.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -107,14 +113,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -124,19 +125,118 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Source\Music\racing tecno.ogg" />
+    <None Include="Source\Music\racing tecno_v2.5.ogg" />
+    <None Include="Source\Music\racing tecno_v2.6.ogg" />
+    <None Include="Source\Music\racing tecno_v2.ogg" />
+    <None Include="Source\Sound\countdown-a.ogg" />
+    <None Include="Source\Sound\countdown-b.ogg" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="car_wheel_PNG23302.ico" />
-    <Content Include="res\car01.png" />
-    <Content Include="res\car02.png" />
-    <Content Include="res\car03.png" />
-    <Content Include="res\car04.png" />
-    <Content Include="res\car05.png" />
-    <Content Include="res\finish_line.jpg" />
-    <Content Include="res\road.png" />
+    <Content Include="Source\Car\car01.png" />
+    <Content Include="Source\Car\car02.png" />
+    <Content Include="Source\Car\car03.png" />
+    <Content Include="Source\Car\car04.png" />
+    <Content Include="Source\Car\car05.png" />
+    <Content Include="Source\Characters\character_black_blue.png" />
+    <Content Include="Source\Characters\character_black_green.png" />
+    <Content Include="Source\Characters\character_black_red.png" />
+    <Content Include="Source\Characters\character_black_white.png" />
+    <Content Include="Source\Characters\character_blonde_blue.png" />
+    <Content Include="Source\Characters\character_blonde_green.png" />
+    <Content Include="Source\Characters\character_blonde_red.png" />
+    <Content Include="Source\Characters\character_blonde_white.png" />
+    <Content Include="Source\Characters\character_brown_blue.png" />
+    <Content Include="Source\Characters\character_brown_green.png" />
+    <Content Include="Source\Characters\character_brown_red.png" />
+    <Content Include="Source\Characters\character_brown_white.png" />
+    <Content Include="Source\Characters\racer_black.png" />
+    <Content Include="Source\Characters\racer_blue.png" />
+    <Content Include="Source\Characters\racer_green.png" />
+    <Content Include="Source\Characters\racer_red.png" />
+    <Content Include="Source\Characters\racer_yellow.png" />
+    <Content Include="Source\Lose.gif" />
+    <Content Include="Source\Music\Retroracing One more round.mp3" />
+    <Content Include="Source\Props\arrow_white.png" />
+    <Content Include="Source\Props\arrow_yellow.png" />
+    <Content Include="Source\Props\barrel_blue.png" />
+    <Content Include="Source\Props\barrel_blue_down.png" />
+    <Content Include="Source\Props\barrel_red.png" />
+    <Content Include="Source\Props\barrel_red_down.png" />
+    <Content Include="Source\Props\barrier_red.png" />
+    <Content Include="Source\Props\barrier_red_race.png" />
+    <Content Include="Source\Props\barrier_white.png" />
+    <Content Include="Source\Props\barrier_white_race.png" />
+    <Content Include="Source\Props\cone_down.png" />
+    <Content Include="Source\Props\cone_straight.png" />
+    <Content Include="Source\Props\lights.png" />
+    <Content Include="Source\Props\light_white.png" />
+    <Content Include="Source\Props\light_yellow.png" />
+    <Content Include="Source\Props\oil.png" />
+    <Content Include="Source\Props\rock1.png" />
+    <Content Include="Source\Props\rock2.png" />
+    <Content Include="Source\Props\rock3.png" />
+    <Content Include="Source\Props\skidmark_long_1.png" />
+    <Content Include="Source\Props\skidmark_long_2.png" />
+    <Content Include="Source\Props\skidmark_long_3.png" />
+    <Content Include="Source\Props\skidmark_short_1.png" />
+    <Content Include="Source\Props\skidmark_short_2.png" />
+    <Content Include="Source\Props\skidmark_short_3.png" />
+    <Content Include="Source\Props\tent_blue.png" />
+    <Content Include="Source\Props\tent_blue_large.png" />
+    <Content Include="Source\Props\tent_red.png" />
+    <Content Include="Source\Props\tent_red_large.png" />
+    <Content Include="Source\Props\tires_red.png" />
+    <Content Include="Source\Props\tires_red_alt.png" />
+    <Content Include="Source\Props\tires_white.png" />
+    <Content Include="Source\Props\tires_white_alt.png" />
+    <Content Include="Source\Props\tree_large.png" />
+    <Content Include="Source\Props\tree_small.png" />
+    <Content Include="Source\Props\tribune_empty.png" />
+    <Content Include="Source\Props\tribune_full.png" />
+    <Content Include="Source\Props\tribune_overhang_red.png" />
+    <Content Include="Source\Props\tribune_overhang_striped.png" />
+    <Content Include="Source\Road\finish_line.jpg" />
+    <Content Include="Source\Road\road.png" />
+    <Content Include="Source\Sound\car_spinning.wav" />
+    <Content Include="Source\Sound\loop_0.wav" />
+    <Content Include="Source\Sound\loop_1.wav" />
+    <Content Include="Source\Sound\loop_2.wav" />
+    <Content Include="Source\Sound\loop_3.wav" />
+    <Content Include="Source\Sound\loop_4.wav" />
+    <Content Include="Source\Sound\loop_5.wav" />
+    <Content Include="Source\Sound\toy_car_motor_engine_loop_sound.flac" />
+    <Content Include="Source\Voice\advanced.wav" />
+    <Content Include="Source\Voice\automatic_transmission.wav" />
+    <Content Include="Source\Voice\beginner.wav" />
+    <Content Include="Source\Voice\checkpoint.wav" />
+    <Content Include="Source\Voice\continue.wav" />
+    <Content Include="Source\Voice\expert.wav" />
+    <Content Include="Source\Voice\game_over.wav" />
+    <Content Include="Source\Voice\gentlemen_start_your_engines.wav" />
+    <Content Include="Source\Voice\go.wav" />
+    <Content Include="Source\Voice\hurry_up.wav" />
+    <Content Include="Source\Voice\manual_transmission.wav" />
+    <Content Include="Source\Voice\mode_select.wav" />
+    <Content Include="Source\Voice\new_record.wav" />
+    <Content Include="Source\Voice\one.wav" />
+    <Content Include="Source\Voice\retire.wav" />
+    <Content Include="Source\Voice\select_a_course.wav" />
+    <Content Include="Source\Voice\select_your_vehicle.wav" />
+    <Content Include="Source\Voice\start_your_engines.wav" />
+    <Content Include="Source\Voice\the_final_lap.wav" />
+    <Content Include="Source\Voice\three.wav" />
+    <Content Include="Source\Voice\time_extended.wav" />
+    <Content Include="Source\Voice\time_over.wav" />
+    <Content Include="Source\Voice\two.wav" />
+    <Content Include="Source\Voice\winner.wav" />
+    <Content Include="Source\Voice\_actress_info.txt" />
+    <Content Include="Source\Voice\_CC_BY_license.txt" />
+    <Content Include="Source\Win.gif" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

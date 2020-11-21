@@ -63,6 +63,36 @@ namespace Gonki_by_Dadadam.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap backgroundmenu {
+            get {
+                object obj = ResourceManager.GetObject("backgroundmenu", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap buttommenu {
+            get {
+                object obj = ResourceManager.GetObject("buttommenu", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap buttommenuwheel {
+            get {
+                object obj = ResourceManager.GetObject("buttommenuwheel", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap car01 {
             get {
                 object obj = ResourceManager.GetObject("car01", resourceCulture);
@@ -116,6 +146,26 @@ namespace Gonki_by_Dadadam.Properties {
         internal static System.Drawing.Bitmap finish_line {
             get {
                 object obj = ResourceManager.GetObject("finish_line", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap garagecarinfo {
+            get {
+                object obj = ResourceManager.GetObject("garagecarinfo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap garagecarsprite {
+            get {
+                object obj = ResourceManager.GetObject("garagecarsprite", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

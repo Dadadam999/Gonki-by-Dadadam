@@ -20,7 +20,7 @@ namespace Gonki_by_Dadadam
             this.car = car;
             
             Car_Sprite.Image = car.Sprite;
-            Car_Info.Text = $"Name: {car.Name}\nMax_Speed: {car.Max_Speed}\nAcceleration: {car.Step_Speed}";
+            Car_Info.Text = $"Name: {car.Name}\nMax_Speed: {car.Max_Speed}\nAcceleration: {car.Step_Speed}\nBoost: {car.Boost_Speed} Charge: {car.Max_Boost_Charge}";
         }
 
         private void Car_Sprite_Click(object sender, EventArgs e)

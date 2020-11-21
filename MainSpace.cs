@@ -48,7 +48,7 @@ namespace Gonki_by_Dadadam
 
         public void show_menu()
         {
-            FormBorderStyle = FormBorderStyle.Sizable;
+            FormBorderStyle = FormBorderStyle.SizableToolWindow;
             Game.Hide();
             Garage.Hide();
             MenuGame.Show();
