@@ -9,6 +9,7 @@ namespace Gonki_by_Dadadam
 {
     public class Road
     {
+        public string Name { get; set; }
         public Bitmap Sprite { get; set; }
         public float Left { get; set; }
         public float Top { get; set; }

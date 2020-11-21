@@ -15,8 +15,9 @@ namespace Gonki_by_Dadadam
         public float Height { get; set; }
         float _widthscreen { get; set; }
         float _heightscreen { get; set; }
+        Collision collision { get; set; }
 
-    public PlayerController(int WidthScreen, int HeightScreen) 
+        public PlayerController(int WidthScreen, int HeightScreen) 
         {
             _widthscreen = WidthScreen;
             _heightscreen = HeightScreen;
@@ -25,6 +26,9 @@ namespace Gonki_by_Dadadam
             Top = 0;
             Width = 0;
             Height = 0;
+
+            collision = new Collision("Player_Car", Left, Top, Width, Height);
+            CollisionManager.Collisions.Add(collision);
         }
 
         public void set_start_position() {
@@ -33,6 +37,8 @@ namespace Gonki_by_Dadadam
 
             Width = _widthscreen / 7;
             Height = _heightscreen / 9;
+
+
         }
 
         public void key_event(string pressed_key) {
@@ -73,6 +79,8 @@ namespace Gonki_by_Dadadam
                 Car.Current_Speed > Car.Back_Speed * -1 &&
                 Car.Current_Speed < Car.Max_Speed)
                 Left = _widthscreen / 3 + Car.Current_Speed; // Width / 3 - стартовая позиция
+            
+            collision.update(Left, Top, Width, Height);
         }
     }
 }

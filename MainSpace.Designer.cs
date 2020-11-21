@@ -43,6 +43,7 @@
             this.Text = "Gonki by Dadadam";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainSpace_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.MainSpace_KeyUp);
+            this.Resize += new System.EventHandler(this.MainSpace_Resize);
             this.ResumeLayout(false);
 
         }

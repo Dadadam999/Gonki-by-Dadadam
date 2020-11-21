@@ -33,6 +33,7 @@
             this.Instruction = new System.Windows.Forms.Label();
             this.Pause_Label = new System.Windows.Forms.Label();
             this.Speed_Info = new System.Windows.Forms.Label();
+            this.Win_test = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // Game_Loop
@@ -42,13 +43,14 @@
             // 
             // Instruction
             // 
+            this.Instruction.AutoSize = true;
             this.Instruction.BackColor = System.Drawing.Color.Transparent;
             this.Instruction.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.Instruction.Font = new System.Drawing.Font("Showcard Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Instruction.ForeColor = System.Drawing.Color.DarkBlue;
             this.Instruction.Location = new System.Drawing.Point(0, 0);
             this.Instruction.Name = "Instruction";
-            this.Instruction.Size = new System.Drawing.Size(185, 130);
+            this.Instruction.Size = new System.Drawing.Size(181, 92);
             this.Instruction.TabIndex = 6;
             this.Instruction.Text = "Управление\r\nWASD - движение\r\nShift - нитро\r\nEsc - выход";
             this.Instruction.Visible = false;
@@ -67,15 +69,28 @@
             // 
             // Speed_Info
             // 
+            this.Speed_Info.AutoSize = true;
             this.Speed_Info.BackColor = System.Drawing.Color.Transparent;
             this.Speed_Info.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.Speed_Info.Font = new System.Drawing.Font("Showcard Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Speed_Info.ForeColor = System.Drawing.Color.DarkBlue;
             this.Speed_Info.Location = new System.Drawing.Point(191, 0);
             this.Speed_Info.Name = "Speed_Info";
-            this.Speed_Info.Size = new System.Drawing.Size(360, 98);
+            this.Speed_Info.Size = new System.Drawing.Size(110, 46);
             this.Speed_Info.TabIndex = 7;
             this.Speed_Info.Text = "Скорость: \r\nНитро:";
+            // 
+            // Win_test
+            // 
+            this.Win_test.AutoSize = true;
+            this.Win_test.BackColor = System.Drawing.Color.Transparent;
+            this.Win_test.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.Win_test.Font = new System.Drawing.Font("Showcard Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Win_test.ForeColor = System.Drawing.Color.DarkBlue;
+            this.Win_test.Location = new System.Drawing.Point(488, 0);
+            this.Win_test.Name = "Win_test";
+            this.Win_test.Size = new System.Drawing.Size(0, 23);
+            this.Win_test.TabIndex = 8;
             // 
             // Game
             // 
@@ -83,13 +98,15 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.Controls.Add(this.Win_test);
             this.Controls.Add(this.Speed_Info);
             this.Controls.Add(this.Pause_Label);
             this.Controls.Add(this.Instruction);
             this.DoubleBuffered = true;
             this.Name = "Game";
-            this.Size = new System.Drawing.Size(690, 428);
+            this.Size = new System.Drawing.Size(800, 600);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -98,5 +115,6 @@
         private System.Windows.Forms.Label Instruction;
         private System.Windows.Forms.Label Pause_Label;
         private System.Windows.Forms.Label Speed_Info;
+        private System.Windows.Forms.Label Win_test;
     }
 }

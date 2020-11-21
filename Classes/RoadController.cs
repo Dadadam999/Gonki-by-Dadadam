@@ -13,7 +13,7 @@ namespace Gonki_by_Dadadam
         public float Top { get; set; }
         public float Width { get; set; }
         public float Height { get; set; }
-        
+
         public RoadController(int WidthScreen, int HeightScreen) 
         {
             Road_Parts = new List<Road>();
@@ -22,13 +22,23 @@ namespace Gonki_by_Dadadam
             Width = WidthScreen;
             Height = HeightScreen;
 
+            create_boards_collision();
+
             create_road_parts(0);
-            create_road_parts(Width);
+            create_road_parts(Width-1);
         }
+
+        public void create_boards_collision()
+        {
+           CollisionManager.Collisions.Add(new Collision("Left_Board", 0, Width * 0.12F, Width, Height * 0.1F));
+           CollisionManager.Collisions.Add(new Collision("Right_Board", 0, Width * 0.52F, Width, Height * 0.1F));
+        }
+
 
         public void create_road_parts(float Left)
         {
             Road_Parts.Add(new Road());
+            Road_Parts[Road_Parts.Count - 1].Name = "Default_Road";
             Road_Parts[Road_Parts.Count - 1].Sprite = Properties.Resources.road;
             Road_Parts[Road_Parts.Count - 1].Width = Width;
             Road_Parts[Road_Parts.Count - 1].Height = Height;

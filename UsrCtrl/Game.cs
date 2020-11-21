@@ -19,26 +19,34 @@ namespace Gonki_by_Dadadam
         EnemyController _car_enemy;
         PlayerController _car_player;
         EnemyAI _enemy_ai;
+        Finish _finish;
 
         public Game()
         {
             InitializeComponent();
             Dock = DockStyle.Fill;
+            this.Size = new Size(Width, Width * 3 / 4);
         }
 
         public void init_game() 
         {
+            CollisionManager.Collisions.Clear();
+            CollisionManager.Interact += new CollisionManager.InteractCollision(collision_handler);
+
             _car_player = new PlayerController(Width, Height);
             _car_player.Car = MainSpace.selfref.Car_Player_Exmp.Clone();
 
             _car_enemy = new EnemyController(Width, Height);
             _car_enemy.Car = MainSpace.selfref.Lst_Car[_rand.Next(0, MainSpace.selfref.Lst_Car.Count - 1)].Clone();
-
+            
             _enemy_ai = new EnemyAI();
             _enemy_ai.Car_Enemy = _car_enemy;
             _enemy_ai.Car_Player = _car_player;
 
             _road = new RoadController(Width, Height);
+
+            _finish = new Finish(1, Width, Height);
+            
 
             Focus();
             start_resize();
@@ -79,21 +87,27 @@ namespace Gonki_by_Dadadam
                 _car_player.key_event(pressed_key);
                 _car_player.update();
 
-                
-
                 _car_enemy.plus_speed();
-                _car_enemy.move_enemy();
+                _car_enemy.move_enemy(_car_player.Car.Current_Speed);
                 _car_enemy.update();
 
                 _road.remove_road_parts();
                 _road.prolong_road_parts();
                 _road.move_road_parts(_car_player.Car.Current_Speed);
-                    
-                Speed_Info.Text = $"Скорость: {_car_player.Car.Current_Speed} test: {_car_enemy.Car.Current_Speed}\nНитро: {_car_player.Car.Curent_Boost_Charge}";
+
+                CollisionManager.check();
+
+                _finish.move(_car_player.Car.Current_Speed);
+                _finish.check_win(_car_player.Car.Cover_Distance, _car_enemy.Car.Cover_Distance);
+                
+               // if(!_finish.Win)
+                    Win_test.Text = _finish.Result + " " + _car_enemy.Left + " " + _car_enemy.Car.Cover_Distance + "\n " + _finish.Left;
+                
+                Speed_Info.Text = $"Скорость: {_car_player.Car.Current_Speed} test: {_car_enemy.Car.Current_Speed}\nНитро: {_car_player.Car.Curent_Boost_Charge}\ndist {_finish.Distance * Width}\nplayer {_car_player.Car.Cover_Distance }\nenemy {_car_enemy.Car.Cover_Distance}\nf_pos {_finish.Left } ";
             }
             Repaint();
         }
-        
+
         void Repaint()
         {
             BackgroundImage = new Bitmap(Width, Height);
@@ -101,10 +115,21 @@ namespace Gonki_by_Dadadam
             {
                 foreach (Road road in _road.Road_Parts)  
                     gr.DrawImage(road.Sprite, road.Left, road.Top, road.Width, road.Height);
-
+                
+                gr.DrawImage(_finish.Sprite, _finish.Left, _finish.Top, _finish.Width, _finish.Height);
+                
                 gr.DrawImage(_car_enemy.Car.Sprite, _car_enemy.Left, _car_enemy.Top, _car_enemy.Width, _car_enemy.Height);
                 gr.DrawImage(_car_player.Car.Sprite, _car_player.Left, _car_player.Top, _car_player.Width, _car_player.Height);
+                
+                foreach (Collision collision in CollisionManager.Collisions)
+                    gr.DrawRectangle(new Pen(Color.Red, 1), collision.Left, collision.Top, collision.Width, collision.Height);
             }
+        }
+        void collision_handler(string name1, string name2) {
+           // if (name1test == "Player_Car" || name2test == "Player_Car")
+           // {
+
+           // }
         }
     }
 }

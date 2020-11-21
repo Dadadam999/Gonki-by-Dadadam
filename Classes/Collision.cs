@@ -8,17 +8,26 @@ namespace Gonki_by_Dadadam
 {
     public  class Collision
     {
-        public Car Car { get; set; }
+        public string Name { get; set; }
         public float Left { get; set; }
         public float Top { get; set; }
         public float Width { get; set; }
         public float Height { get; set; }
-        public Collision()
+        public Collision(string Name, float Left, float Top, float Width, float Height)
         {
-            Left = 0;
-            Top = 0;
-            Width = 0;
-            Height = 0;
+            this.Name = Name;
+            this.Left = Left;
+            this.Top = Top;
+            this.Width = Width;
+            this.Height = Height;
+        }
+
+        public void update(float Left, float Top, float Width, float Height)
+        {
+            this.Left = Left;
+            this.Top = Top;
+            this.Width = Width;
+            this.Height = Height;
         }
     }
 }

@@ -15,6 +15,7 @@ namespace Gonki_by_Dadadam
         public float Height { get; set; }
         float _widthscreen { get; set; }
         float _heightscreen { get; set; }
+        Collision collision { get; set; }
 
         public EnemyController(int WidthScreen, int HeightScreen)
         {
@@ -25,6 +26,9 @@ namespace Gonki_by_Dadadam
             Top = 0;
             Width = 0;
             Height = 0;
+
+            collision = new Collision("Enemy_Car", Left, Top, Width, Height);
+            CollisionManager.Collisions.Add(collision);
         }
 
         public void set_start_position()
@@ -48,9 +52,10 @@ namespace Gonki_by_Dadadam
                 Car.Current_Speed += Car.Step_Speed;
         }
 
-        public void move_enemy()
+        public void move_enemy(float Current_Player_Speed)
         {
-            Left -= Car.Current_Speed + Car.Current_Speed;
+            if(Car.Current_Speed < Car.Max_Speed)
+                Left -= Current_Player_Speed + Car.Current_Speed;
         }
 
         public void rotate_left()
@@ -66,6 +71,7 @@ namespace Gonki_by_Dadadam
         public void update()
         {
             Car.Cover_Distance += Car.Current_Speed * -1;
+            collision.update(Left, Top, Width, Height);
         }
     }
 }

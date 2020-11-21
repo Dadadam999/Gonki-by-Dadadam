@@ -130,5 +130,10 @@ namespace Gonki_by_Dadadam
             Lst_Car[Lst_Car.Count - 1].Max_Boost_Charge = 30;
             Lst_Car[Lst_Car.Count - 1].Sprite = Properties.Resources.car05;
         }
+        
+        private void MainSpace_Resize(object sender, EventArgs e)
+        {
+                this.Size = new Size(Width, Width * 3 / 4);
+        }
     }
 }

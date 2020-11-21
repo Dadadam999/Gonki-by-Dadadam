@@ -57,6 +57,7 @@
     <Compile Include="Classes\RoadController.cs" />
     <Compile Include="Classes\Collision.cs" />
     <Compile Include="Classes\CollisionManager.cs" />
+    <Compile Include="Classes\Finish.cs" />
     <Compile Include="UsrCtrl\Game.cs">
       <SubType>UserControl</SubType>
     </Compile>
