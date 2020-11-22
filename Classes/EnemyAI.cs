@@ -9,12 +9,12 @@ namespace Gonki_by_Dadadam
 {
     public class EnemyAI
     {
-
+        static Random rand = new Random();
         public PlayerController Car_Player { get; set; }
         public EnemyController Car_Enemy { get; set; }
 
-        public void behavior() { 
-            
+        public void behavior() {
+            strategy_speed();
         }
 
         void strategy_overtake()
@@ -24,7 +24,12 @@ namespace Gonki_by_Dadadam
 
         void strategy_speed()
         {
-            
+            if (is_on_line()
+             && Car_Player.Car.Cover_Distance - Car_Enemy.Car.Cover_Distance < 200 // дать рандомное значение привязанное к экрану
+             && Car_Player.Car.Cover_Distance - Car_Enemy.Car.Cover_Distance > 0)
+                Car_Enemy.minus_speed();
+            else
+                Car_Enemy.plus_speed();
         }
 
         void strategy_rotate()
@@ -37,9 +42,17 @@ namespace Gonki_by_Dadadam
 
         }
 
-        void strategy_first()
+        void strategy_position()
         {
 
+        }
+
+        bool is_on_line()
+        {
+            if ((Car_Enemy.Top >= Car_Player.Top && Car_Enemy.Top <= Car_Player.Top + Car_Player.Height)
+             || (Car_Enemy.Top + Car_Enemy.Height >= Car_Player.Top && Car_Enemy.Top + Car_Enemy.Height <= Car_Player.Top + Car_Player.Height))
+                return true;
+            return false;
         }
     }
 }

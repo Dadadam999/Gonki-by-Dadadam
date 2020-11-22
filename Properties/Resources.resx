@@ -154,4 +154,112 @@
   <data name="garagecarsprite" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Source\Menu\garagecarsprite.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="winframe01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Source\Animation\Win\frame-01.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="winframe02" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Source\Animation\Win\frame-02.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="winframe03" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Source\Animation\Win\frame-03.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="winframe04" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Source\Animation\Win\frame-04.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="winframe05" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Source\Animation\Win\frame-05.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="winframe06" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Source\Animation\Win\frame-06.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="winframe07" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Source\Animation\Win\frame-07.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="winframe08" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Source\Animation\Win\frame-08.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="winframe09" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Source\Animation\Win\frame-09.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="winframe10" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Source\Animation\Win\frame-10.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="winframe11" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Source\Animation\Win\frame-11.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="winframe12" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Source\Animation\Win\frame-12.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="winframe13" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Source\Animation\Win\frame-13.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="winframe14" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Source\Animation\Win\frame-14.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="winframe15" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Source\Animation\Win\frame-15.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="winframe16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Source\Animation\Win\frame-16.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="winframe17" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Source\Animation\Win\frame-17.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="winframe18" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Source\Animation\Win\frame-18.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="winframe19" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Source\Animation\Win\frame-19.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="winframe20" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Source\Animation\Win\frame-20.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="winframe21" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Source\Animation\Win\frame-21.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="winframe22" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Source\Animation\Win\frame-22.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="winframe23" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Source\Animation\Win\frame-23.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="winframe24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Source\Animation\Win\frame-24.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="winframe25" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Source\Animation\Win\frame-25.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="winframe26" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Source\Animation\Win\frame-26.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="winframe27" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Source\Animation\Win\frame-27.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="winframe28" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Source\Animation\Win\frame-28.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="winframe29" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Source\Animation\Win\frame-29.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="winframe30" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Source\Animation\Win\frame-30.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="winframe31" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Source\Animation\Win\frame-31.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="winframe32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Source\Animation\Win\frame-32.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="loseframe1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Source\Animation\Lose\frame-1.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="loseframe2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Source\Animation\Lose\frame-2.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="loseframe3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Source\Animation\Lose\frame-3.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="loseframe4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Source\Animation\Lose\frame-4.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

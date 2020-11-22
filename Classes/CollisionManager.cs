@@ -33,10 +33,7 @@ namespace Gonki_by_Dadadam
                         rectangle2.Height = Convert.ToInt32(collision2.Height);
 
                         if (rectangle1.IntersectsWith(rectangle2) && !collision1.Equals(collision2))
-                        {
                             Interact?.Invoke(collision1.Name, collision2.Name);
-                          //  MessageBox.Show("contact");
-                        }
                     }
         }
     }

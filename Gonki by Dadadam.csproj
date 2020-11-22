@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\AnimationManager.cs" />
     <Compile Include="Classes\AnimationSprite.cs" />
     <Compile Include="Classes\EnemyController.cs" />
     <Compile Include="Classes\PlayerController.cs" />
@@ -137,6 +138,42 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="car_wheel_PNG23302.ico" />
+    <Content Include="Source\Animation\Lose\frame-1.gif" />
+    <Content Include="Source\Animation\Lose\frame-2.gif" />
+    <Content Include="Source\Animation\Lose\frame-3.gif" />
+    <Content Include="Source\Animation\Lose\frame-4.gif" />
+    <Content Include="Source\Animation\Win\frame-01.gif" />
+    <Content Include="Source\Animation\Win\frame-02.gif" />
+    <Content Include="Source\Animation\Win\frame-03.gif" />
+    <Content Include="Source\Animation\Win\frame-04.gif" />
+    <Content Include="Source\Animation\Win\frame-05.gif" />
+    <Content Include="Source\Animation\Win\frame-06.gif" />
+    <Content Include="Source\Animation\Win\frame-07.gif" />
+    <Content Include="Source\Animation\Win\frame-08.gif" />
+    <Content Include="Source\Animation\Win\frame-09.gif" />
+    <Content Include="Source\Animation\Win\frame-10.gif" />
+    <Content Include="Source\Animation\Win\frame-11.gif" />
+    <Content Include="Source\Animation\Win\frame-12.gif" />
+    <Content Include="Source\Animation\Win\frame-13.gif" />
+    <Content Include="Source\Animation\Win\frame-14.gif" />
+    <Content Include="Source\Animation\Win\frame-15.gif" />
+    <Content Include="Source\Animation\Win\frame-16.gif" />
+    <Content Include="Source\Animation\Win\frame-17.gif" />
+    <Content Include="Source\Animation\Win\frame-18.gif" />
+    <Content Include="Source\Animation\Win\frame-19.gif" />
+    <Content Include="Source\Animation\Win\frame-20.gif" />
+    <Content Include="Source\Animation\Win\frame-21.gif" />
+    <Content Include="Source\Animation\Win\frame-22.gif" />
+    <Content Include="Source\Animation\Win\frame-23.gif" />
+    <Content Include="Source\Animation\Win\frame-24.gif" />
+    <Content Include="Source\Animation\Win\frame-25.gif" />
+    <Content Include="Source\Animation\Win\frame-26.gif" />
+    <Content Include="Source\Animation\Win\frame-27.gif" />
+    <Content Include="Source\Animation\Win\frame-28.gif" />
+    <Content Include="Source\Animation\Win\frame-29.gif" />
+    <Content Include="Source\Animation\Win\frame-30.gif" />
+    <Content Include="Source\Animation\Win\frame-31.gif" />
+    <Content Include="Source\Animation\Win\frame-32.gif" />
     <Content Include="Source\Car\car01.png" />
     <Content Include="Source\Car\car02.png" />
     <Content Include="Source\Car\car03.png" />
@@ -159,7 +196,12 @@
     <Content Include="Source\Characters\racer_green.png" />
     <Content Include="Source\Characters\racer_red.png" />
     <Content Include="Source\Characters\racer_yellow.png" />
-    <Content Include="Source\Lose.gif" />
+    <Content Include="Source\Menu\backgroundmenu.jpg" />
+    <Content Include="Source\Menu\buttonmenu.png" />
+    <Content Include="Source\Menu\buttonmenuwheel.png" />
+    <Content Include="Source\Menu\garagecarinfo.png" />
+    <Content Include="Source\Menu\garagecarsprite.jpg" />
+    <Content Include="Source\Music\random-race.mp3" />
     <Content Include="Source\Music\Retroracing One more round.mp3" />
     <Content Include="Source\Props\arrow_white.png" />
     <Content Include="Source\Props\arrow_yellow.png" />
@@ -236,7 +278,6 @@
     <Content Include="Source\Voice\winner.wav" />
     <Content Include="Source\Voice\_actress_info.txt" />
     <Content Include="Source\Voice\_CC_BY_license.txt" />
-    <Content Include="Source\Win.gif" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

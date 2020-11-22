@@ -33,6 +33,8 @@ namespace Gonki_by_Dadadam
             CollisionManager.Collisions.Clear();
             CollisionManager.Interact += new CollisionManager.InteractCollision(collision_handler);
 
+            AnimationManager.Init();
+
             _car_player = new PlayerController(Width, Height);
             _car_player.Car = MainSpace.selfref.Car_Player_Exmp.Clone();
 
@@ -88,7 +90,7 @@ namespace Gonki_by_Dadadam
                 _car_player.key_event(pressed_key);
                 _car_player.update();
 
-                _car_enemy.plus_speed();
+                _enemy_ai.behavior();
                 _car_enemy.move_enemy(_car_player.Car.Current_Speed);
                 _car_enemy.update();
 
@@ -100,9 +102,6 @@ namespace Gonki_by_Dadadam
 
                 _finish.move(_car_player.Car.Current_Speed);
                 _finish.check_win(_car_player.Car.Cover_Distance, _car_enemy.Car.Cover_Distance);
-                
-               if(!_finish.Win)
-                    Win_test.Text = _finish.Result + " " + _car_enemy.Left + " " + _car_enemy.Car.Cover_Distance + "\n " + _finish.Left;
                 
                 Speed_Info.Text = $"Скорость: {_car_player.Car.Current_Speed} test: {_car_enemy.Car.Current_Speed}\nНитро: {_car_player.Car.Curent_Boost_Charge}\ndist {_finish.Distance * Width}\nplayer {_car_player.Car.Cover_Distance }\nenemy {_car_enemy.Car.Cover_Distance}\nf_pos {_finish.Left } ";
 
@@ -122,28 +121,39 @@ namespace Gonki_by_Dadadam
                 
                 gr.DrawImage(_car_enemy.Car.Sprite, _car_enemy.Left, _car_enemy.Top, _car_enemy.Width, _car_enemy.Height);
                 gr.DrawImage(_car_player.Car.Sprite, _car_player.Left, _car_player.Top, _car_player.Width, _car_player.Height);
-                
+               
+                //test
                 foreach (Collision collision in CollisionManager.Collisions)
                     gr.DrawRectangle(new Pen(Color.Red, 1), collision.Left, collision.Top, collision.Width, collision.Height);
+
+                foreach (AnimationSprite anim in AnimationManager.Animations)
+                    if(anim.Visible)
+                        gr.DrawImage(anim.nextframe(), anim.Left, anim.Top, anim.Width, anim.Height);
+
             }
         }
-        void collision_handler(string name1, string name2) {
-            if (name1 == "Player_Car" && name2 == "Enemy_Car" )
+
+        void collision_handler(string Name1, string Name2) {
+            if (Name1 == "Player_Car" && Name2 == "Enemy_Car" )
             {
                 Win_test.Text = "Crash car";
-                _play_game = false;
+                _finish.Lose_Anim.Visible = true;
+                _car_player.Freeze = true;
+                _car_enemy.Freeze = true;
             }
 
-            if (name1 == "Player_Car" && name2 == "Left_Board" || name2 == "Right_Board")
+            if (Name1 == "Player_Car" && Name2 == "Left_Board" || Name2 == "Right_Board")
             {
                 Win_test.Text = "Crash Player on border";
-                _play_game = false;
+                _finish.Lose_Anim.Visible = true;
+                _car_player.Freeze = true;
             }
 
-            if (name1 == "Enemy_Car" && name2 == "Left_Board" || name2 == "Right_Board")
+            if (Name1 == "Enemy_Car" && Name2 == "Left_Board" || Name2 == "Right_Board")
             {
                 Win_test.Text = "Crash Enemy on border";
-                _play_game = false;
+                _finish.Win_Anim.Visible = true;
+                _car_enemy.Freeze = true;
             }
         }
     }
