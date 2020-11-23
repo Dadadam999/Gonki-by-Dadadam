@@ -36,7 +36,7 @@ namespace Gonki_by_Dadadam
             Width = 0;
             Height = 0;
 
-            collision = new Collision("Player_Car", Left, Top, Width, Height);
+            collision = new Collision("Player_Car", Left , Top, Width - Width * 0.13F, Height);
             CollisionManager.Collisions.Add(collision);
         }
 
@@ -104,7 +104,7 @@ namespace Gonki_by_Dadadam
             if (Freeze)
                 Car.Current_Speed = 0;
 
-            collision.update(Left, Top, Width, Height);
+            collision.update(Left, Top, Width - Width * 0.13F, Height);
         }
     }
 }

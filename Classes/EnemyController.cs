@@ -36,7 +36,7 @@ namespace Gonki_by_Dadadam
             Width = 0;
             Height = 0;
 
-            collision = new Collision("Enemy_Car", Left, Top, Width, Height);
+            collision = new Collision("Enemy_Car", Left, Top, Width - Width * 0.13F, Height);
             CollisionManager.Collisions.Add(collision);
         }
 
@@ -88,10 +88,10 @@ namespace Gonki_by_Dadadam
             if (Turn && Car.Curent_Boost_Charge > 0)
             {
                 Car.Curent_Boost_Charge = Car.Curent_Boost_Charge - 5;
-                if (Car.Current_Speed < Car.Max_Speed + Car.Boost_Speed)
+                if (Car.Current_Speed > Car.Max_Speed + Car.Boost_Speed)
                     Car.Current_Speed += Car.Boost_Speed;
 
-                if (Car.Curent_Boost_Charge <= 0)
+                if (Car.Curent_Boost_Charge >= 0)
                     Car.Current_Speed = Car.Max_Speed;
 
                 State?.Invoke("Boost");
@@ -102,13 +102,12 @@ namespace Gonki_by_Dadadam
 
         public void update()
         {
-            
             Car.Cover_Distance += Car.Current_Speed * -1;
 
             if (Freeze)
-                Car.Current_Speed = 0;
+                Car.Current_Speed = 0; //машина дергается
 
-            collision.update(Left, Top, Width, Height);
+            collision.update(Left, Top, Width - Width * 0.13F, Height);
         }
     }
 }

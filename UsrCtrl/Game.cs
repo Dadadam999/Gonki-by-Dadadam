@@ -35,19 +35,20 @@ namespace Gonki_by_Dadadam
 
             AnimationManager.Init();
 
+            _road = new RoadController(Width, Height);
+
             _car_player = new PlayerController(Width, Height);
             _car_player.Car = MainSpace.selfref.Car_Player_Exmp.Clone();
 
             _car_enemy = new EnemyController(Width, Height);
             _car_enemy.Car = MainSpace.selfref.Lst_Car[_rand.Next(0, MainSpace.selfref.Lst_Car.Count - 1)].Clone();
             
+
             _enemy_ai = new EnemyAI();
             _enemy_ai.Car_Enemy = _car_enemy;
             _enemy_ai.Car_Player = _car_player;
 
-            _road = new RoadController(Width, Height);
-
-            _finish = new Finish(10, Width, Height);
+            _finish = new Finish(100, Width, Height);
             
 
             Focus();
@@ -142,14 +143,14 @@ namespace Gonki_by_Dadadam
                 _car_enemy.Freeze = true;
             }
 
-            if (Name1 == "Player_Car" && Name2 == "Left_Board" || Name2 == "Right_Board")
+            if (Name1 == "Player_Car" && (Name2 == "Left_Board" || Name2 == "Right_Board"))
             {
                 Win_test.Text = "Crash Player on border";
                 _finish.Lose_Anim.Visible = true;
                 _car_player.Freeze = true;
             }
 
-            if (Name1 == "Enemy_Car" && Name2 == "Left_Board" || Name2 == "Right_Board")
+            if (Name1 == "Enemy_Car" && (Name2 == "Left_Board" || Name2 == "Right_Board"))
             {
                 Win_test.Text = "Crash Enemy on border";
                 _finish.Win_Anim.Visible = true;
