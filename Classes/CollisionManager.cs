@@ -12,13 +12,14 @@ namespace Gonki_by_Dadadam
     {
         public delegate void InteractCollision(string Name1, string Name2);
         public static event InteractCollision Interact;
-        public static List<Collision> Collisions = new List<Collision>();
+        public static List<Collision> Collisions { get; set; } = new List<Collision>();
+        public static bool Work { get; set; } = false;
         static Rectangle rectangle1 = new Rectangle();
         static Rectangle rectangle2 = new Rectangle();
 
         public static void check()
         {
-            if (Collisions.Count > 0)
+            if (Collisions.Count > 0 && Work)
                 foreach (Collision collision1 in Collisions)
                     foreach (Collision collision2 in Collisions)
                     {

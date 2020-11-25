@@ -8,12 +8,7 @@ namespace Gonki_by_Dadadam
 {
     public static class AnimationManager
     {
-        public static List<AnimationSprite> Animations { get; set; }
-
-        public static void Init() 
-        {
-            Animations = new List<AnimationSprite>();
-        }
+        public static List<AnimationSprite> Animations { get; set; } = new List<AnimationSprite>();
 
         public static void update_animations() {
             if (Animations.Count > 0)

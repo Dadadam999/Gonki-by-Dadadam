@@ -31,9 +31,10 @@ namespace Gonki_by_Dadadam
         public void init_game() 
         {
             CollisionManager.Collisions.Clear();
+            CollisionManager.Work = true;
             CollisionManager.Interact += new CollisionManager.InteractCollision(collision_handler);
 
-            AnimationManager.Init();
+            AnimationManager.Animations.Clear();
 
             _road = new RoadController(Width, Height);
 
@@ -48,8 +49,7 @@ namespace Gonki_by_Dadadam
             _enemy_ai.Car_Enemy = _car_enemy;
             _enemy_ai.Car_Player = _car_player;
 
-            _finish = new Finish(100, Width, Height);
-            
+            _finish = new Finish(_rand.Next(100,300), Width, Height);
 
             Focus();
             start_resize();
@@ -75,6 +75,7 @@ namespace Gonki_by_Dadadam
                 Instruction.Visible = true;
                 Pause_Label.Visible = false;
                 _play_game = true;
+                VoiceManager.change_voice("Go");
             }
 
             if (pressed_key == "Escape")
@@ -137,24 +138,30 @@ namespace Gonki_by_Dadadam
         void collision_handler(string Name1, string Name2) {
             if (Name1 == "Player_Car" && Name2 == "Enemy_Car" )
             {
+                CollisionManager.Work = false;
                 Win_test.Text = "Crash car";
                 _finish.Lose_Anim.Visible = true;
                 _car_player.Freeze = true;
                 _car_enemy.Freeze = true;
+                VoiceManager.change_voice("GameOver");
             }
 
             if (Name1 == "Player_Car" && (Name2 == "Left_Board" || Name2 == "Right_Board"))
             {
+                CollisionManager.Work = false;
                 Win_test.Text = "Crash Player on border";
                 _finish.Lose_Anim.Visible = true;
                 _car_player.Freeze = true;
+                VoiceManager.change_voice("GameOver");
             }
 
             if (Name1 == "Enemy_Car" && (Name2 == "Left_Board" || Name2 == "Right_Board"))
             {
+                CollisionManager.Work = false;
                 Win_test.Text = "Crash Enemy on border";
                 _finish.Win_Anim.Visible = true;
                 _car_enemy.Freeze = true;
+                VoiceManager.change_voice("Winner");
             }
         }
     }

@@ -15,8 +15,8 @@ namespace Gonki_by_Dadadam
         public float Top { get; set; }
         public float Width { get; set; }
         public float Height { get; set; }
-        float _widthscreen { get; set; }
-        float _heightscreen { get; set; }
+        private float _widthscreen { get; set; }
+        private float _heightscreen { get; set; }
         public bool Freeze { get; set; }
         Collision collision { get; set; }
         public AnimationSprite DefaultSprite { get; set; }

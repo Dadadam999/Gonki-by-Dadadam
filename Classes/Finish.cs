@@ -98,12 +98,16 @@ namespace Gonki_by_Dadadam
             {
                 Result = "Player";
                 Win_Anim.Visible = true;
+                MusicManager.change_music("Finish");
+                VoiceManager.change_voice("Winner");
             }
 
             if (String.IsNullOrEmpty(Result) && Enemy_Distance > _widthscrren * Distance)
             {
                 Result = "Enemy ";
                 Lose_Anim.Visible = true;
+                MusicManager.change_music("Finish");
+                VoiceManager.change_voice("GameOver");
             }
         }
 

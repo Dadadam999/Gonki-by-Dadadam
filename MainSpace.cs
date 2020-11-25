@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -28,6 +29,7 @@ namespace Gonki_by_Dadadam
             InitializeComponent();
             selfref = this;
             init_cars();
+            init_sound();
 
             Game = new Game();
             MenuGame = new Menu();
@@ -53,6 +55,7 @@ namespace Gonki_by_Dadadam
             Garage.Hide();
             MenuGame.Show();
             MenuGame.BringToFront();
+            MusicManager.change_music("MainMenu");
         }
 
         public void show_game()
@@ -63,6 +66,7 @@ namespace Gonki_by_Dadadam
             Game.Show();
             Game.BringToFront();
             Game.init_game();
+            MusicManager.change_music("Game");
         }
 
         public void show_garage()
@@ -72,6 +76,8 @@ namespace Gonki_by_Dadadam
             MenuGame.Hide();
             Garage.Show();
             Garage.BringToFront();
+            MusicManager.change_music("Garage");
+            VoiceManager.change_voice("Garage");
         }
 
         public void init_cars() {
@@ -130,7 +136,20 @@ namespace Gonki_by_Dadadam
             Lst_Car[Lst_Car.Count - 1].Max_Boost_Charge = 30;
             Lst_Car[Lst_Car.Count - 1].Sprite = Properties.Resources.car05;
         }
+
+        private void init_sound() {
+            MusicManager.Musics.Add("MainMenu", new Uri(AppDomain.CurrentDomain.BaseDirectory + @"Music\MainMenu.wav"));
+            MusicManager.Musics.Add("Garage", new Uri(AppDomain.CurrentDomain.BaseDirectory + @"Music\Garage.wav"));
+            MusicManager.Musics.Add("Game", new Uri(AppDomain.CurrentDomain.BaseDirectory + @"Music\Game.wav"));
+            MusicManager.Musics.Add("Finish", new Uri(AppDomain.CurrentDomain.BaseDirectory + @"Music\Finish.wav"));
+
+            VoiceManager.Voices.Add("Winner", new Uri(AppDomain.CurrentDomain.BaseDirectory + @"Voice\Winner.wav"));
+            VoiceManager.Voices.Add("GameOver", new Uri(AppDomain.CurrentDomain.BaseDirectory + @"Voice\GameOver.wav"));
+            VoiceManager.Voices.Add("Go", new Uri(AppDomain.CurrentDomain.BaseDirectory + @"Voice\Go.wav"));
+            VoiceManager.Voices.Add("Garage", new Uri(AppDomain.CurrentDomain.BaseDirectory + @"Voice\Garage.wav"));
+        }
         
+
         private void MainSpace_Resize(object sender, EventArgs e)
         {
                 this.Size = new Size(Width, Width * 3 / 4);
