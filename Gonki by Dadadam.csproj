@@ -71,6 +71,7 @@
     </Compile>
     <Compile Include="Classes\MusicManager.cs" />
     <Compile Include="Classes\SoundManager.cs" />
+    <Compile Include="Classes\Sound.cs" />
     <Compile Include="UsrCtrl\Game.cs">
       <SubType>UserControl</SubType>
     </Compile>

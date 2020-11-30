@@ -98,7 +98,7 @@ namespace Gonki_by_Dadadam
             {
                 Result = "Player";
                 Win_Anim.Visible = true;
-                MusicManager.change_music("Finish");
+                MusicManager.change_music("Win");
                 VoiceManager.change_voice("Winner");
             }
 
@@ -106,7 +106,7 @@ namespace Gonki_by_Dadadam
             {
                 Result = "Enemy ";
                 Lose_Anim.Visible = true;
-                MusicManager.change_music("Finish");
+                MusicManager.change_music("GameOver");
                 VoiceManager.change_voice("GameOver");
             }
         }

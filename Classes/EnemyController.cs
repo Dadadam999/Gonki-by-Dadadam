@@ -85,19 +85,19 @@ namespace Gonki_by_Dadadam
             if (!Turn && Car.Curent_Boost_Charge <= Car.Max_Boost_Charge)
                 Car.Curent_Boost_Charge++;
 
-            if (Turn && Car.Curent_Boost_Charge > 0)
+            if (Turn && Car.Curent_Boost_Charge > 0 && Car.Current_Speed < 0)
             {
                 Car.Curent_Boost_Charge = Car.Curent_Boost_Charge - 5;
-                if (Car.Current_Speed > Car.Max_Speed + Car.Boost_Speed)
-                    Car.Current_Speed += Car.Boost_Speed;
+                if (Car.Current_Speed > (Car.Max_Speed + Car.Boost_Speed) * -1)
+                    Car.Current_Speed -= Car.Boost_Speed;
 
-                if (Car.Curent_Boost_Charge >= 0)
-                    Car.Current_Speed = Car.Max_Speed;
+                if (Car.Curent_Boost_Charge <= 0)
+                    Car.Current_Speed = Car.Max_Speed * -1;
 
                 State?.Invoke("Boost");
             }
-            if (!Turn && Car.Current_Speed >= Car.Max_Speed)
-                Car.Current_Speed = Car.Max_Speed;
+            if (!Turn && Car.Current_Speed <= Car.Max_Speed * -1)
+                Car.Current_Speed = Car.Max_Speed * -1;
         }
 
         public void update()

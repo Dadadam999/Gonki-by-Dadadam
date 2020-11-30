@@ -76,7 +76,7 @@ namespace Gonki_by_Dadadam
             if (pressed_key != "ShiftKey" && Car.Curent_Boost_Charge <= Car.Max_Boost_Charge)
                 Car.Curent_Boost_Charge++;
 
-            if (pressed_key == "ShiftKey" && Car.Curent_Boost_Charge > 0)
+            if (pressed_key == "ShiftKey" && Car.Curent_Boost_Charge > 0 && Car.Current_Speed > 0)
             {
                 Car.Curent_Boost_Charge = Car.Curent_Boost_Charge - 5;
                 if (Car.Current_Speed < Car.Max_Speed + Car.Boost_Speed)
@@ -89,7 +89,6 @@ namespace Gonki_by_Dadadam
             }
             if (pressed_key != "ShiftKey" && Car.Current_Speed >= Car.Max_Speed)
                 Car.Current_Speed = Car.Max_Speed;
-
         }
 
         public void update()

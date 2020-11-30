@@ -25,7 +25,7 @@ namespace Gonki_by_Dadadam
         {
             InitializeComponent();
             Dock = DockStyle.Fill;
-            this.Size = new Size(Width, Width * 3 / 4);
+            Size = new Size(Width, Width * 3 / 4);
         }
 
         public void init_game() 
@@ -42,9 +42,8 @@ namespace Gonki_by_Dadadam
             _car_player.Car = MainSpace.selfref.Car_Player_Exmp.Clone();
 
             _car_enemy = new EnemyController(Width, Height);
-            _car_enemy.Car = MainSpace.selfref.Lst_Car[_rand.Next(0, MainSpace.selfref.Lst_Car.Count - 1)].Clone();
+            _car_enemy.Car = MainSpace.selfref.Cars[_rand.Next(0, MainSpace.selfref.Cars.Count - 1)].Clone();
             
-
             _enemy_ai = new EnemyAI();
             _enemy_ai.Car_Enemy = _car_enemy;
             _enemy_ai.Car_Player = _car_player;
@@ -62,10 +61,12 @@ namespace Gonki_by_Dadadam
             Pause_Label.Left = Width / 2 - Pause_Label.Width / 2;
             Pause_Label.Top = Height / 5 * 4;
 
+            EndGame_Label.Left = Width / 2 - EndGame_Label.Width / 2;
+            EndGame_Label.Top = Height - EndGame_Label.Height * 2;
+
             _car_player.set_start_position();
             _car_enemy.set_start_position();
         }
-
 
         private void Game_Loop_Tick(object sender, EventArgs e)
         {
@@ -83,6 +84,7 @@ namespace Gonki_by_Dadadam
                 Game_Loop.Stop();
                 Instruction.Visible = false;
                 Pause_Label.Visible = true;
+                EndGame_Label.Visible = false;
                 _play_game = false;
                 MainSpace.selfref.show_menu();
             }
@@ -106,6 +108,8 @@ namespace Gonki_by_Dadadam
                 _finish.check_win(_car_player.Car.Cover_Distance, _car_enemy.Car.Cover_Distance);
                 
                 Speed_Info.Text = $"Скорость: {_car_player.Car.Current_Speed} test: {_car_enemy.Car.Current_Speed}\nНитро: {_car_player.Car.Curent_Boost_Charge}\ndist {_finish.Distance * Width}\nplayer {_car_player.Car.Cover_Distance }\nenemy {_car_enemy.Car.Cover_Distance}\nf_pos {_finish.Left } ";
+                if (!String.IsNullOrEmpty(_finish.Result) && EndGame_Label.Visible == false)
+                    EndGame_Label.Visible = true;
 
             }
             Repaint();
@@ -143,6 +147,8 @@ namespace Gonki_by_Dadadam
                 _finish.Lose_Anim.Visible = true;
                 _car_player.Freeze = true;
                 _car_enemy.Freeze = true;
+                EndGame_Label.Visible = true;
+                MusicManager.change_music("GameOver");
                 VoiceManager.change_voice("GameOver");
             }
 
@@ -152,6 +158,8 @@ namespace Gonki_by_Dadadam
                 Win_test.Text = "Crash Player on border";
                 _finish.Lose_Anim.Visible = true;
                 _car_player.Freeze = true;
+                EndGame_Label.Visible = true;
+                MusicManager.change_music("GameOver");
                 VoiceManager.change_voice("GameOver");
             }
 
@@ -161,6 +169,8 @@ namespace Gonki_by_Dadadam
                 Win_test.Text = "Crash Enemy on border";
                 _finish.Win_Anim.Visible = true;
                 _car_enemy.Freeze = true;
+                EndGame_Label.Visible = true;
+                MusicManager.change_music("Win");
                 VoiceManager.change_voice("Winner");
             }
         }

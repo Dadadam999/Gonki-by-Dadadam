@@ -34,6 +34,7 @@
             this.Pause_Label = new System.Windows.Forms.Label();
             this.Speed_Info = new System.Windows.Forms.Label();
             this.Win_test = new System.Windows.Forms.Label();
+            this.EndGame_Label = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // Game_Loop
@@ -92,12 +93,26 @@
             this.Win_test.Size = new System.Drawing.Size(0, 23);
             this.Win_test.TabIndex = 8;
             // 
+            // EndGame_Label
+            // 
+            this.EndGame_Label.BackColor = System.Drawing.Color.Transparent;
+            this.EndGame_Label.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.EndGame_Label.Font = new System.Drawing.Font("Showcard Gothic", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EndGame_Label.ForeColor = System.Drawing.Color.Red;
+            this.EndGame_Label.Location = new System.Drawing.Point(78, 339);
+            this.EndGame_Label.Name = "EndGame_Label";
+            this.EndGame_Label.Size = new System.Drawing.Size(575, 51);
+            this.EndGame_Label.TabIndex = 9;
+            this.EndGame_Label.Text = "Нажмите Escape чтобы выйти";
+            this.EndGame_Label.Visible = false;
+            // 
             // Game
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.Controls.Add(this.EndGame_Label);
             this.Controls.Add(this.Win_test);
             this.Controls.Add(this.Speed_Info);
             this.Controls.Add(this.Pause_Label);
@@ -116,5 +131,6 @@
         private System.Windows.Forms.Label Pause_Label;
         private System.Windows.Forms.Label Speed_Info;
         private System.Windows.Forms.Label Win_test;
+        private System.Windows.Forms.Label EndGame_Label;
     }
 }
