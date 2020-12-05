@@ -63,9 +63,9 @@ namespace Gonki_by_Dadadam.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap backgroundmenu {
+        internal static System.Drawing.Bitmap BackgroundMenu {
             get {
-                object obj = ResourceManager.GetObject("backgroundmenu", resourceCulture);
+                object obj = ResourceManager.GetObject("BackgroundMenu", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -73,9 +73,9 @@ namespace Gonki_by_Dadadam.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap buttommenu {
+        internal static System.Drawing.Bitmap ButtonMenu {
             get {
-                object obj = ResourceManager.GetObject("buttommenu", resourceCulture);
+                object obj = ResourceManager.GetObject("ButtonMenu", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -83,9 +83,9 @@ namespace Gonki_by_Dadadam.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap buttommenuwheel {
+        internal static System.Drawing.Bitmap ButtonMenuWheel {
             get {
-                object obj = ResourceManager.GetObject("buttommenuwheel", resourceCulture);
+                object obj = ResourceManager.GetObject("ButtonMenuWheel", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -93,9 +93,9 @@ namespace Gonki_by_Dadadam.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap car01 {
+        internal static System.Drawing.Bitmap Car01 {
             get {
-                object obj = ResourceManager.GetObject("car01", resourceCulture);
+                object obj = ResourceManager.GetObject("Car01", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -103,9 +103,9 @@ namespace Gonki_by_Dadadam.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap car02 {
+        internal static System.Drawing.Bitmap Car01Back {
             get {
-                object obj = ResourceManager.GetObject("car02", resourceCulture);
+                object obj = ResourceManager.GetObject("Car01Back", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -113,9 +113,9 @@ namespace Gonki_by_Dadadam.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap car03 {
+        internal static System.Drawing.Bitmap Car01Frame1 {
             get {
-                object obj = ResourceManager.GetObject("car03", resourceCulture);
+                object obj = ResourceManager.GetObject("Car01Frame1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -123,9 +123,9 @@ namespace Gonki_by_Dadadam.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap car04 {
+        internal static System.Drawing.Bitmap Car01Frame2 {
             get {
-                object obj = ResourceManager.GetObject("car04", resourceCulture);
+                object obj = ResourceManager.GetObject("Car01Frame2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -133,9 +133,9 @@ namespace Gonki_by_Dadadam.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap car05 {
+        internal static System.Drawing.Bitmap Car01Frame3 {
             get {
-                object obj = ResourceManager.GetObject("car05", resourceCulture);
+                object obj = ResourceManager.GetObject("Car01Frame3", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -143,9 +143,9 @@ namespace Gonki_by_Dadadam.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap finish_line {
+        internal static System.Drawing.Bitmap Car01Frame4 {
             get {
-                object obj = ResourceManager.GetObject("finish_line", resourceCulture);
+                object obj = ResourceManager.GetObject("Car01Frame4", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -153,9 +153,9 @@ namespace Gonki_by_Dadadam.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap garagecarinfo {
+        internal static System.Drawing.Bitmap Car01Frame5 {
             get {
-                object obj = ResourceManager.GetObject("garagecarinfo", resourceCulture);
+                object obj = ResourceManager.GetObject("Car01Frame5", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -163,9 +163,9 @@ namespace Gonki_by_Dadadam.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap garagecarsprite {
+        internal static System.Drawing.Bitmap Car01Frame6 {
             get {
-                object obj = ResourceManager.GetObject("garagecarsprite", resourceCulture);
+                object obj = ResourceManager.GetObject("Car01Frame6", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -173,9 +173,9 @@ namespace Gonki_by_Dadadam.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap loseframe1 {
+        internal static System.Drawing.Bitmap Car01Frame7 {
             get {
-                object obj = ResourceManager.GetObject("loseframe1", resourceCulture);
+                object obj = ResourceManager.GetObject("Car01Frame7", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -183,9 +183,9 @@ namespace Gonki_by_Dadadam.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap loseframe2 {
+        internal static System.Drawing.Bitmap Car01Frame8 {
             get {
-                object obj = ResourceManager.GetObject("loseframe2", resourceCulture);
+                object obj = ResourceManager.GetObject("Car01Frame8", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -193,9 +193,9 @@ namespace Gonki_by_Dadadam.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap loseframe3 {
+        internal static System.Drawing.Bitmap Car01Frame9 {
             get {
-                object obj = ResourceManager.GetObject("loseframe3", resourceCulture);
+                object obj = ResourceManager.GetObject("Car01Frame9", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -203,9 +203,9 @@ namespace Gonki_by_Dadadam.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap loseframe4 {
+        internal static System.Drawing.Bitmap Car01Left {
             get {
-                object obj = ResourceManager.GetObject("loseframe4", resourceCulture);
+                object obj = ResourceManager.GetObject("Car01Left", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -213,9 +213,9 @@ namespace Gonki_by_Dadadam.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap road {
+        internal static System.Drawing.Bitmap Car01Right {
             get {
-                object obj = ResourceManager.GetObject("road", resourceCulture);
+                object obj = ResourceManager.GetObject("Car01Right", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -223,9 +223,9 @@ namespace Gonki_by_Dadadam.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap winframe01 {
+        internal static System.Drawing.Bitmap Car01Stop {
             get {
-                object obj = ResourceManager.GetObject("winframe01", resourceCulture);
+                object obj = ResourceManager.GetObject("Car01Stop", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -233,9 +233,9 @@ namespace Gonki_by_Dadadam.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap winframe02 {
+        internal static System.Drawing.Bitmap Car02 {
             get {
-                object obj = ResourceManager.GetObject("winframe02", resourceCulture);
+                object obj = ResourceManager.GetObject("Car02", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -243,9 +243,9 @@ namespace Gonki_by_Dadadam.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap winframe03 {
+        internal static System.Drawing.Bitmap Car02Back {
             get {
-                object obj = ResourceManager.GetObject("winframe03", resourceCulture);
+                object obj = ResourceManager.GetObject("Car02Back", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -253,9 +253,9 @@ namespace Gonki_by_Dadadam.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap winframe04 {
+        internal static System.Drawing.Bitmap Car02Frame1 {
             get {
-                object obj = ResourceManager.GetObject("winframe04", resourceCulture);
+                object obj = ResourceManager.GetObject("Car02Frame1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -263,9 +263,9 @@ namespace Gonki_by_Dadadam.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap winframe05 {
+        internal static System.Drawing.Bitmap Car02Frame2 {
             get {
-                object obj = ResourceManager.GetObject("winframe05", resourceCulture);
+                object obj = ResourceManager.GetObject("Car02Frame2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -273,9 +273,9 @@ namespace Gonki_by_Dadadam.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap winframe06 {
+        internal static System.Drawing.Bitmap Car02Frame3 {
             get {
-                object obj = ResourceManager.GetObject("winframe06", resourceCulture);
+                object obj = ResourceManager.GetObject("Car02Frame3", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -283,9 +283,9 @@ namespace Gonki_by_Dadadam.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap winframe07 {
+        internal static System.Drawing.Bitmap Car02Frame4 {
             get {
-                object obj = ResourceManager.GetObject("winframe07", resourceCulture);
+                object obj = ResourceManager.GetObject("Car02Frame4", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -293,9 +293,9 @@ namespace Gonki_by_Dadadam.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap winframe08 {
+        internal static System.Drawing.Bitmap Car02Frame5 {
             get {
-                object obj = ResourceManager.GetObject("winframe08", resourceCulture);
+                object obj = ResourceManager.GetObject("Car02Frame5", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -303,9 +303,9 @@ namespace Gonki_by_Dadadam.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap winframe09 {
+        internal static System.Drawing.Bitmap Car02Frame6 {
             get {
-                object obj = ResourceManager.GetObject("winframe09", resourceCulture);
+                object obj = ResourceManager.GetObject("Car02Frame6", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -313,9 +313,9 @@ namespace Gonki_by_Dadadam.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap winframe10 {
+        internal static System.Drawing.Bitmap Car02Frame7 {
             get {
-                object obj = ResourceManager.GetObject("winframe10", resourceCulture);
+                object obj = ResourceManager.GetObject("Car02Frame7", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -323,9 +323,9 @@ namespace Gonki_by_Dadadam.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap winframe11 {
+        internal static System.Drawing.Bitmap Car02Frame8 {
             get {
-                object obj = ResourceManager.GetObject("winframe11", resourceCulture);
+                object obj = ResourceManager.GetObject("Car02Frame8", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -333,9 +333,9 @@ namespace Gonki_by_Dadadam.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap winframe12 {
+        internal static System.Drawing.Bitmap Car02Frame9 {
             get {
-                object obj = ResourceManager.GetObject("winframe12", resourceCulture);
+                object obj = ResourceManager.GetObject("Car02Frame9", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -343,9 +343,9 @@ namespace Gonki_by_Dadadam.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap winframe13 {
+        internal static System.Drawing.Bitmap Car02Left {
             get {
-                object obj = ResourceManager.GetObject("winframe13", resourceCulture);
+                object obj = ResourceManager.GetObject("Car02Left", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -353,9 +353,9 @@ namespace Gonki_by_Dadadam.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap winframe14 {
+        internal static System.Drawing.Bitmap Car02Right {
             get {
-                object obj = ResourceManager.GetObject("winframe14", resourceCulture);
+                object obj = ResourceManager.GetObject("Car02Right", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -363,9 +363,9 @@ namespace Gonki_by_Dadadam.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap winframe15 {
+        internal static System.Drawing.Bitmap Car02Stop {
             get {
-                object obj = ResourceManager.GetObject("winframe15", resourceCulture);
+                object obj = ResourceManager.GetObject("Car02Stop", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -373,9 +373,9 @@ namespace Gonki_by_Dadadam.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap winframe16 {
+        internal static System.Drawing.Bitmap Car03 {
             get {
-                object obj = ResourceManager.GetObject("winframe16", resourceCulture);
+                object obj = ResourceManager.GetObject("Car03", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -383,9 +383,9 @@ namespace Gonki_by_Dadadam.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap winframe17 {
+        internal static System.Drawing.Bitmap Car03Back {
             get {
-                object obj = ResourceManager.GetObject("winframe17", resourceCulture);
+                object obj = ResourceManager.GetObject("Car03Back", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -393,9 +393,9 @@ namespace Gonki_by_Dadadam.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap winframe18 {
+        internal static System.Drawing.Bitmap Car03Frame1 {
             get {
-                object obj = ResourceManager.GetObject("winframe18", resourceCulture);
+                object obj = ResourceManager.GetObject("Car03Frame1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -403,9 +403,9 @@ namespace Gonki_by_Dadadam.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap winframe19 {
+        internal static System.Drawing.Bitmap Car03Frame2 {
             get {
-                object obj = ResourceManager.GetObject("winframe19", resourceCulture);
+                object obj = ResourceManager.GetObject("Car03Frame2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -413,9 +413,9 @@ namespace Gonki_by_Dadadam.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap winframe20 {
+        internal static System.Drawing.Bitmap Car03Frame3 {
             get {
-                object obj = ResourceManager.GetObject("winframe20", resourceCulture);
+                object obj = ResourceManager.GetObject("Car03Frame3", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -423,9 +423,9 @@ namespace Gonki_by_Dadadam.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap winframe21 {
+        internal static System.Drawing.Bitmap Car03Frame4 {
             get {
-                object obj = ResourceManager.GetObject("winframe21", resourceCulture);
+                object obj = ResourceManager.GetObject("Car03Frame4", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -433,9 +433,9 @@ namespace Gonki_by_Dadadam.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap winframe22 {
+        internal static System.Drawing.Bitmap Car03Frame5 {
             get {
-                object obj = ResourceManager.GetObject("winframe22", resourceCulture);
+                object obj = ResourceManager.GetObject("Car03Frame5", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -443,9 +443,9 @@ namespace Gonki_by_Dadadam.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap winframe23 {
+        internal static System.Drawing.Bitmap Car03Frame6 {
             get {
-                object obj = ResourceManager.GetObject("winframe23", resourceCulture);
+                object obj = ResourceManager.GetObject("Car03Frame6", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -453,9 +453,9 @@ namespace Gonki_by_Dadadam.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap winframe24 {
+        internal static System.Drawing.Bitmap Car03Frame7 {
             get {
-                object obj = ResourceManager.GetObject("winframe24", resourceCulture);
+                object obj = ResourceManager.GetObject("Car03Frame7", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -463,9 +463,9 @@ namespace Gonki_by_Dadadam.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap winframe25 {
+        internal static System.Drawing.Bitmap Car03Frame8 {
             get {
-                object obj = ResourceManager.GetObject("winframe25", resourceCulture);
+                object obj = ResourceManager.GetObject("Car03Frame8", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -473,9 +473,9 @@ namespace Gonki_by_Dadadam.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap winframe26 {
+        internal static System.Drawing.Bitmap Car03Frame9 {
             get {
-                object obj = ResourceManager.GetObject("winframe26", resourceCulture);
+                object obj = ResourceManager.GetObject("Car03Frame9", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -483,9 +483,9 @@ namespace Gonki_by_Dadadam.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap winframe27 {
+        internal static System.Drawing.Bitmap Car03Left {
             get {
-                object obj = ResourceManager.GetObject("winframe27", resourceCulture);
+                object obj = ResourceManager.GetObject("Car03Left", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -493,9 +493,9 @@ namespace Gonki_by_Dadadam.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap winframe28 {
+        internal static System.Drawing.Bitmap Car03Right {
             get {
-                object obj = ResourceManager.GetObject("winframe28", resourceCulture);
+                object obj = ResourceManager.GetObject("Car03Right", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -503,9 +503,9 @@ namespace Gonki_by_Dadadam.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap winframe29 {
+        internal static System.Drawing.Bitmap Car03Stop {
             get {
-                object obj = ResourceManager.GetObject("winframe29", resourceCulture);
+                object obj = ResourceManager.GetObject("Car03Stop", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -513,9 +513,9 @@ namespace Gonki_by_Dadadam.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap winframe30 {
+        internal static System.Drawing.Bitmap Car04 {
             get {
-                object obj = ResourceManager.GetObject("winframe30", resourceCulture);
+                object obj = ResourceManager.GetObject("Car04", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -523,9 +523,9 @@ namespace Gonki_by_Dadadam.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap winframe31 {
+        internal static System.Drawing.Bitmap Car04Back {
             get {
-                object obj = ResourceManager.GetObject("winframe31", resourceCulture);
+                object obj = ResourceManager.GetObject("Car04Back", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -533,9 +533,659 @@ namespace Gonki_by_Dadadam.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap winframe32 {
+        internal static System.Drawing.Bitmap Car04Frame1 {
             get {
-                object obj = ResourceManager.GetObject("winframe32", resourceCulture);
+                object obj = ResourceManager.GetObject("Car04Frame1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Car04Frame2 {
+            get {
+                object obj = ResourceManager.GetObject("Car04Frame2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Car04Frame3 {
+            get {
+                object obj = ResourceManager.GetObject("Car04Frame3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Car04Frame4 {
+            get {
+                object obj = ResourceManager.GetObject("Car04Frame4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Car04Frame5 {
+            get {
+                object obj = ResourceManager.GetObject("Car04Frame5", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Car04Frame6 {
+            get {
+                object obj = ResourceManager.GetObject("Car04Frame6", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Car04Frame7 {
+            get {
+                object obj = ResourceManager.GetObject("Car04Frame7", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Car04Frame8 {
+            get {
+                object obj = ResourceManager.GetObject("Car04Frame8", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Car04Frame9 {
+            get {
+                object obj = ResourceManager.GetObject("Car04Frame9", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Car04Left {
+            get {
+                object obj = ResourceManager.GetObject("Car04Left", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Car04Right {
+            get {
+                object obj = ResourceManager.GetObject("Car04Right", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Car04Stop {
+            get {
+                object obj = ResourceManager.GetObject("Car04Stop", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Car05 {
+            get {
+                object obj = ResourceManager.GetObject("Car05", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Car05Back {
+            get {
+                object obj = ResourceManager.GetObject("Car05Back", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Car05Frame1 {
+            get {
+                object obj = ResourceManager.GetObject("Car05Frame1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Car05Frame2 {
+            get {
+                object obj = ResourceManager.GetObject("Car05Frame2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Car05Frame3 {
+            get {
+                object obj = ResourceManager.GetObject("Car05Frame3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Car05Frame4 {
+            get {
+                object obj = ResourceManager.GetObject("Car05Frame4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Car05Frame5 {
+            get {
+                object obj = ResourceManager.GetObject("Car05Frame5", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Car05Frame6 {
+            get {
+                object obj = ResourceManager.GetObject("Car05Frame6", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Car05Frame7 {
+            get {
+                object obj = ResourceManager.GetObject("Car05Frame7", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Car05Frame8 {
+            get {
+                object obj = ResourceManager.GetObject("Car05Frame8", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Car05Frame9 {
+            get {
+                object obj = ResourceManager.GetObject("Car05Frame9", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Car05Left {
+            get {
+                object obj = ResourceManager.GetObject("Car05Left", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Car05Right {
+            get {
+                object obj = ResourceManager.GetObject("Car05Right", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Car05Stop {
+            get {
+                object obj = ResourceManager.GetObject("Car05Stop", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap FinishLine {
+            get {
+                object obj = ResourceManager.GetObject("FinishLine", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap GarageCarInfo {
+            get {
+                object obj = ResourceManager.GetObject("GarageCarInfo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap GarageCarSprite {
+            get {
+                object obj = ResourceManager.GetObject("GarageCarSprite", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap LoseFrame1 {
+            get {
+                object obj = ResourceManager.GetObject("LoseFrame1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap LoseFrame2 {
+            get {
+                object obj = ResourceManager.GetObject("LoseFrame2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap LoseFrame3 {
+            get {
+                object obj = ResourceManager.GetObject("LoseFrame3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap LoseFrame4 {
+            get {
+                object obj = ResourceManager.GetObject("LoseFrame4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap RoadDefault {
+            get {
+                object obj = ResourceManager.GetObject("RoadDefault", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap WinFrame1 {
+            get {
+                object obj = ResourceManager.GetObject("WinFrame1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap WinFrame10 {
+            get {
+                object obj = ResourceManager.GetObject("WinFrame10", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap WinFrame11 {
+            get {
+                object obj = ResourceManager.GetObject("WinFrame11", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap WinFrame12 {
+            get {
+                object obj = ResourceManager.GetObject("WinFrame12", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap WinFrame13 {
+            get {
+                object obj = ResourceManager.GetObject("WinFrame13", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap WinFrame14 {
+            get {
+                object obj = ResourceManager.GetObject("WinFrame14", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap WinFrame15 {
+            get {
+                object obj = ResourceManager.GetObject("WinFrame15", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap WinFrame16 {
+            get {
+                object obj = ResourceManager.GetObject("WinFrame16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap WinFrame17 {
+            get {
+                object obj = ResourceManager.GetObject("WinFrame17", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap WinFrame18 {
+            get {
+                object obj = ResourceManager.GetObject("WinFrame18", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap WinFrame19 {
+            get {
+                object obj = ResourceManager.GetObject("WinFrame19", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap WinFrame2 {
+            get {
+                object obj = ResourceManager.GetObject("WinFrame2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap WinFrame20 {
+            get {
+                object obj = ResourceManager.GetObject("WinFrame20", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap WinFrame21 {
+            get {
+                object obj = ResourceManager.GetObject("WinFrame21", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap WinFrame22 {
+            get {
+                object obj = ResourceManager.GetObject("WinFrame22", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap WinFrame23 {
+            get {
+                object obj = ResourceManager.GetObject("WinFrame23", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap WinFrame24 {
+            get {
+                object obj = ResourceManager.GetObject("WinFrame24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap WinFrame25 {
+            get {
+                object obj = ResourceManager.GetObject("WinFrame25", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap WinFrame26 {
+            get {
+                object obj = ResourceManager.GetObject("WinFrame26", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap WinFrame27 {
+            get {
+                object obj = ResourceManager.GetObject("WinFrame27", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap WinFrame28 {
+            get {
+                object obj = ResourceManager.GetObject("WinFrame28", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap WinFrame29 {
+            get {
+                object obj = ResourceManager.GetObject("WinFrame29", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap WinFrame3 {
+            get {
+                object obj = ResourceManager.GetObject("WinFrame3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap WinFrame30 {
+            get {
+                object obj = ResourceManager.GetObject("WinFrame30", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap WinFrame31 {
+            get {
+                object obj = ResourceManager.GetObject("WinFrame31", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap WinFrame32 {
+            get {
+                object obj = ResourceManager.GetObject("WinFrame32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap WinFrame4 {
+            get {
+                object obj = ResourceManager.GetObject("WinFrame4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap WinFrame5 {
+            get {
+                object obj = ResourceManager.GetObject("WinFrame5", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap WinFrame6 {
+            get {
+                object obj = ResourceManager.GetObject("WinFrame6", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap WinFrame7 {
+            get {
+                object obj = ResourceManager.GetObject("WinFrame7", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap WinFrame8 {
+            get {
+                object obj = ResourceManager.GetObject("WinFrame8", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap WinFrame9 {
+            get {
+                object obj = ResourceManager.GetObject("WinFrame9", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -10,58 +10,58 @@ namespace Gonki_by_Dadadam
 {
     class Finish
     {
-        public Bitmap Sprite { get; set; }
-        public float Width { get; set; }
-        public float Height { get; set; }
-        public float Top { get; set; }
-        public float Left { get; set; }
         public int Distance { get; set; }
         public string Result { get; set; }
         private int _widthscrren { get; set; }
+        public AnimationSprite Sprite { get; set; }
         public AnimationSprite Win_Anim { get; set; }
         public AnimationSprite Lose_Anim { get; set; }
         public Finish(int Distance, int WidthScreen, int HeightScreen)
         {
             _widthscrren = WidthScreen;
             this.Distance = Distance;
-            Sprite = Properties.Resources.finish_line;
-            Width = WidthScreen * 0.1F;
-            Height = HeightScreen;
-            Top = 0;
-            Left = Distance * WidthScreen;
 
-            Win_Anim = new AnimationSprite(Properties.Resources.winframe01,
-                                           Properties.Resources.winframe02,
-                                           Properties.Resources.winframe03,
-                                           Properties.Resources.winframe04,
-                                           Properties.Resources.winframe05,
-                                           Properties.Resources.winframe06,
-                                           Properties.Resources.winframe07,
-                                           Properties.Resources.winframe08,
-                                           Properties.Resources.winframe09,
-                                           Properties.Resources.winframe10,
-                                           Properties.Resources.winframe11,
-                                           Properties.Resources.winframe12,
-                                           Properties.Resources.winframe13,
-                                           Properties.Resources.winframe14,
-                                           Properties.Resources.winframe15,
-                                           Properties.Resources.winframe16,
-                                           Properties.Resources.winframe17,
-                                           Properties.Resources.winframe18,
-                                           Properties.Resources.winframe19,
-                                           Properties.Resources.winframe20,
-                                           Properties.Resources.winframe21,
-                                           Properties.Resources.winframe22,
-                                           Properties.Resources.winframe23,
-                                           Properties.Resources.winframe24,
-                                           Properties.Resources.winframe25,
-                                           Properties.Resources.winframe26,
-                                           Properties.Resources.winframe27,
-                                           Properties.Resources.winframe28,
-                                           Properties.Resources.winframe29,
-                                           Properties.Resources.winframe30,
-                                           Properties.Resources.winframe31,
-                                           Properties.Resources.winframe32
+            Sprite = new AnimationSprite(Properties.Resources.FinishLine);
+            Sprite.Zindex = 1;
+            Sprite.Width = WidthScreen * 0.1F;
+            Sprite.Height = HeightScreen;
+            Sprite.Top = 0;
+            Sprite.Left = Distance * WidthScreen;
+            Sprite.Visible = true;
+            AnimationManager.Animations.Add(Sprite);
+
+            Win_Anim = new AnimationSprite(Properties.Resources.WinFrame1,
+                                           Properties.Resources.WinFrame2,
+                                           Properties.Resources.WinFrame3,
+                                           Properties.Resources.WinFrame4,
+                                           Properties.Resources.WinFrame5,
+                                           Properties.Resources.WinFrame6,
+                                           Properties.Resources.WinFrame7,
+                                           Properties.Resources.WinFrame8,
+                                           Properties.Resources.WinFrame9,
+                                           Properties.Resources.WinFrame10,
+                                           Properties.Resources.WinFrame11,
+                                           Properties.Resources.WinFrame12,
+                                           Properties.Resources.WinFrame13,
+                                           Properties.Resources.WinFrame14,
+                                           Properties.Resources.WinFrame15,
+                                           Properties.Resources.WinFrame16,
+                                           Properties.Resources.WinFrame17,
+                                           Properties.Resources.WinFrame18,
+                                           Properties.Resources.WinFrame19,
+                                           Properties.Resources.WinFrame20,
+                                           Properties.Resources.WinFrame21,
+                                           Properties.Resources.WinFrame22,
+                                           Properties.Resources.WinFrame23,
+                                           Properties.Resources.WinFrame24,
+                                           Properties.Resources.WinFrame25,
+                                           Properties.Resources.WinFrame26,
+                                           Properties.Resources.WinFrame27,
+                                           Properties.Resources.WinFrame28,
+                                           Properties.Resources.WinFrame29,
+                                           Properties.Resources.WinFrame30,
+                                           Properties.Resources.WinFrame31,
+                                           Properties.Resources.WinFrame32
                                            );
             Win_Anim.Left = 0;
             Win_Anim.Top = 0;
@@ -70,18 +70,18 @@ namespace Gonki_by_Dadadam
             Win_Anim.Visible = false;
             AnimationManager.Animations.Add(Win_Anim);
 
-            Lose_Anim = new AnimationSprite(Properties.Resources.loseframe1,
-                                            Properties.Resources.loseframe1,
-                                            Properties.Resources.loseframe1,
-                                            Properties.Resources.loseframe2,
-                                            Properties.Resources.loseframe2,
-                                            Properties.Resources.loseframe2,
-                                            Properties.Resources.loseframe3,
-                                            Properties.Resources.loseframe3,
-                                            Properties.Resources.loseframe3,
-                                            Properties.Resources.loseframe4,
-                                            Properties.Resources.loseframe4,
-                                            Properties.Resources.loseframe4
+            Lose_Anim = new AnimationSprite(Properties.Resources.LoseFrame1,
+                                            Properties.Resources.LoseFrame1,
+                                            Properties.Resources.LoseFrame1,
+                                            Properties.Resources.LoseFrame2,
+                                            Properties.Resources.LoseFrame2,
+                                            Properties.Resources.LoseFrame2,
+                                            Properties.Resources.LoseFrame3,
+                                            Properties.Resources.LoseFrame3,
+                                            Properties.Resources.LoseFrame3,
+                                            Properties.Resources.LoseFrame4,
+                                            Properties.Resources.LoseFrame4,
+                                            Properties.Resources.LoseFrame4
                                             );
             Lose_Anim.Left = 0;
             Lose_Anim.Top = 0;
@@ -89,7 +89,6 @@ namespace Gonki_by_Dadadam
             Lose_Anim.Height = HeightScreen;
             Lose_Anim.Visible = false;
             AnimationManager.Animations.Add(Lose_Anim);
-
         }
 
         public void check_win(float Player_Distance, float Enemy_Distance)
@@ -113,7 +112,7 @@ namespace Gonki_by_Dadadam
 
         public void move(float speed)
         {
-            Left += speed * -1; //инвертироать скорость фона
+            Sprite.Left += speed * -1; //инвертироать скорость фона
         }
     }
 }

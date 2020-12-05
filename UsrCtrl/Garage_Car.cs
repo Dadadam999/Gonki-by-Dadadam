@@ -19,7 +19,7 @@ namespace Gonki_by_Dadadam
             InitializeComponent();
             this.car = car;
             
-            Car_Sprite.Image = car.Sprite;
+            Car_Sprite.Image = car.AnimationDefault.Frame[0];
             Car_Info.Text = $"Name: {car.Name}\nMax_Speed: {car.Max_Speed}\nAcceleration: {car.Step_Speed}\nBoost: {car.Boost_Speed} Charge: {car.Max_Boost_Charge}";
         }
 

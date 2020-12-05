@@ -12,14 +12,15 @@ namespace Gonki_by_Dadadam
 {
     public partial class Game : UserControl
     {
-        static Random _rand = new Random();
-        bool _play_game = false;
+        private static Random _rand = new Random();
+        private bool _play_game = false;
+        private string _preview_state_enemy = ""; //
 
-        RoadController _road;
-        EnemyController _car_enemy;
-        PlayerController _car_player;
-        EnemyAI _enemy_ai;
-        Finish _finish;
+        private RoadController _road;
+        private EnemyController _car_enemy;
+        private PlayerController _car_player;
+        private EnemyAI _enemy_ai;
+        private Finish _finish;
 
         public Game()
         {
@@ -39,16 +40,18 @@ namespace Gonki_by_Dadadam
             _road = new RoadController(Width, Height);
 
             _car_player = new PlayerController(Width, Height);
-            _car_player.Car = MainSpace.selfref.Car_Player_Exmp.Clone();
+            _car_player.init_car(MainSpace.selfref.Car_Player_Exmp.Clone());
+            _car_player.State += new PlayerController.StateMachine(player_state_machine);
 
             _car_enemy = new EnemyController(Width, Height);
-            _car_enemy.Car = MainSpace.selfref.Cars[_rand.Next(0, MainSpace.selfref.Cars.Count - 1)].Clone();
-            
+            _car_enemy.init_car(MainSpace.selfref.Cars[_rand.Next(0, MainSpace.selfref.Cars.Count - 1)].Clone());
+            _car_enemy.State += new EnemyController.StateMachine(enemy_state_machine);
+
             _enemy_ai = new EnemyAI();
             _enemy_ai.Car_Enemy = _car_enemy;
             _enemy_ai.Car_Player = _car_player;
 
-            _finish = new Finish(_rand.Next(100,300), Width, Height);
+            _finish = new Finish(_rand.Next(10,30), Width, Height);
 
             Focus();
             start_resize();
@@ -86,6 +89,7 @@ namespace Gonki_by_Dadadam
                 Pause_Label.Visible = true;
                 EndGame_Label.Visible = false;
                 _play_game = false;
+                SoundManager.stop_all_sound();
                 MainSpace.selfref.show_menu();
             }
 
@@ -107,7 +111,7 @@ namespace Gonki_by_Dadadam
                 _finish.move(_car_player.Car.Current_Speed);
                 _finish.check_win(_car_player.Car.Cover_Distance, _car_enemy.Car.Cover_Distance);
                 
-                Speed_Info.Text = $"Скорость: {_car_player.Car.Current_Speed} test: {_car_enemy.Car.Current_Speed}\nНитро: {_car_player.Car.Curent_Boost_Charge}\ndist {_finish.Distance * Width}\nplayer {_car_player.Car.Cover_Distance }\nenemy {_car_enemy.Car.Cover_Distance}\nf_pos {_finish.Left } ";
+                Speed_Info.Text = $"Скорость: {_car_player.Car.Current_Speed} test: {_car_enemy.Car.Current_Speed}\nНитро: {_car_player.Car.Curent_Boost_Charge}\ndist {_finish.Distance * Width}\nplayer {_car_player.Car.Cover_Distance }\nenemy {_car_enemy.Car.Cover_Distance}\nf_pos {_finish.Sprite.Left } ";
                 if (!String.IsNullOrEmpty(_finish.Result) && EndGame_Label.Visible == false)
                     EndGame_Label.Visible = true;
 
@@ -120,26 +124,70 @@ namespace Gonki_by_Dadadam
             BackgroundImage = new Bitmap(Width, Height);
             using (Graphics gr = Graphics.FromImage(BackgroundImage))
             {
-                foreach (Road road in _road.Road_Parts)  
-                    gr.DrawImage(road.Sprite, road.Left, road.Top, road.Width, road.Height);
-                
-                gr.DrawImage(_finish.Sprite, _finish.Left, _finish.Top, _finish.Width, _finish.Height);
-                
-                gr.DrawImage(_car_enemy.Car.Sprite, _car_enemy.Left, _car_enemy.Top, _car_enemy.Width, _car_enemy.Height);
-                gr.DrawImage(_car_player.Car.Sprite, _car_player.Left, _car_player.Top, _car_player.Width, _car_player.Height);
-               
-                //test
+                foreach (AnimationSprite anim in from animation in AnimationManager.Animations where animation.Visible orderby animation.Zindex select animation)
+                    gr.DrawImage(anim.nextframe(), anim.Left, anim.Top, anim.Width, anim.Height);
+
+                //test collision
                 foreach (Collision collision in CollisionManager.Collisions)
                     gr.DrawRectangle(new Pen(Color.Red, 1), collision.Left, collision.Top, collision.Width, collision.Height);
-
-                foreach (AnimationSprite anim in AnimationManager.Animations)
-                    if(anim.Visible)
-                        gr.DrawImage(anim.nextframe(), anim.Left, anim.Top, anim.Width, anim.Height);
-
             }
         }
 
-        void collision_handler(string Name1, string Name2) {
+        private void player_state_machine(string State)
+        {
+            if (State == "")
+            {
+                SoundManager.stop_sound("TurnSignalCar");
+                SoundManager.stop_sound("BoostCar");
+                SoundManager.stop_sound("Back");
+            }
+
+                if (State == "Forward")
+                    SoundManager.play_sound(_car_player.Car.Id + "_Forward");
+
+                if (State == "Stop")
+                    SoundManager.stop_sound(_car_player.Car.Id + "_Forward");
+
+                if (State == "Back")
+                    SoundManager.play_sound("Back");
+
+                if (State == "Left" || State == "Right")
+                    SoundManager.play_sound("TurnSignalCar");
+
+                if (State == "Boost")
+                    SoundManager.play_sound("BoostCar");
+        }
+
+        private void enemy_state_machine(string State)
+        {
+            if (State != _preview_state_enemy && String.IsNullOrEmpty(_preview_state_enemy))
+            {
+                SoundManager.stop_sound("TurnSignalCarEnemy");
+                SoundManager.stop_sound("BoostCarEnemy");
+                SoundManager.stop_sound("BackEnemy");
+                _preview_state_enemy = State;
+            }
+
+            if (State == "Forward")
+                SoundManager.play_sound(_car_enemy.Car.Id + "_ForwardEnemy");
+
+            if (State == "Stop" || _car_enemy.is_out_screen())
+                SoundManager.stop_sound(_car_enemy.Car.Id + "_ForwardEnemy");
+         
+            if (!_car_enemy.is_out_screen())
+            {
+                if (State == "Back")
+                    SoundManager.play_sound("BackEnemy");
+
+                if (State == "Left" || State == "Right")
+                    SoundManager.play_sound("TurnSignalCarEnemy");
+
+                if (State == "Boost")
+                    SoundManager.play_sound("BoostCarEnemy");
+            }
+        }
+
+        private void collision_handler(string Name1, string Name2) {
             if (Name1 == "Player_Car" && Name2 == "Enemy_Car" )
             {
                 CollisionManager.Work = false;
@@ -150,6 +198,7 @@ namespace Gonki_by_Dadadam
                 EndGame_Label.Visible = true;
                 MusicManager.change_music("GameOver");
                 VoiceManager.change_voice("GameOver");
+                SoundManager.play_sound("BrokenCar");
             }
 
             if (Name1 == "Player_Car" && (Name2 == "Left_Board" || Name2 == "Right_Board"))
@@ -161,6 +210,7 @@ namespace Gonki_by_Dadadam
                 EndGame_Label.Visible = true;
                 MusicManager.change_music("GameOver");
                 VoiceManager.change_voice("GameOver");
+                SoundManager.play_sound("BrokenCar");
             }
 
             if (Name1 == "Enemy_Car" && (Name2 == "Left_Board" || Name2 == "Right_Board"))
@@ -172,6 +222,7 @@ namespace Gonki_by_Dadadam
                 EndGame_Label.Visible = true;
                 MusicManager.change_music("Win");
                 VoiceManager.change_voice("Winner");
+                SoundManager.play_sound("BrokenCar");
             }
         }
     }

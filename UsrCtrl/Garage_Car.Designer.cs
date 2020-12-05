@@ -61,7 +61,7 @@
             // Car_Sprite
             // 
             this.Car_Sprite.BackColor = System.Drawing.Color.Transparent;
-            this.Car_Sprite.BackgroundImage = global::Gonki_by_Dadadam.Properties.Resources.garagecarsprite;
+            this.Car_Sprite.BackgroundImage = global::Gonki_by_Dadadam.Properties.Resources.GarageCarSprite;
             this.Car_Sprite.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Car_Sprite.Location = new System.Drawing.Point(0, 0);
             this.Car_Sprite.Name = "Car_Sprite";
@@ -74,7 +74,7 @@
             // PicInfo
             // 
             this.PicInfo.BackColor = System.Drawing.Color.Transparent;
-            this.PicInfo.BackgroundImage = global::Gonki_by_Dadadam.Properties.Resources.garagecarinfo;
+            this.PicInfo.BackgroundImage = global::Gonki_by_Dadadam.Properties.Resources.GarageCarInfo;
             this.PicInfo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.PicInfo.Controls.Add(this.Car_Info);
             this.PicInfo.Dock = System.Windows.Forms.DockStyle.Bottom;

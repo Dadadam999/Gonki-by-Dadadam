@@ -163,7 +163,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::Gonki_by_Dadadam.Properties.Resources.backgroundmenu;
+            this.BackgroundImage = global::Gonki_by_Dadadam.Properties.Resources.BackgroundMenu;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Controls.Add(this.Info_Ver);
             this.Controls.Add(this.MenuBar);

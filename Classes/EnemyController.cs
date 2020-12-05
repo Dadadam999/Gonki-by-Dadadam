@@ -9,7 +9,7 @@ namespace Gonki_by_Dadadam
     public class EnemyController
     {
         public delegate void StateMachine(string State);
-        public static event StateMachine State;
+        public event StateMachine State;
         public Car Car { get; set; }
         public float Left { get; set; }
         public float Top { get; set; }
@@ -19,11 +19,6 @@ namespace Gonki_by_Dadadam
         private float _heightscreen { get; set; }
         public bool Freeze { get; set; }
         Collision collision { get; set; }
-        public AnimationSprite DefaultSprite { get; set; }
-        public AnimationSprite GoBack { get; set; }
-        public AnimationSprite RotateRight { get; set; }
-        public AnimationSprite RotateLeft { get; set; }
-        public AnimationSprite Breaking { get; set; }
 
         public EnemyController(int WidthScreen, int HeightScreen)
         {
@@ -40,6 +35,18 @@ namespace Gonki_by_Dadadam
             CollisionManager.Collisions.Add(collision);
         }
 
+        public void init_car(Car car)
+        {
+            Car = car;
+            Car.AnimationDefault.Visible = true;
+            AnimationManager.Animations.Add(Car.AnimationDefault);
+            AnimationManager.Animations.Add(Car.AnimationBack);
+            AnimationManager.Animations.Add(Car.AnimationStop);
+            AnimationManager.Animations.Add(Car.AnimationRotateLeft);
+            AnimationManager.Animations.Add(Car.AnimationRotateRight);
+            AnimationManager.Animations.Add(Car.AnimationBreaking);
+        }
+
         public void set_start_position()
         {
             Left = _widthscreen / 3;
@@ -53,20 +60,15 @@ namespace Gonki_by_Dadadam
         {
             if (Car.Current_Speed >= Car.Max_Speed * -1)
                 Car.Current_Speed -= Car.Step_Speed;
-            State?.Invoke("Forward");
         }
 
         public void minus_speed()
         {
             if (Car.Current_Speed <= Car.Back_Speed)
+            {
                 Car.Current_Speed += Car.Step_Speed;
-            State?.Invoke("Back");
-        }
-
-        public void move_enemy(float Current_Player_Speed)
-        {
-            if(Car.Current_Speed < Car.Max_Speed)
-                Left -= Current_Player_Speed + Car.Current_Speed;
+                State?.Invoke("Back");
+            }
         }
 
         public void rotate_left()
@@ -100,8 +102,26 @@ namespace Gonki_by_Dadadam
                 Car.Current_Speed = Car.Max_Speed * -1;
         }
 
+        public void move_enemy(float Current_Player_Speed)
+        {
+            if (Car.Current_Speed < Car.Max_Speed)
+                Left -= Current_Player_Speed + Car.Current_Speed;
+        }
+
+        public bool is_out_screen()
+        {
+            return Left + Width < 0 || Left > _widthscreen; 
+        }
+
         public void update()
         {
+            State?.Invoke("");
+
+            if (Car.Current_Speed == 0)
+                State?.Invoke("Stop");
+            else
+                State?.Invoke("Forward");
+
             Car.Cover_Distance += Car.Current_Speed * -1;
 
             if (Freeze)

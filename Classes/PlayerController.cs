@@ -9,7 +9,7 @@ namespace Gonki_by_Dadadam
     public class PlayerController
     {
         public delegate void StateMachine(string State);
-        public static event StateMachine State;
+        public event StateMachine State;
         public Car Car { get; set; }
         public float Left { get; set; }
         public float Top { get; set; }
@@ -19,11 +19,6 @@ namespace Gonki_by_Dadadam
         float _heightscreen { get; set; }
         public bool Freeze { get; set; }
         public Collision collision { get; set; }
-        public AnimationSprite DefaultSprite { get; set; }
-        public AnimationSprite GoBack { get; set; }
-        public AnimationSprite RotateRight { get; set; }
-        public AnimationSprite RotateLeft { get; set; }
-        public AnimationSprite Breaking { get; set; }
 
         public PlayerController(int WidthScreen, int HeightScreen) 
         {
@@ -38,9 +33,21 @@ namespace Gonki_by_Dadadam
 
             collision = new Collision("Player_Car", Left , Top, Width - Width * 0.13F, Height);
             CollisionManager.Collisions.Add(collision);
+            
+        }
+        public void init_car(Car car)
+        {
+            Car = car;
+            Car.AnimationDefault.Visible = true;
+            AnimationManager.Animations.Add(Car.AnimationDefault);
+            AnimationManager.Animations.Add(Car.AnimationBack);
+            AnimationManager.Animations.Add(Car.AnimationStop);
+            AnimationManager.Animations.Add(Car.AnimationRotateLeft);
+            AnimationManager.Animations.Add(Car.AnimationRotateRight);
+            AnimationManager.Animations.Add(Car.AnimationBreaking);
         }
 
-        public void set_start_position() {
+            public void set_start_position() {
             Left = _widthscreen / 3;
             Top = _heightscreen / 3;
 
@@ -49,10 +56,17 @@ namespace Gonki_by_Dadadam
         }
 
         public void key_event(string pressed_key) {
+            if (String.IsNullOrEmpty(pressed_key))
+                State?.Invoke("");
+
+            if(Car.Current_Speed == 0 )
+                State?.Invoke("Stop");
+            else
+                State?.Invoke("Forward");
+
             if (pressed_key == "W" && Car.Current_Speed <= Car.Max_Speed)
             {
                 Car.Current_Speed += Car.Step_Speed;
-                State?.Invoke("Forward");
             }
 
             if (pressed_key == "S" && Car.Current_Speed >= Car.Back_Speed * -1)

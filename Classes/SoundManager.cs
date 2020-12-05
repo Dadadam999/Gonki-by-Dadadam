@@ -13,12 +13,18 @@ namespace Gonki_by_Dadadam
 
         public static void play_sound(string Name) 
         {
-            sounds.Find(x => x.Name == Name).play_sound();
+            sounds.Find(x => x.Name == Name)?.play_sound();
         }
 
         public static void stop_sound(string Name)
         {
-            sounds.Find(x => x.Name == Name).stop_sound();
+            sounds.Find(x => x.Name == Name)?.stop_sound();
+        }
+
+        public static void stop_all_sound() 
+        {
+            foreach (Sound sound in sounds)
+                sound.stop_sound();
         }
     }
 }

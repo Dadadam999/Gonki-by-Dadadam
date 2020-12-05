@@ -35,7 +35,7 @@
             // Garage_Back
             // 
             this.Garage_Back.BackColor = System.Drawing.Color.Transparent;
-            this.Garage_Back.BackgroundImage = global::Gonki_by_Dadadam.Properties.Resources.buttommenu;
+            this.Garage_Back.BackgroundImage = global::Gonki_by_Dadadam.Properties.Resources.ButtonMenu;
             this.Garage_Back.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.Garage_Back.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.Garage_Back.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
@@ -64,7 +64,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::Gonki_by_Dadadam.Properties.Resources.backgroundmenu;
+            this.BackgroundImage = global::Gonki_by_Dadadam.Properties.Resources.BackgroundMenu;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Controls.Add(this.Garage_List_Car);
             this.Controls.Add(this.Garage_Back);
