@@ -25,7 +25,7 @@ namespace Gonki_by_Dadadam
 
         private void Car_Sprite_Click(object sender, EventArgs e)
         {
-            MainSpace.selfref.Car_Player_Exmp = car.Clone();
+            MainSpace.selfref.CarPlayerExmp = car.Clone();
             Menu.selfref.Car_Selected_Info.Text = $"Selected car {car.Name}";
             MainSpace.selfref.show_menu();
         }

@@ -43,7 +43,7 @@ namespace Gonki_by_Dadadam
 
         private void Menu_StartGame_Click(object sender, EventArgs e)
         {
-            if (MainSpace.selfref.Car_Player_Exmp == null)
+            if (MainSpace.selfref.CarPlayerExmp == null)
                 MainSpace.selfref.show_garage();
             else
                 MainSpace.selfref.show_game();

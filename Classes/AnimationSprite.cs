@@ -9,6 +9,8 @@ namespace Gonki_by_Dadadam
 {
     public class AnimationSprite
     {
+        public string Name { get; set; }
+        public string Group { get; set; }
         public List<Bitmap> Frame { get; set; }
         public int Zindex { get; set; } = 0;
         public int IndexOf { get; set; } = 0;
@@ -21,7 +23,8 @@ namespace Gonki_by_Dadadam
         
         public AnimationSprite(params Bitmap[] Frames) {
             Frame = new List<Bitmap>();
-            Frame.AddRange(Frames);
+            if(Frames.Length > 0)
+                Frame.AddRange(Frames);
         }
 
         public Bitmap nextframe() 
@@ -44,30 +47,30 @@ namespace Gonki_by_Dadadam
             return Frame[IndexOf];
         }
 
-        public void move(float Left, float Top)
+        public void transform(float Left, float Top, float Width, float Height)
         {
             this.Left = Left;
             this.Top = Top;
-        }
-
-        public void resize(float Width, float Height)
-        {
             this.Width = Width;
             this.Height = Height;
         }
 
         public AnimationSprite Clone()
         {
-            AnimationSprite animation = new AnimationSprite();
+            AnimationSprite animation = new AnimationSprite
+            {
+                Name = Name,
+                Group = Group,
+                Zindex = Zindex,
+                IndexOf = IndexOf,
+                IsLoop = IsLoop,
+                Visible = Visible,
+                Top = Top,
+                Left = Left,
+                Width = Width,
+                Height = Height
+            };
             animation.Frame.AddRange(Frame.ToArray());
-            animation.Zindex = Zindex;
-            animation.IndexOf = IndexOf;
-            animation.IsLoop = IsLoop;
-            animation.Visible = Visible;
-            animation.Top = Top;
-            animation.Left = Left;
-            animation.Width = Width;
-            animation.Height = Height;
             return animation;
         }
     }

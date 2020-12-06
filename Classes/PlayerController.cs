@@ -20,7 +20,7 @@ namespace Gonki_by_Dadadam
         public bool Freeze { get; set; }
         public Collision collision { get; set; }
 
-        public PlayerController(int WidthScreen, int HeightScreen) 
+        public PlayerController(int WidthScreen, int HeightScreen)
         {
             _widthscreen = WidthScreen;
             _heightscreen = HeightScreen;
@@ -31,10 +31,10 @@ namespace Gonki_by_Dadadam
             Width = 0;
             Height = 0;
 
-            collision = new Collision("Player_Car", Left , Top, Width - Width * 0.13F, Height);
+            collision = new Collision("Player_Car", Left, Top, Width, Height);
             CollisionManager.Collisions.Add(collision);
-            
         }
+
         public void init_car(Car car)
         {
             Car = car;
@@ -47,22 +47,26 @@ namespace Gonki_by_Dadadam
             AnimationManager.Animations.Add(Car.AnimationBreaking);
         }
 
-            public void set_start_position() {
+        public void set_start_position()
+        {
             Left = _widthscreen / 3;
             Top = _heightscreen / 3;
 
             Width = _widthscreen / 7;
             Height = _heightscreen / 9;
+
+            AnimationManager.group_transform(Left, Top, Width, Height, Car.Id);
         }
 
-        public void key_event(string pressed_key) {
+        public void key_event(string pressed_key)
+        {
             if (String.IsNullOrEmpty(pressed_key))
                 State?.Invoke("");
 
-            if(Car.Current_Speed == 0 )
+            if (Car.Current_Speed == 0)
                 State?.Invoke("Stop");
             else
-                State?.Invoke("Forward");
+                State?.Invoke("Move");
 
             if (pressed_key == "W" && Car.Current_Speed <= Car.Max_Speed)
             {
@@ -112,12 +116,14 @@ namespace Gonki_by_Dadadam
             if (Car.Current_Speed != 0 &&
                 Car.Current_Speed > Car.Back_Speed * -1 &&
                 Car.Current_Speed < Car.Max_Speed)
-                Left = _widthscreen / 3 + Car.Current_Speed; // Width / 3 - стартовая позиция
+                    Left = _widthscreen / 3 + Car.Current_Speed; // Width / 3 - стартовая позиция
 
             if (Freeze)
                 Car.Current_Speed = 0;
 
-            collision.update(Left, Top, Width - Width * 0.13F, Height);
+            AnimationManager.group_transform(Left, Top, Width, Height, Car.Id);
+
+            collision.update(Left + Width * 0.08F, Top + Height * 0.08F, Width - Width * 0.18F, Height - Height * 0.18F);
         }
     }
 }

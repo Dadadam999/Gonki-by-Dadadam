@@ -18,7 +18,7 @@ namespace Gonki_by_Dadadam
             Dock = DockStyle.Fill;
 
             
-            foreach (Car car in MainSpace.selfref.Cars)
+            foreach (Car car in MainSpace.selfref.TemplateCars)
                 Garage_List_Car.Controls.Add(new Garage_Car(car));
         }
 

@@ -16,78 +16,41 @@ namespace Gonki_by_Dadadam
         public AnimationSprite Sprite { get; set; }
         public AnimationSprite Win_Anim { get; set; }
         public AnimationSprite Lose_Anim { get; set; }
+
         public Finish(int Distance, int WidthScreen, int HeightScreen)
         {
             _widthscrren = WidthScreen;
             this.Distance = Distance;
 
-            Sprite = new AnimationSprite(Properties.Resources.FinishLine);
-            Sprite.Zindex = 1;
-            Sprite.Width = WidthScreen * 0.1F;
-            Sprite.Height = HeightScreen;
-            Sprite.Top = 0;
-            Sprite.Left = Distance * WidthScreen;
-            Sprite.Visible = true;
+            Sprite = new AnimationSprite(new Bitmap(MainSpace.selfref.SpriteFolder + "FinishLine.png"))
+            {
+                Name = "Finish",
+                Zindex = 1,
+                Visible = true
+            };
+            Sprite.transform(Distance * WidthScreen, 0, WidthScreen * 0.1F, HeightScreen);
             AnimationManager.Animations.Add(Sprite);
 
-            Win_Anim = new AnimationSprite(Properties.Resources.WinFrame1,
-                                           Properties.Resources.WinFrame2,
-                                           Properties.Resources.WinFrame3,
-                                           Properties.Resources.WinFrame4,
-                                           Properties.Resources.WinFrame5,
-                                           Properties.Resources.WinFrame6,
-                                           Properties.Resources.WinFrame7,
-                                           Properties.Resources.WinFrame8,
-                                           Properties.Resources.WinFrame9,
-                                           Properties.Resources.WinFrame10,
-                                           Properties.Resources.WinFrame11,
-                                           Properties.Resources.WinFrame12,
-                                           Properties.Resources.WinFrame13,
-                                           Properties.Resources.WinFrame14,
-                                           Properties.Resources.WinFrame15,
-                                           Properties.Resources.WinFrame16,
-                                           Properties.Resources.WinFrame17,
-                                           Properties.Resources.WinFrame18,
-                                           Properties.Resources.WinFrame19,
-                                           Properties.Resources.WinFrame20,
-                                           Properties.Resources.WinFrame21,
-                                           Properties.Resources.WinFrame22,
-                                           Properties.Resources.WinFrame23,
-                                           Properties.Resources.WinFrame24,
-                                           Properties.Resources.WinFrame25,
-                                           Properties.Resources.WinFrame26,
-                                           Properties.Resources.WinFrame27,
-                                           Properties.Resources.WinFrame28,
-                                           Properties.Resources.WinFrame29,
-                                           Properties.Resources.WinFrame30,
-                                           Properties.Resources.WinFrame31,
-                                           Properties.Resources.WinFrame32
-                                           );
-            Win_Anim.Left = 0;
-            Win_Anim.Top = 0;
-            Win_Anim.Width = WidthScreen;
-            Win_Anim.Height = HeightScreen;
-            Win_Anim.Visible = false;
+            Win_Anim = new AnimationSprite()
+            {
+                Name = "WinAnim",
+                Zindex = 100,
+                Visible = false
+            };
+            for (int i = 1; i < 33; i++)
+                Win_Anim.Frame.Add(new Bitmap(MainSpace.selfref.SpriteFolder + "WinFrame" + i + ".gif"));
+            Win_Anim.transform(0, 0, WidthScreen, HeightScreen);
             AnimationManager.Animations.Add(Win_Anim);
 
-            Lose_Anim = new AnimationSprite(Properties.Resources.LoseFrame1,
-                                            Properties.Resources.LoseFrame1,
-                                            Properties.Resources.LoseFrame1,
-                                            Properties.Resources.LoseFrame2,
-                                            Properties.Resources.LoseFrame2,
-                                            Properties.Resources.LoseFrame2,
-                                            Properties.Resources.LoseFrame3,
-                                            Properties.Resources.LoseFrame3,
-                                            Properties.Resources.LoseFrame3,
-                                            Properties.Resources.LoseFrame4,
-                                            Properties.Resources.LoseFrame4,
-                                            Properties.Resources.LoseFrame4
-                                            );
-            Lose_Anim.Left = 0;
-            Lose_Anim.Top = 0;
-            Lose_Anim.Width = WidthScreen;
-            Lose_Anim.Height = HeightScreen;
-            Lose_Anim.Visible = false;
+            Lose_Anim = new AnimationSprite()
+            {
+                Name = "LoseAnim",
+                Zindex = 100,
+                Visible = false
+            };
+            for (int i = 1; i < 9; i++)
+                Lose_Anim.Frame.Add(new Bitmap(MainSpace.selfref.SpriteFolder + "LoseFrame" + i + ".gif"));
+            Lose_Anim.transform(0, 0, WidthScreen, HeightScreen);
             AnimationManager.Animations.Add(Lose_Anim);
         }
 

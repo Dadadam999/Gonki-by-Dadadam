@@ -31,7 +31,7 @@ namespace Gonki_by_Dadadam
             Width = 0;
             Height = 0;
 
-            collision = new Collision("Enemy_Car", Left, Top, Width - Width * 0.13F, Height);
+            collision = new Collision("Enemy_Car", Left, Top, Width, Height);
             CollisionManager.Collisions.Add(collision);
         }
 
@@ -54,6 +54,8 @@ namespace Gonki_by_Dadadam
 
             Width = _widthscreen / 7;
             Height = _heightscreen / 9;
+
+            AnimationManager.group_transform(Left, Top, Width, Height, Car.Id);
         }
 
         public void plus_speed()
@@ -127,7 +129,9 @@ namespace Gonki_by_Dadadam
             if (Freeze)
                 Car.Current_Speed = 0; //машина дергается
 
-            collision.update(Left, Top, Width - Width * 0.13F, Height);
+            AnimationManager.group_transform(Left, Top, Width, Height, Car.Id);
+
+            collision.update(Left + Width * 0.08F, Top + Height * 0.08F, Width - Width * 0.18F, Height - Height * 0.18F);
         }
     }
 }

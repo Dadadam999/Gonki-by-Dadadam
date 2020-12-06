@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,7 +12,9 @@ namespace Gonki_by_Dadadam
         public List<AnimationSprite> Road_Parts { get; set; } = new List<AnimationSprite>();
         public float WidthScreen { get; set; }
         public float HeightScreen { get; set; }
-
+        private static Random _rand = new Random();
+        private string[] sprite_names = { "RoadDefault", "RoadBuilder", "RoadCross", "RoadJunction", "RoadStation" };
+        private AnimationSprite template;
         public RoadController(int WidthScreen, int HeightScreen) 
         {
             this.WidthScreen = WidthScreen;
@@ -32,15 +35,16 @@ namespace Gonki_by_Dadadam
 
         public void create_road_parts(float Left)
         {
-            Road_Parts.Add(new AnimationSprite());
-            Road_Parts[Road_Parts.Count - 1] = new AnimationSprite(Properties.Resources.RoadDefault);
-            Road_Parts[Road_Parts.Count - 1].Zindex = -1;
-            Road_Parts[Road_Parts.Count - 1].Visible = true;
-            Road_Parts[Road_Parts.Count - 1].Width = WidthScreen;
-            Road_Parts[Road_Parts.Count - 1].Height = HeightScreen;
-            Road_Parts[Road_Parts.Count - 1].Top = 0;
-            Road_Parts[Road_Parts.Count - 1].Left = Left;
-            AnimationManager.Animations.Add(Road_Parts[Road_Parts.Count - 1]);
+            template = new AnimationSprite()
+            {
+                Name = sprite_names[_rand.Next(0, sprite_names.Length)],
+                Zindex = -1,
+                Visible = true
+            };
+            template.Frame.Add(new Bitmap(MainSpace.selfref.SpriteFolder + template.Name + ".png"));
+            template.transform(Left, 0, WidthScreen, HeightScreen);
+            AnimationManager.Animations.Add(template);
+            Road_Parts.Add(template);
         }
 
         public void move_road_parts(float speed)

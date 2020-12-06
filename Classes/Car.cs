@@ -37,25 +37,27 @@ namespace Gonki_by_Dadadam
 
         public Car Clone()
         {
-            Car car = new Car();
-            car.Id = Id;
-            car.Name = Name;
-            car.Max_Speed = Max_Speed;
-            car.Current_Speed = Current_Speed;
-            car.Step_Speed = Step_Speed;
-            car.Back_Speed = Back_Speed;
-            car.Boost_Speed = Boost_Speed;
-            car.Max_Boost_Charge = Max_Boost_Charge;
-            car.Curent_Boost_Charge = Curent_Boost_Charge;
-            car.Rotate_Right_Speed = Rotate_Right_Speed;
-            car.Rotate_Left_Speed = Rotate_Left_Speed;
-            car.Cover_Distance = Cover_Distance;
-            car.AnimationDefault = AnimationDefault.Clone();
-            car.AnimationBack = AnimationBack.Clone();
-            car.AnimationRotateRight = AnimationRotateRight.Clone();
-            car.AnimationRotateLeft = AnimationRotateLeft.Clone();
-            car.AnimationBreaking = AnimationBreaking.Clone();
-            car.AnimationStop = AnimationStop.Clone();
+            Car car = new Car
+            {
+                Id = Id,
+                Name = Name,
+                Max_Speed = Max_Speed,
+                Current_Speed = Current_Speed,
+                Step_Speed = Step_Speed,
+                Back_Speed = Back_Speed,
+                Boost_Speed = Boost_Speed,
+                Max_Boost_Charge = Max_Boost_Charge,
+                Curent_Boost_Charge = Curent_Boost_Charge,
+                Rotate_Right_Speed = Rotate_Right_Speed,
+                Rotate_Left_Speed = Rotate_Left_Speed,
+                Cover_Distance = Cover_Distance,
+                AnimationDefault = AnimationDefault.Clone(),
+                AnimationBack = AnimationBack.Clone(),
+                AnimationRotateRight = AnimationRotateRight.Clone(),
+                AnimationRotateLeft = AnimationRotateLeft.Clone(),
+                AnimationBreaking = AnimationBreaking.Clone(),
+                AnimationStop = AnimationStop.Clone()
+            };
             return car;
         }
 

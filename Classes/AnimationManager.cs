@@ -16,5 +16,33 @@ namespace Gonki_by_Dadadam
                   if(anim.Visible)
                       anim.nextframe();
         }
+
+        public static void set_transform(float Left, float Top, float Width, float Height, params string[] Names) 
+        {
+            foreach (AnimationSprite anim in Animations)
+                if (Names.Contains(anim.Name))
+                    anim.transform(Left, Top, Width, Height);
+        }
+
+        public static void set_visible(bool Visible, params string[] Names)
+        {
+            foreach (AnimationSprite anim in Animations)
+                if (Names.Contains(anim.Name))
+                    anim.Visible = Visible;
+        }
+
+        public static void group_transform(float Left, float Top, float Width, float Height, string Group)
+        {
+            foreach (AnimationSprite anim in Animations)
+                if (Group == anim.Group)
+                    anim.transform(Left, Top, Width, Height);
+        }
+
+        public static void group_visible(bool Visible, string Group)
+        {
+            foreach (AnimationSprite anim in Animations)
+                if (Group == anim.Group)
+                    anim.Visible = Visible;
+        }
     }
 }

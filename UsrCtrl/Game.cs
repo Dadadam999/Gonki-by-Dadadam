@@ -40,18 +40,18 @@ namespace Gonki_by_Dadadam
             _road = new RoadController(Width, Height);
 
             _car_player = new PlayerController(Width, Height);
-            _car_player.init_car(MainSpace.selfref.Car_Player_Exmp.Clone());
+            _car_player.init_car(MainSpace.selfref.CarPlayerExmp.Clone());
             _car_player.State += new PlayerController.StateMachine(player_state_machine);
 
             _car_enemy = new EnemyController(Width, Height);
-            _car_enemy.init_car(MainSpace.selfref.Cars[_rand.Next(0, MainSpace.selfref.Cars.Count - 1)].Clone());
+            _car_enemy.init_car(MainSpace.selfref.TemplateCars[_rand.Next(0, MainSpace.selfref.TemplateCars.Count - 1)].Clone());
             _car_enemy.State += new EnemyController.StateMachine(enemy_state_machine);
 
             _enemy_ai = new EnemyAI();
             _enemy_ai.Car_Enemy = _car_enemy;
             _enemy_ai.Car_Player = _car_player;
 
-            _finish = new Finish(_rand.Next(10,30), Width, Height);
+            _finish = new Finish(_rand.Next(100,300), Width, Height);
 
             Focus();
             start_resize();
@@ -106,15 +106,17 @@ namespace Gonki_by_Dadadam
                 _road.prolong_road_parts();
                 _road.move_road_parts(_car_player.Car.Current_Speed);
 
+                _finish.check_win(_car_player.Car.Cover_Distance, _car_enemy.Car.Cover_Distance);
+                _finish.move(_car_player.Car.Current_Speed);
+
                 CollisionManager.check();
 
-                _finish.move(_car_player.Car.Current_Speed);
-                _finish.check_win(_car_player.Car.Cover_Distance, _car_enemy.Car.Cover_Distance);
-                
+                AnimationManager.update_animations();
+
                 Speed_Info.Text = $"Скорость: {_car_player.Car.Current_Speed} test: {_car_enemy.Car.Current_Speed}\nНитро: {_car_player.Car.Curent_Boost_Charge}\ndist {_finish.Distance * Width}\nplayer {_car_player.Car.Cover_Distance }\nenemy {_car_enemy.Car.Cover_Distance}\nf_pos {_finish.Sprite.Left } ";
+               
                 if (!String.IsNullOrEmpty(_finish.Result) && EndGame_Label.Visible == false)
                     EndGame_Label.Visible = true;
-
             }
             Repaint();
         }
@@ -140,22 +142,58 @@ namespace Gonki_by_Dadadam
                 SoundManager.stop_sound("TurnSignalCar");
                 SoundManager.stop_sound("BoostCar");
                 SoundManager.stop_sound("Back");
+                AnimationManager.group_visible(false, _car_player.Car.Id);
+                AnimationManager.set_visible(true, _car_player.Car.Id);
+                Debug.selfref.add_input("foward anim");
             }
 
-                if (State == "Forward")
-                    SoundManager.play_sound(_car_player.Car.Id + "_Forward");
+            if (State == "Move")
+            {
+                SoundManager.play_sound(_car_player.Car.Id + "_Forward");
+            }
+            
+            if (State == "Stop")
+            {
+                SoundManager.stop_sound(_car_player.Car.Id + "_Forward");
+            }
 
-                if (State == "Stop")
-                    SoundManager.stop_sound(_car_player.Car.Id + "_Forward");
+            if (State == "Back")
+            {
+                SoundManager.play_sound("Back");
 
-                if (State == "Back")
-                    SoundManager.play_sound("Back");
+                if (_car_player.Car.Current_Speed > 0)
+                {
+                    AnimationManager.group_visible(false, _car_player.Car.Id);
+                    AnimationManager.set_visible(true, _car_player.Car.Id + "Stop");
+                }
+                else
+                {
+                    AnimationManager.group_visible(false, _car_player.Car.Id);
+                    AnimationManager.set_visible(true, _car_player.Car.Id + "Back");
+                }
+            }
+            
+            if (State == "Left")
+            {
+                SoundManager.play_sound("TurnSignalCar");
+                AnimationManager.group_visible(false, _car_player.Car.Id);
+                AnimationManager.set_visible(true, _car_player.Car.Id + "Left");
+            }
 
-                if (State == "Left" || State == "Right")
-                    SoundManager.play_sound("TurnSignalCar");
+            if (State == "Right")
+            {
+                SoundManager.play_sound("TurnSignalCar");
+                AnimationManager.group_visible(false, _car_player.Car.Id);
+                AnimationManager.set_visible(true, _car_player.Car.Id + "Right");
+            }
 
-                if (State == "Boost")
+            if (State == "Boost")
+            {
+                if(_car_player.Car.Curent_Boost_Charge <= 0)
+                    SoundManager.stop_sound("BoostCar");
+                else
                     SoundManager.play_sound("BoostCar");
+            }
         }
 
         private void enemy_state_machine(string State)
@@ -165,6 +203,8 @@ namespace Gonki_by_Dadadam
                 SoundManager.stop_sound("TurnSignalCarEnemy");
                 SoundManager.stop_sound("BoostCarEnemy");
                 SoundManager.stop_sound("BackEnemy");
+                AnimationManager.group_visible(false, _car_enemy.Car.Id);
+                AnimationManager.set_visible(true, _car_enemy.Car.Id);
                 _preview_state_enemy = State;
             }
 
@@ -177,52 +217,101 @@ namespace Gonki_by_Dadadam
             if (!_car_enemy.is_out_screen())
             {
                 if (State == "Back")
+                {
                     SoundManager.play_sound("BackEnemy");
+                    
+                    if (_car_enemy.Car.Current_Speed > 0)
+                    {
+                        AnimationManager.group_visible(false, _car_enemy.Car.Id);
+                        AnimationManager.set_visible(true, _car_enemy.Car.Id + "Stop");
+                    }
+                    else
+                    {
+                        AnimationManager.group_visible(false, _car_enemy.Car.Id);
+                        AnimationManager.set_visible(true, _car_enemy.Car.Id + "Back");
+                    }
+                }
 
-                if (State == "Left" || State == "Right")
+                if (State == "Left")
+                {
                     SoundManager.play_sound("TurnSignalCarEnemy");
-
+                    AnimationManager.group_visible(false, _car_enemy.Car.Id);
+                    AnimationManager.set_visible(true, _car_enemy.Car.Id + "Left");
+                }
+                
+                if (State == "Right")
+                {
+                    SoundManager.play_sound("TurnSignalCarEnemy");
+                    AnimationManager.group_visible(false, _car_enemy.Car.Id);
+                    AnimationManager.set_visible(true, _car_enemy.Car.Id + "Right");
+                }
+                
                 if (State == "Boost")
-                    SoundManager.play_sound("BoostCarEnemy");
+                {
+                    if (_car_enemy.Car.Curent_Boost_Charge <= 0)
+                        SoundManager.stop_sound("BoostCarEnemy");
+                    else
+                        SoundManager.play_sound("BoostCarEnemy");
+                }
             }
         }
 
         private void collision_handler(string Name1, string Name2) {
             if (Name1 == "Player_Car" && Name2 == "Enemy_Car" )
             {
+                _play_game = false;
+                SoundManager.stop_all_sound();
                 CollisionManager.Work = false;
                 Win_test.Text = "Crash car";
                 _finish.Lose_Anim.Visible = true;
                 _car_player.Freeze = true;
                 _car_enemy.Freeze = true;
                 EndGame_Label.Visible = true;
+
                 MusicManager.change_music("GameOver");
                 VoiceManager.change_voice("GameOver");
                 SoundManager.play_sound("BrokenCar");
+
+                AnimationManager.group_visible(false, _car_player.Car.Id);
+                AnimationManager.set_visible(true, _car_player.Car.Id + "Breaking");
+                AnimationManager.group_visible(false, _car_enemy.Car.Id);
+                AnimationManager.set_visible(true, _car_enemy.Car.Id + "Breaking");
             }
 
             if (Name1 == "Player_Car" && (Name2 == "Left_Board" || Name2 == "Right_Board"))
             {
+                _play_game = false;
+                SoundManager.stop_all_sound();
                 CollisionManager.Work = false;
                 Win_test.Text = "Crash Player on border";
                 _finish.Lose_Anim.Visible = true;
                 _car_player.Freeze = true;
                 EndGame_Label.Visible = true;
+
                 MusicManager.change_music("GameOver");
                 VoiceManager.change_voice("GameOver");
                 SoundManager.play_sound("BrokenCar");
+                
+                AnimationManager.group_visible(false, _car_player.Car.Id);
+                AnimationManager.set_visible(true, _car_player.Car.Id + "Breaking");
             }
 
             if (Name1 == "Enemy_Car" && (Name2 == "Left_Board" || Name2 == "Right_Board"))
             {
+                _play_game = false;
+                SoundManager.stop_all_sound();
                 CollisionManager.Work = false;
                 Win_test.Text = "Crash Enemy on border";
                 _finish.Win_Anim.Visible = true;
                 _car_enemy.Freeze = true;
                 EndGame_Label.Visible = true;
+
                 MusicManager.change_music("Win");
                 VoiceManager.change_voice("Winner");
                 SoundManager.play_sound("BrokenCar");
+
+                AnimationManager.group_visible(false, _car_enemy.Car.Id);
+                AnimationManager.set_visible(true, _car_enemy.Car.Id + "Breaking");
             }
         }
     }

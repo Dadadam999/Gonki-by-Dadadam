@@ -73,15 +73,16 @@ namespace Gonki_by_Dadadam
         {
             if (!is_on_line() && Car_Enemy.Car.Cover_Distance < Car_Player.Car.Cover_Distance)
             {
-                if (Car_Enemy.Car.Curent_Boost_Charge >= rand.Next(Convert.ToInt32(Car_Enemy.Car.Max_Boost_Charge / 2), Convert.ToInt32(Car_Enemy.Car.Max_Boost_Charge)))
+                if (Car_Enemy.Car.Curent_Boost_Charge >= Car_Enemy.Car.Max_Boost_Charge)
                     boost_flag = true;
 
                 if (Car_Enemy.Car.Curent_Boost_Charge <= 0)
-                        boost_flag = false;
-
+                    boost_flag = false;
 
                 Car_Enemy.boost(boost_flag);
             }
+            else
+                Car_Enemy.boost(false);
         }
 
         bool is_on_line()
