@@ -14,7 +14,6 @@ namespace Gonki_by_Dadadam
     {
         private static Random _rand = new Random();
         private bool _play_game = false;
-        private string _preview_state_enemy = ""; //
 
         private RoadController _road;
         private EnemyController _car_enemy;
@@ -144,7 +143,6 @@ namespace Gonki_by_Dadadam
                 SoundManager.stop_sound("Back");
                 AnimationManager.group_visible(false, _car_player.Car.Id);
                 AnimationManager.set_visible(true, _car_player.Car.Id);
-                Debug.selfref.add_input("foward anim");
             }
 
             if (State == "Move")
@@ -198,14 +196,10 @@ namespace Gonki_by_Dadadam
 
         private void enemy_state_machine(string State)
         {
-            if (State != _preview_state_enemy && String.IsNullOrEmpty(_preview_state_enemy))
+            if (State == "PlusSpeed")
             {
-                SoundManager.stop_sound("TurnSignalCarEnemy");
-                SoundManager.stop_sound("BoostCarEnemy");
-                SoundManager.stop_sound("BackEnemy");
                 AnimationManager.group_visible(false, _car_enemy.Car.Id);
                 AnimationManager.set_visible(true, _car_enemy.Car.Id);
-                _preview_state_enemy = State;
             }
 
             if (State == "Forward")
@@ -213,13 +207,13 @@ namespace Gonki_by_Dadadam
 
             if (State == "Stop" || _car_enemy.is_out_screen())
                 SoundManager.stop_sound(_car_enemy.Car.Id + "_ForwardEnemy");
-         
+
             if (!_car_enemy.is_out_screen())
             {
                 if (State == "Back")
                 {
                     SoundManager.play_sound("BackEnemy");
-                    
+
                     if (_car_enemy.Car.Current_Speed > 0)
                     {
                         AnimationManager.group_visible(false, _car_enemy.Car.Id);
@@ -238,20 +232,24 @@ namespace Gonki_by_Dadadam
                     AnimationManager.group_visible(false, _car_enemy.Car.Id);
                     AnimationManager.set_visible(true, _car_enemy.Car.Id + "Left");
                 }
-                
+
                 if (State == "Right")
                 {
                     SoundManager.play_sound("TurnSignalCarEnemy");
                     AnimationManager.group_visible(false, _car_enemy.Car.Id);
                     AnimationManager.set_visible(true, _car_enemy.Car.Id + "Right");
                 }
-                
+
                 if (State == "Boost")
                 {
-                    if (_car_enemy.Car.Curent_Boost_Charge <= 0)
-                        SoundManager.stop_sound("BoostCarEnemy");
-                    else
-                        SoundManager.play_sound("BoostCarEnemy");
+                    SoundManager.play_sound("BoostCarEnemy");
+                    Debug.selfref.add_input("Boost");
+                }
+
+                if (State == "UnBoost")
+                {
+                    SoundManager.stop_sound("BoostCarEnemy");
+                    Debug.selfref.add_input("UnBoost");
                 }
             }
         }

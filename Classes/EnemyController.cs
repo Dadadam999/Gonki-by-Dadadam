@@ -61,7 +61,10 @@ namespace Gonki_by_Dadadam
         public void plus_speed()
         {
             if (Car.Current_Speed >= Car.Max_Speed * -1)
+            {
                 Car.Current_Speed -= Car.Step_Speed;
+                State?.Invoke("PlusSpeed");
+            }
         }
 
         public void minus_speed()
@@ -85,8 +88,9 @@ namespace Gonki_by_Dadadam
             State?.Invoke("Right");
         }
 
-        public void boost(bool Turn) {
-            if (!Turn && Car.Curent_Boost_Charge <= Car.Max_Boost_Charge)
+        public void boost(bool Turn) 
+        {
+            if (!Turn && Car.Curent_Boost_Charge <= Car.Max_Boost_Charge) 
                 Car.Curent_Boost_Charge++;
 
             if (Turn && Car.Curent_Boost_Charge > 0 && Car.Current_Speed < 0)
@@ -96,12 +100,20 @@ namespace Gonki_by_Dadadam
                     Car.Current_Speed -= Car.Boost_Speed;
 
                 if (Car.Curent_Boost_Charge <= 0)
+                {
                     Car.Current_Speed = Car.Max_Speed * -1;
+                    State?.Invoke("UnBoost");
+                }
+                else
+                    State?.Invoke("Boost");
 
-                State?.Invoke("Boost");
             }
+
             if (!Turn && Car.Current_Speed <= Car.Max_Speed * -1)
                 Car.Current_Speed = Car.Max_Speed * -1;
+
+            if (Car.Cover_Distance > Car.Cover_Distance)
+                State?.Invoke("UnBoost");
         }
 
         public void move_enemy(float Current_Player_Speed)
@@ -117,8 +129,6 @@ namespace Gonki_by_Dadadam
 
         public void update()
         {
-            State?.Invoke("");
-
             if (Car.Current_Speed == 0)
                 State?.Invoke("Stop");
             else
