@@ -53,6 +53,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\CarController.cs" />
     <Compile Include="Classes\AnimationManager.cs" />
     <Compile Include="Classes\AnimationSprite.cs" />
     <Compile Include="Classes\EnemyController.cs" />
@@ -72,6 +73,8 @@
     <Compile Include="Debug.Designer.cs">
       <DependentUpon>Debug.cs</DependentUpon>
     </Compile>
+    <Compile Include="Classes\PropBoost.cs" />
+    <Compile Include="PropController.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

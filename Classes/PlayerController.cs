@@ -6,36 +6,24 @@ using System.Threading.Tasks;
 
 namespace Gonki_by_Dadadam
 {
-    public class PlayerController
+    public class PlayerController : CarController
     {
         public delegate void StateMachine(string State);
         public event StateMachine State;
-        public Car Car { get; set; }
-        public float Left { get; set; }
-        public float Top { get; set; }
-        public float Width { get; set; }
-        public float Height { get; set; }
-        float _widthscreen { get; set; }
-        float _heightscreen { get; set; }
-        public bool Freeze { get; set; }
-        public Collision collision { get; set; }
+        
+        private float _widthscreen { get; set; }
+        private float _heightscreen { get; set; }
 
         public PlayerController(int WidthScreen, int HeightScreen)
         {
             _widthscreen = WidthScreen;
             _heightscreen = HeightScreen;
 
-            Freeze = false;
-            Left = 0;
-            Top = 0;
-            Width = 0;
-            Height = 0;
-
             collision = new Collision("Player_Car", Left, Top, Width, Height);
             CollisionManager.Collisions.Add(collision);
         }
 
-        public void init_car(Car car)
+        public override void init_car(Car car)
         {
             Car = car;
             Car.AnimationDefault.Visible = true;
@@ -47,7 +35,7 @@ namespace Gonki_by_Dadadam
             AnimationManager.Animations.Add(Car.AnimationBreaking);
         }
 
-        public void set_start_position()
+        public override void set_start_position()
         {
             Left = _widthscreen / 3;
             Top = _heightscreen / 3;
@@ -96,7 +84,7 @@ namespace Gonki_by_Dadadam
 
             if (pressed_key == "ShiftKey" && Car.Curent_Boost_Charge > 0 && Car.Current_Speed > 0)
             {
-                Car.Curent_Boost_Charge = Car.Curent_Boost_Charge - 5;
+                Car.Curent_Boost_Charge--;
                 if (Car.Current_Speed < Car.Max_Speed + Car.Boost_Speed)
                     Car.Current_Speed += Car.Boost_Speed;
 

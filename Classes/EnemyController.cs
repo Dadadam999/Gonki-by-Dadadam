@@ -6,36 +6,23 @@ using System.Threading.Tasks;
 
 namespace Gonki_by_Dadadam
 {
-    public class EnemyController
+    public class EnemyController : CarController
     {
         public delegate void StateMachine(string State);
         public event StateMachine State;
-        public Car Car { get; set; }
-        public float Left { get; set; }
-        public float Top { get; set; }
-        public float Width { get; set; }
-        public float Height { get; set; }
         private float _widthscreen { get; set; }
         private float _heightscreen { get; set; }
-        public bool Freeze { get; set; }
-        Collision collision { get; set; }
-
+        
         public EnemyController(int WidthScreen, int HeightScreen)
         {
             _widthscreen = WidthScreen;
             _heightscreen = HeightScreen;
 
-            Freeze = false;
-            Left = 0;
-            Top = 0;
-            Width = 0;
-            Height = 0;
-
             collision = new Collision("Enemy_Car", Left, Top, Width, Height);
             CollisionManager.Collisions.Add(collision);
         }
 
-        public void init_car(Car car)
+        public override void init_car(Car car)
         {
             Car = car;
             Car.AnimationDefault.Visible = true;
@@ -47,7 +34,7 @@ namespace Gonki_by_Dadadam
             AnimationManager.Animations.Add(Car.AnimationBreaking);
         }
 
-        public void set_start_position()
+        public override void set_start_position()
         {
             Left = _widthscreen / 3;
             Top = _heightscreen / 9 * 5;
@@ -93,9 +80,10 @@ namespace Gonki_by_Dadadam
             if (!Turn && Car.Curent_Boost_Charge <= Car.Max_Boost_Charge) 
                 Car.Curent_Boost_Charge++;
 
-            if (Turn && Car.Curent_Boost_Charge > 0 && Car.Current_Speed < 0)
+            if (Turn && Car.Current_Speed < 0)
             {
-                Car.Curent_Boost_Charge = Car.Curent_Boost_Charge - 5;
+                Car.Curent_Boost_Charge--;
+
                 if (Car.Current_Speed > (Car.Max_Speed + Car.Boost_Speed) * -1)
                     Car.Current_Speed -= Car.Boost_Speed;
 
@@ -106,20 +94,22 @@ namespace Gonki_by_Dadadam
                 }
                 else
                     State?.Invoke("Boost");
-
             }
 
-            if (!Turn && Car.Current_Speed <= Car.Max_Speed * -1)
+            if (!Turn && Car.Current_Speed < Car.Max_Speed * -1)
                 Car.Current_Speed = Car.Max_Speed * -1;
-
-            if (Car.Cover_Distance > Car.Cover_Distance)
-                State?.Invoke("UnBoost");
         }
 
         public void move_enemy(float Current_Player_Speed)
         {
             if (Car.Current_Speed < Car.Max_Speed)
                 Left -= Current_Player_Speed + Car.Current_Speed;
+        }
+
+
+        public void at_overtake()
+        {
+            State?.Invoke("AtOvertake");
         }
 
         public bool is_out_screen()

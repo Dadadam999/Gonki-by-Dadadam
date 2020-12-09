@@ -13,7 +13,7 @@ namespace Gonki_by_Dadadam
         public float WidthScreen { get; set; }
         public float HeightScreen { get; set; }
         private static Random _rand = new Random();
-        private string[] sprite_names = { "RoadDefault", "RoadBuilder", "RoadCross", "RoadJunction", "RoadStation" };
+        private string[] sprite_names = { "RoadDefault", "RoadBuilder", "RoadCross", "RoadBridge", "RoadStation" };
         private AnimationSprite template;
         public RoadController(int WidthScreen, int HeightScreen) 
         {
@@ -38,6 +38,7 @@ namespace Gonki_by_Dadadam
             template = new AnimationSprite()
             {
                 Name = sprite_names[_rand.Next(0, sprite_names.Length)],
+                Group = "Road",
                 Zindex = -1,
                 Visible = true
             };
@@ -79,11 +80,17 @@ namespace Gonki_by_Dadadam
 
             foreach (AnimationSprite road in Road_Parts)
             {
-                if (road.Left - WidthScreen < WidthScreen * -4)
+                if (road.Left - road.Width < WidthScreen * -4)
+                {
                     left = road;
+                    Debug.selfref.add_input($"!iD = {road.Name} LeftBoard: {road.Left - road.Width} < Width4: {WidthScreen * -4} ");
+                }
 
-                if (road.Left + WidthScreen > WidthScreen * 4)
+                if (road.Left + road.Width > WidthScreen * 4)
+                {
                     right = road;
+                    Debug.selfref.add_input($"!RightBoard: {road.Left + road.Width} > Width4: {WidthScreen * 4} ");
+                }
             }
 
             if (left != null)

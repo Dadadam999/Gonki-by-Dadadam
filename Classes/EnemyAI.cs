@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace Gonki_by_Dadadam
 {
@@ -22,9 +17,9 @@ namespace Gonki_by_Dadadam
 
         public void behavior()
         {
+            strategy_boost();
             strategy_speed();
             strategy_rotate();
-            strategy_boost();
         }
 
         void strategy_speed()
@@ -42,32 +37,38 @@ namespace Gonki_by_Dadadam
 
         void strategy_rotate()
         {
-            if (is_on_line() && Car_Enemy.Car.Cover_Distance < Car_Player.Car.Cover_Distance) {
-
-                if (Car_Enemy.Top < Car_Player.Top && Car_Enemy.Top + Car_Enemy.Height * 0.8F > _leftboardtop)
+            if (is_on_line() && Car_Enemy.Car.Cover_Distance < Car_Player.Car.Cover_Distance)
+            {
+                if (Car_Enemy.collision.Top < Car_Player.collision.Top 
+                    && Car_Enemy.Top + Car_Enemy.collision.Height * 0.8F >= _leftboardtop)
                     Car_Enemy.rotate_left();
-                else if (Car_Enemy.Top + Car_Enemy.Height * 0.8F <= _leftboardtop && Car_Enemy.Top + Car_Enemy.Height * 1.2F >= _rightboardtop)
+                else if (Car_Enemy.collision.Top + Car_Enemy.collision.Height * 0.8F <= _leftboardtop
+                         && Car_Enemy.collision.Top + Car_Enemy.collision.Height * 1.2F >= _rightboardtop)
                     Car_Enemy.rotate_right();
 
-                if (Car_Enemy.Top > Car_Player.Top && Car_Enemy.Top + Car_Enemy.Height * 1.2F < _rightboardtop)
+                if (Car_Enemy.collision.Top > Car_Player.collision.Top 
+                    && Car_Enemy.collision.Top + Car_Enemy.collision.Height * 1.2F <= _rightboardtop)
                     Car_Enemy.rotate_right();
-                else if (Car_Enemy.Top + Car_Enemy.Height * 0.8F <= _leftboardtop && Car_Enemy.Top + Car_Enemy.Height * 1.2F >= _rightboardtop)
+                else if (Car_Enemy.collision.Top + Car_Enemy.collision.Height * 0.8F <= _leftboardtop 
+                         && Car_Enemy.collision.Top + Car_Enemy.collision.Height * 1.2F >= _rightboardtop)
                     Car_Enemy.rotate_left();
+
             }
 
             if (!is_on_horizontal() && !is_on_line() && Car_Enemy.Car.Cover_Distance > Car_Player.Car.Cover_Distance)
             {
-                if (Car_Enemy.Top * Car_Enemy.Height * rand.Next(1, 3) > Car_Player.Top * Car_Player.Height && Car_Enemy.Top + Car_Enemy.Height * 0.8F > _leftboardtop)
+                if (Car_Enemy.Top + Car_Enemy.Height * rand.Next(1, 5) > Car_Player.Top + Car_Player.Height && Car_Enemy.Top + Car_Enemy.Height * 0.8F > _leftboardtop)
                     Car_Enemy.rotate_left();
                 else if (Car_Enemy.Top + Car_Enemy.Height * 0.8F <= _leftboardtop)
                     Car_Enemy.rotate_right();
 
-                if (Car_Enemy.Top < Car_Player.Top && Car_Enemy.Top + Car_Enemy.Height * 1.2F < _rightboardtop)
+                if (Car_Enemy.Top + rand.Next(1, 20) < Car_Player.Top && Car_Enemy.Top + Car_Enemy.Height * 1.2F < _rightboardtop)
                     Car_Enemy.rotate_right();
                 else if (Car_Enemy.Top + Car_Enemy.Height * 1.2F >= _rightboardtop)
                     Car_Enemy.rotate_left();
             }
         }
+
         bool boost_flag = false;
         void strategy_boost()
         {
@@ -80,25 +81,33 @@ namespace Gonki_by_Dadadam
                     boost_flag = false;
 
                 Car_Enemy.boost(boost_flag);
+               
             }
             else
                 Car_Enemy.boost(false);
+
+            // sound animation boost off after overtake
+            if (!is_on_line() && Car_Enemy.Car.Cover_Distance > Car_Player.Car.Cover_Distance && boost_flag)
+            {
+                boost_flag = false;
+                Car_Enemy.at_overtake();
+            }
         }
 
         bool is_on_line()
         {
-            if ((Car_Enemy.Top >= Car_Player.Top && Car_Enemy.Top <= Car_Player.Top + Car_Player.Height)
-             || (Car_Enemy.Top + Car_Enemy.Height >= Car_Player.Top && Car_Enemy.Top + Car_Enemy.Height <= Car_Player.Top + Car_Player.Height))
+            if ((Car_Enemy.collision.Top >= Car_Player.collision.Top && Car_Enemy.collision.Top <= Car_Player.collision.Top + Car_Player.collision.Height)
+             || (Car_Enemy.collision.Top + Car_Enemy.collision.Height >= Car_Player.collision.Top && Car_Enemy.collision.Top + Car_Enemy.collision.Height <= Car_Player.collision.Top + Car_Player.collision.Height))
                 return true;
             return false;
         }
 
         bool is_on_horizontal()
         {
-            if ((Car_Enemy.Left >= Car_Player.Left
-            && Car_Enemy.Left <= Car_Player.Left + Car_Player.Width)
-            || (Car_Enemy.Left + Car_Enemy.Width >= Car_Player.Left
-            && Car_Enemy.Left + Car_Enemy.Width <= Car_Player.Left + Car_Player.Width))
+            if ((Car_Enemy.collision.Left >= Car_Player.collision.Left
+            && Car_Enemy.collision.Left <= Car_Player.collision.Left + Car_Player.collision.Width)
+            || (Car_Enemy.collision.Left + Car_Enemy.collision.Width >= Car_Player.collision.Left
+            && Car_Enemy.collision.Left + Car_Enemy.collision.Width <= Car_Player.collision.Left + Car_Player.collision.Width))
                 return true;
             return false;
         }

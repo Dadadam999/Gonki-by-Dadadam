@@ -21,7 +21,9 @@ namespace Gonki_by_Dadadam
 
         public void add_input(string text)
         {
-            Output.Text += "\n" + text;
+            //if (Output.Lines.Length > 100)
+            //    Output.Text.Remove(0, Output.Text.IndexOf("\n"));
+            Output.Text += Output.Lines.Length + ":" + text + "\n" ;
             Output.SelectionStart = Output.Text.Length;
             Output.ScrollToCaret();
         }

@@ -20,6 +20,7 @@ namespace Gonki_by_Dadadam
         private PlayerController _car_player;
         private EnemyAI _enemy_ai;
         private Finish _finish;
+        private PropController _prop_controller;
 
         public Game()
         {
@@ -52,6 +53,8 @@ namespace Gonki_by_Dadadam
 
             _finish = new Finish(_rand.Next(100,300), Width, Height);
 
+            _prop_controller = new PropController(_car_player, _car_enemy);
+            
             Focus();
             start_resize();
 
@@ -101,12 +104,15 @@ namespace Gonki_by_Dadadam
                 _car_enemy.move_enemy(_car_player.Car.Current_Speed);
                 _car_enemy.update();
 
+                _prop_controller.update();
+
                 _road.remove_road_parts();
                 _road.prolong_road_parts();
                 _road.move_road_parts(_car_player.Car.Current_Speed);
 
                 _finish.check_win(_car_player.Car.Cover_Distance, _car_enemy.Car.Cover_Distance);
                 _finish.move(_car_player.Car.Current_Speed);
+
 
                 CollisionManager.check();
 
@@ -143,6 +149,7 @@ namespace Gonki_by_Dadadam
                 SoundManager.stop_sound("Back");
                 AnimationManager.group_visible(false, _car_player.Car.Id);
                 AnimationManager.set_visible(true, _car_player.Car.Id);
+                AnimationManager.set_visible(false, "PropBoostPlayer");
             }
 
             if (State == "Move")
@@ -187,10 +194,16 @@ namespace Gonki_by_Dadadam
 
             if (State == "Boost")
             {
-                if(_car_player.Car.Curent_Boost_Charge <= 0)
+                if (_car_player.Car.Curent_Boost_Charge <= 0)
+                {
                     SoundManager.stop_sound("BoostCar");
+                    AnimationManager.set_visible(false, "PropBoostPlayer");
+                }
                 else
+                {
                     SoundManager.play_sound("BoostCar");
+                    AnimationManager.set_visible(true, "PropBoostPlayer");
+                }
             }
         }
 
@@ -208,49 +221,53 @@ namespace Gonki_by_Dadadam
             if (State == "Stop" || _car_enemy.is_out_screen())
                 SoundManager.stop_sound(_car_enemy.Car.Id + "_ForwardEnemy");
 
-            if (!_car_enemy.is_out_screen())
+
+            if (State == "Back")
             {
-                if (State == "Back")
-                {
-                    SoundManager.play_sound("BackEnemy");
+                SoundManager.play_sound("BackEnemy");
 
-                    if (_car_enemy.Car.Current_Speed > 0)
-                    {
-                        AnimationManager.group_visible(false, _car_enemy.Car.Id);
-                        AnimationManager.set_visible(true, _car_enemy.Car.Id + "Stop");
-                    }
-                    else
-                    {
-                        AnimationManager.group_visible(false, _car_enemy.Car.Id);
-                        AnimationManager.set_visible(true, _car_enemy.Car.Id + "Back");
-                    }
-                }
-
-                if (State == "Left")
+                if (_car_enemy.Car.Current_Speed > 0)
                 {
-                    SoundManager.play_sound("TurnSignalCarEnemy");
                     AnimationManager.group_visible(false, _car_enemy.Car.Id);
-                    AnimationManager.set_visible(true, _car_enemy.Car.Id + "Left");
+                    AnimationManager.set_visible(true, _car_enemy.Car.Id + "Stop");
                 }
-
-                if (State == "Right")
+                else
                 {
-                    SoundManager.play_sound("TurnSignalCarEnemy");
                     AnimationManager.group_visible(false, _car_enemy.Car.Id);
-                    AnimationManager.set_visible(true, _car_enemy.Car.Id + "Right");
+                    AnimationManager.set_visible(true, _car_enemy.Car.Id + "Back");
                 }
+            }
 
-                if (State == "Boost")
-                {
-                    SoundManager.play_sound("BoostCarEnemy");
-                    Debug.selfref.add_input("Boost");
-                }
+            if (State == "Left")
+            {
+                SoundManager.play_sound("TurnSignalCarEnemy");
+                AnimationManager.group_visible(false, _car_enemy.Car.Id);
+                AnimationManager.set_visible(true, _car_enemy.Car.Id + "Left");
+            }
 
-                if (State == "UnBoost")
-                {
-                    SoundManager.stop_sound("BoostCarEnemy");
-                    Debug.selfref.add_input("UnBoost");
-                }
+            if (State == "Right")
+            {
+                SoundManager.play_sound("TurnSignalCarEnemy");
+                AnimationManager.group_visible(false, _car_enemy.Car.Id);
+                AnimationManager.set_visible(true, _car_enemy.Car.Id + "Right");
+            }
+
+            if (State == "Boost")
+            {
+                AnimationManager.set_visible(true, "PropBoostEnemy");
+                SoundManager.play_sound("BoostCarEnemy");
+            }
+
+            if (State == "UnBoost")
+            {
+                AnimationManager.set_visible(false, "PropBoostEnemy");
+                SoundManager.stop_sound("BoostCarEnemy");
+            }
+
+            if (State == "AtOvertake") 
+            {
+                SoundManager.stop_sound("BoostCarEnemy");
+                AnimationManager.set_visible(false, "PropBoostEnemy");
             }
         }
 
@@ -274,6 +291,9 @@ namespace Gonki_by_Dadadam
                 AnimationManager.set_visible(true, _car_player.Car.Id + "Breaking");
                 AnimationManager.group_visible(false, _car_enemy.Car.Id);
                 AnimationManager.set_visible(true, _car_enemy.Car.Id + "Breaking");
+
+                AnimationManager.set_visible(false, "PropBoostPlayer");
+                AnimationManager.set_visible(false, "PropBoostEnemy");
             }
 
             if (Name1 == "Player_Car" && (Name2 == "Left_Board" || Name2 == "Right_Board"))
