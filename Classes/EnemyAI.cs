@@ -57,7 +57,7 @@ namespace Gonki_by_Dadadam
 
             if (!is_on_horizontal() && !is_on_line() && Car_Enemy.Car.Cover_Distance > Car_Player.Car.Cover_Distance)
             {
-                if (Car_Enemy.Top + Car_Enemy.Height * rand.Next(1, 5) > Car_Player.Top + Car_Player.Height && Car_Enemy.Top + Car_Enemy.Height * 0.8F > _leftboardtop)
+                if (Car_Enemy.Top + Car_Enemy.Height * rand.Next(1, 20) > Car_Player.Top + Car_Player.Height && Car_Enemy.Top + Car_Enemy.Height * 0.8F > _leftboardtop)
                     Car_Enemy.rotate_left();
                 else if (Car_Enemy.Top + Car_Enemy.Height * 0.8F <= _leftboardtop)
                     Car_Enemy.rotate_right();

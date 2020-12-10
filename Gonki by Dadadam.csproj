@@ -12,6 +12,22 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>C:\Users\Admin\Desktop\WebSite\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -35,6 +51,24 @@
   <PropertyGroup>
     <ApplicationIcon>car_wheel_PNG23302.ico</ApplicationIcon>
   </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>9E8D27A29512CAB5F374FA3FFDAA3D4D1574D4F4</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>Gonki by Dadadam_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>false</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="PresentationCore" />
     <Reference Include="System" />
@@ -53,19 +87,19 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Classes\CarController.cs" />
-    <Compile Include="Classes\AnimationManager.cs" />
+    <Compile Include="Classes\Controllers\CarController.cs" />
+    <Compile Include="Classes\Manangers\AnimationManager.cs" />
     <Compile Include="Classes\AnimationSprite.cs" />
-    <Compile Include="Classes\EnemyController.cs" />
-    <Compile Include="Classes\PlayerController.cs" />
+    <Compile Include="Classes\Controllers\EnemyController.cs" />
+    <Compile Include="Classes\Controllers\PlayerController.cs" />
     <Compile Include="Classes\Car.cs" />
     <Compile Include="Classes\EnemyAI.cs" />
-    <Compile Include="Classes\RoadController.cs" />
+    <Compile Include="Classes\Controllers\RoadController.cs" />
     <Compile Include="Classes\Collision.cs" />
-    <Compile Include="Classes\CollisionManager.cs" />
+    <Compile Include="Classes\Manangers\CollisionManager.cs" />
     <Compile Include="Classes\Finish.cs" />
-    <Compile Include="Classes\MusicManager.cs" />
-    <Compile Include="Classes\SoundManager.cs" />
+    <Compile Include="Classes\Manangers\MusicManager.cs" />
+    <Compile Include="Classes\Manangers\SoundManager.cs" />
     <Compile Include="Classes\Sound.cs" />
     <Compile Include="Debug.cs">
       <SubType>Form</SubType>
@@ -73,13 +107,15 @@
     <Compile Include="Debug.Designer.cs">
       <DependentUpon>Debug.cs</DependentUpon>
     </Compile>
-    <Compile Include="Classes\PropBoost.cs" />
-    <Compile Include="PropController.cs" />
+    <Compile Include="Classes\Props\PropBoost.cs" />
+    <Compile Include="Classes\Controllers\PropController.cs" />
+    <Compile Include="Classes\PostProcessing.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Classes\Props\PropStopTrack.cs" />
     <Compile Include="UsrCtrl\Game.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -112,7 +148,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Classes\VoiceManager.cs" />
+    <Compile Include="Classes\Manangers\VoiceManager.cs" />
     <EmbeddedResource Include="Debug.resx">
       <DependentUpon>Debug.cs</DependentUpon>
     </EmbeddedResource>
@@ -136,7 +172,9 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="Gonki by Dadadam_TemporaryKey.pfx" />
     <None Include="packages.config" />
+    <None Include="Properties\app.manifest" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -283,6 +321,18 @@
     <Content Include="Source\Voice\Garage.wav" />
     <Content Include="Source\Voice\Go.wav" />
     <Content Include="Source\Voice\Winner.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.6.1 %28x86 и x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

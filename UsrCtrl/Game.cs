@@ -21,6 +21,7 @@ namespace Gonki_by_Dadadam
         private EnemyAI _enemy_ai;
         private Finish _finish;
         private PropController _prop_controller;
+        private PostProcessing _post_processing;
 
         public Game()
         {
@@ -54,7 +55,9 @@ namespace Gonki_by_Dadadam
             _finish = new Finish(_rand.Next(100,300), Width, Height);
 
             _prop_controller = new PropController(_car_player, _car_enemy);
-            
+
+            _post_processing = new PostProcessing(Width, Height);
+
             Focus();
             start_resize();
 
@@ -104,7 +107,7 @@ namespace Gonki_by_Dadadam
                 _car_enemy.move_enemy(_car_player.Car.Current_Speed);
                 _car_enemy.update();
 
-                _prop_controller.update();
+                _prop_controller.update(Width);
 
                 _road.remove_road_parts();
                 _road.prolong_road_parts();
@@ -133,6 +136,8 @@ namespace Gonki_by_Dadadam
             {
                 foreach (AnimationSprite anim in from animation in AnimationManager.Animations where animation.Visible orderby animation.Zindex select animation)
                     gr.DrawImage(anim.nextframe(), anim.Left, anim.Top, anim.Width, anim.Height);
+
+
 
                 //test collision
                 foreach (Collision collision in CollisionManager.Collisions)
@@ -170,6 +175,7 @@ namespace Gonki_by_Dadadam
                 {
                     AnimationManager.group_visible(false, _car_player.Car.Id);
                     AnimationManager.set_visible(true, _car_player.Car.Id + "Stop");
+                    _prop_controller.PropStopPlayer.paint();
                 }
                 else
                 {
@@ -183,6 +189,7 @@ namespace Gonki_by_Dadadam
                 SoundManager.play_sound("TurnSignalCar");
                 AnimationManager.group_visible(false, _car_player.Car.Id);
                 AnimationManager.set_visible(true, _car_player.Car.Id + "Left");
+                _prop_controller.PropStopPlayer.paint();
             }
 
             if (State == "Right")
@@ -190,6 +197,7 @@ namespace Gonki_by_Dadadam
                 SoundManager.play_sound("TurnSignalCar");
                 AnimationManager.group_visible(false, _car_player.Car.Id);
                 AnimationManager.set_visible(true, _car_player.Car.Id + "Right");
+                _prop_controller.PropStopPlayer.paint();
             }
 
             if (State == "Boost")
@@ -230,6 +238,7 @@ namespace Gonki_by_Dadadam
                 {
                     AnimationManager.group_visible(false, _car_enemy.Car.Id);
                     AnimationManager.set_visible(true, _car_enemy.Car.Id + "Stop");
+                    _prop_controller.PropStopEnemy.paint();
                 }
                 else
                 {
@@ -243,6 +252,7 @@ namespace Gonki_by_Dadadam
                 SoundManager.play_sound("TurnSignalCarEnemy");
                 AnimationManager.group_visible(false, _car_enemy.Car.Id);
                 AnimationManager.set_visible(true, _car_enemy.Car.Id + "Left");
+                _prop_controller.PropStopEnemy.paint();
             }
 
             if (State == "Right")
@@ -250,6 +260,7 @@ namespace Gonki_by_Dadadam
                 SoundManager.play_sound("TurnSignalCarEnemy");
                 AnimationManager.group_visible(false, _car_enemy.Car.Id);
                 AnimationManager.set_visible(true, _car_enemy.Car.Id + "Right");
+                _prop_controller.PropStopEnemy.paint();
             }
 
             if (State == "Boost")
