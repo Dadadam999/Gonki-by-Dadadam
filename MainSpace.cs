@@ -161,11 +161,12 @@ namespace Gonki_by_Dadadam
 
         public void Init_Cars()
         {
-            Create_Car("Car01", "Ferrari", 50, 5, 15, 6, 6, 50, 50);
-            Create_Car("Car02", "Cabrio", 45, 7, 14, 8, 8, 55, 55);
-            Create_Car("Car03", "Nissan Green", 35, 9, 13, 10, 10, 65, 65);
-            Create_Car("Car04", "Nissan Yellow", 60, 3, 16, 4, 4, 40, 40);
-            Create_Car("Car05", "Ford", 70, 2, 17, 3, 3, 30, 30);
+            //Id, Name, maxSpeed, stepSpeed, backSpeed, rotateLeftSpeed, rotateRightSpeed, boostSpeed, maxBoostCharge
+            Create_Car("Car01", "Ferrari", 50, 5, 15, 6, 6, 50, 100);
+            Create_Car("Car02", "Cabrio", 45, 7, 14, 8, 8, 55, 110);
+            Create_Car("Car03", "Nissan Green", 35, 9, 13, 10, 10, 65, 130);
+            Create_Car("Car04", "Nissan Yellow", 60, 3, 16, 4, 4, 40, 80);
+            Create_Car("Car05", "Ford", 70, 2, 17, 3, 3, 30, 60);
         }
 
         private void Init_Sound()

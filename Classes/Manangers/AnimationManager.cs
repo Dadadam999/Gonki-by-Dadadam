@@ -16,9 +16,16 @@ namespace Gonki_by_Dadadam
         }
 
         public static void Set_Transform(float left, float top, float width, float height, params string[] names)
-        {
+        { 
             foreach (AnimationSprite anim in Animations)
                 if (names.Contains(anim.Name))
+                    anim.Transform(left, top, width, height);
+        }
+
+        public static void Group_Transform(float left, float top, float width, float height, string groups)
+        {
+            foreach (AnimationSprite anim in Animations)
+                if (groups == anim.Group)
                     anim.Transform(left, top, width, height);
         }
 
@@ -27,13 +34,6 @@ namespace Gonki_by_Dadadam
             foreach (AnimationSprite anim in Animations)
                 if (names.Contains(anim.Name))
                     anim.Visible = visible;
-        }
-
-        public static void Group_Transform(float left, float top, float width, float height, string group)
-        {
-            foreach (AnimationSprite anim in Animations)
-                if (group == anim.Group)
-                    anim.Transform(left, top, width, height);
         }
 
         public static void Group_Visible(bool visible, string group)
