@@ -2,6 +2,8 @@
 
 namespace Gonki_by_Dadadam
 {
+    // Если нужен вызов в консоль комманд во время игры, создайте экзепляр этой формы
+    // и выводите в консоль данные переменных через строку: Debug.SelfRef.Add_Input($"You var: { varinable }");
     public partial class Debug : Form
     {
         public static Debug SelfRef { get; set; }

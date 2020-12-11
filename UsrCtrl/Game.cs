@@ -73,8 +73,10 @@ namespace Gonki_by_Dadadam
         private void Game_Loop_Tick(object sender, EventArgs e)
         {
             string pressed_key = MainSpace.SelfRef.PressedKey;
-            if (pressed_key == "R")
+            if (!_playGame && (pressed_key == "R"))
             {
+                Breaking_Text.Text = "";
+                Speed_Info.Visible = true;
                 Instruction.Visible = true;
                 Pause_Label.Visible = false;
                 _playGame = true;
@@ -84,6 +86,7 @@ namespace Gonki_by_Dadadam
             if (pressed_key == "Escape")
             {
                 Game_Loop.Stop();
+                Speed_Info.Visible = false;
                 Instruction.Visible = false;
                 Pause_Label.Visible = true;
                 EndGame_Label.Visible = false;
@@ -115,7 +118,7 @@ namespace Gonki_by_Dadadam
 
                 AnimationManager.Update_Animations();
 
-                Speed_Info.Text = $"Скорость: {_carPlayer.Car.CurrentSpeed} test: {_carEnemy.Car.CurrentSpeed}\nНитро: {_carPlayer.Car.CurentBoostCharge}\ndist {_finish.Distance * Width}\nplayer {_carPlayer.Car.CoverDistance }\nenemy {_carEnemy.Car.CoverDistance}\nf_pos {_finish.Sprite.Left } ";
+                Speed_Info.Text = $"Скорость: {_carPlayer.Car.CurrentSpeed} \nНитро: {_carPlayer.Car.CurentBoostCharge}";
 
                 if (!string.IsNullOrEmpty(_finish.Result) && (EndGame_Label.Visible == false))
                     EndGame_Label.Visible = true;
@@ -292,7 +295,7 @@ namespace Gonki_by_Dadadam
                 _playGame = false;
                 SoundManager.Stop_All_Sound();
                 CollisionManager.Work = false;
-                Win_test.Text = "Crash car";
+                Breaking_Text.Text = "Crash car";
                 _finish.LoseAnim.Visible = true;
                 _carPlayer.Freeze = true;
                 _carEnemy.Freeze = true;
@@ -315,7 +318,7 @@ namespace Gonki_by_Dadadam
                 _playGame = false;
                 SoundManager.Stop_All_Sound();
                 CollisionManager.Work = false;
-                Win_test.Text = "Crash Player on border";
+                Breaking_Text.Text = "Crash Player on border";
                 _finish.LoseAnim.Visible = true;
                 _carPlayer.Freeze = true;
                 EndGame_Label.Visible = true;
@@ -333,7 +336,7 @@ namespace Gonki_by_Dadadam
                 _playGame = false;
                 SoundManager.Stop_All_Sound();
                 CollisionManager.Work = false;
-                Win_test.Text = "Crash Enemy on border";
+                Breaking_Text.Text = "Crash Enemy on border";
                 _finish.WinAnim.Visible = true;
                 _carEnemy.Freeze = true;
                 EndGame_Label.Visible = true;
