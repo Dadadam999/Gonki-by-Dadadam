@@ -100,6 +100,7 @@
     <Compile Include="Classes\Finish.cs" />
     <Compile Include="Classes\Manangers\MusicManager.cs" />
     <Compile Include="Classes\Manangers\SoundManager.cs" />
+    <Compile Include="Classes\Manangers\VoiceManager.cs" />
     <Compile Include="Classes\Sound.cs" />
     <Compile Include="Debug.cs">
       <SubType>Form</SubType>
@@ -148,7 +149,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Classes\Manangers\VoiceManager.cs" />
     <EmbeddedResource Include="Debug.resx">
       <DependentUpon>Debug.cs</DependentUpon>
     </EmbeddedResource>
@@ -172,7 +172,6 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="Gonki by Dadadam_TemporaryKey.pfx" />
     <None Include="packages.config" />
     <None Include="Properties\app.manifest" />
     <None Include="Properties\Settings.settings">
@@ -190,137 +189,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="car_wheel_PNG23302.ico" />
-    <Content Include="Source\Animation\AnimCar01\Car01.png" />
-    <Content Include="Source\Animation\AnimCar01\Car01Back.png" />
-    <Content Include="Source\Animation\AnimCar01\Car01Frame1.gif" />
-    <Content Include="Source\Animation\AnimCar01\Car01Frame2.gif" />
-    <Content Include="Source\Animation\AnimCar01\Car01Frame3.gif" />
-    <Content Include="Source\Animation\AnimCar01\Car01Frame4.gif" />
-    <Content Include="Source\Animation\AnimCar01\Car01Frame5.gif" />
-    <Content Include="Source\Animation\AnimCar01\Car01Frame6.gif" />
-    <Content Include="Source\Animation\AnimCar01\Car01Frame7.gif" />
-    <Content Include="Source\Animation\AnimCar01\Car01Frame8.gif" />
-    <Content Include="Source\Animation\AnimCar01\Car01Frame9.gif" />
-    <Content Include="Source\Animation\AnimCar01\Car01Left.png" />
-    <Content Include="Source\Animation\AnimCar01\Car01Right.png" />
-    <Content Include="Source\Animation\AnimCar01\Car01Stop.png" />
-    <Content Include="Source\Animation\AnimCar02\Car02.png" />
-    <Content Include="Source\Animation\AnimCar02\Car02Back.png" />
-    <Content Include="Source\Animation\AnimCar02\Car02Frame1.gif" />
-    <Content Include="Source\Animation\AnimCar02\Car02Frame2.gif" />
-    <Content Include="Source\Animation\AnimCar02\Car02Frame3.gif" />
-    <Content Include="Source\Animation\AnimCar02\Car02Frame4.gif" />
-    <Content Include="Source\Animation\AnimCar02\Car02Frame5.gif" />
-    <Content Include="Source\Animation\AnimCar02\Car02Frame6.gif" />
-    <Content Include="Source\Animation\AnimCar02\Car02Frame7.gif" />
-    <Content Include="Source\Animation\AnimCar02\Car02Frame8.gif" />
-    <Content Include="Source\Animation\AnimCar02\Car02Frame9.gif" />
-    <Content Include="Source\Animation\AnimCar02\Car02Left.png" />
-    <Content Include="Source\Animation\AnimCar02\Car02Right.png" />
-    <Content Include="Source\Animation\AnimCar02\Car02Stop.png" />
-    <Content Include="Source\Animation\AnimCar03\Car03.png" />
-    <Content Include="Source\Animation\AnimCar03\Car03Frame1.gif" />
-    <Content Include="Source\Animation\AnimCar03\Car03Frame2.gif" />
-    <Content Include="Source\Animation\AnimCar03\Car03Frame3.gif" />
-    <Content Include="Source\Animation\AnimCar03\Car03Frame4.gif" />
-    <Content Include="Source\Animation\AnimCar03\Car03Frame5.gif" />
-    <Content Include="Source\Animation\AnimCar03\Car03Frame6.gif" />
-    <Content Include="Source\Animation\AnimCar03\Car03Frame7.gif" />
-    <Content Include="Source\Animation\AnimCar03\Car03Frame8.gif" />
-    <Content Include="Source\Animation\AnimCar03\Car03Frame9.gif" />
-    <Content Include="Source\Animation\AnimCar03\Сar03Back.png" />
-    <Content Include="Source\Animation\AnimCar03\Сar03Left.png" />
-    <Content Include="Source\Animation\AnimCar03\Сar03Right.png" />
-    <Content Include="Source\Animation\AnimCar03\Сar03Stop.png" />
-    <Content Include="Source\Animation\AnimCar04\Car04.png" />
-    <Content Include="Source\Animation\AnimCar04\Car04Back.png" />
-    <Content Include="Source\Animation\AnimCar04\Car04Frame1.gif" />
-    <Content Include="Source\Animation\AnimCar04\Car04Frame2.gif" />
-    <Content Include="Source\Animation\AnimCar04\Car04Frame3.gif" />
-    <Content Include="Source\Animation\AnimCar04\Car04Frame4.gif" />
-    <Content Include="Source\Animation\AnimCar04\Car04Frame5.gif" />
-    <Content Include="Source\Animation\AnimCar04\Car04Frame6.gif" />
-    <Content Include="Source\Animation\AnimCar04\Car04Frame7.gif" />
-    <Content Include="Source\Animation\AnimCar04\Car04Frame8.gif" />
-    <Content Include="Source\Animation\AnimCar04\Car04Frame9.gif" />
-    <Content Include="Source\Animation\AnimCar04\Car04Left.png" />
-    <Content Include="Source\Animation\AnimCar04\Car04Right.png" />
-    <Content Include="Source\Animation\AnimCar04\Car04Stop.png" />
-    <Content Include="Source\Animation\AnimCar05\Car05.png" />
-    <Content Include="Source\Animation\AnimCar05\Car05Back.png" />
-    <Content Include="Source\Animation\AnimCar05\Car05Frame1.gif" />
-    <Content Include="Source\Animation\AnimCar05\Car05Frame2.gif" />
-    <Content Include="Source\Animation\AnimCar05\Car05Frame3.gif" />
-    <Content Include="Source\Animation\AnimCar05\Car05Frame4.gif" />
-    <Content Include="Source\Animation\AnimCar05\Car05Frame5.gif" />
-    <Content Include="Source\Animation\AnimCar05\Car05Frame6.gif" />
-    <Content Include="Source\Animation\AnimCar05\Car05Frame7.gif" />
-    <Content Include="Source\Animation\AnimCar05\Car05Frame8.gif" />
-    <Content Include="Source\Animation\AnimCar05\Car05Frame9.gif" />
-    <Content Include="Source\Animation\AnimCar05\Car05Left.png" />
-    <Content Include="Source\Animation\AnimCar05\Car05Right.png" />
-    <Content Include="Source\Animation\AnimCar05\Car05Stop.png" />
-    <Content Include="Source\Animation\Lose\LoseFrame1.gif" />
-    <Content Include="Source\Animation\Lose\LoseFrame2.gif" />
-    <Content Include="Source\Animation\Lose\LoseFrame3.gif" />
-    <Content Include="Source\Animation\Lose\LoseFrame4.gif" />
-    <Content Include="Source\Animation\Win\WinFrame1.gif" />
-    <Content Include="Source\Animation\Win\WinFrame10.gif" />
-    <Content Include="Source\Animation\Win\WinFrame11.gif" />
-    <Content Include="Source\Animation\Win\WinFrame12.gif" />
-    <Content Include="Source\Animation\Win\WinFrame13.gif" />
-    <Content Include="Source\Animation\Win\WinFrame14.gif" />
-    <Content Include="Source\Animation\Win\WinFrame15.gif" />
-    <Content Include="Source\Animation\Win\WinFrame16.gif" />
-    <Content Include="Source\Animation\Win\WinFrame17.gif" />
-    <Content Include="Source\Animation\Win\WinFrame18.gif" />
-    <Content Include="Source\Animation\Win\WinFrame19.gif" />
-    <Content Include="Source\Animation\Win\WinFrame2.gif" />
-    <Content Include="Source\Animation\Win\WinFrame20.gif" />
-    <Content Include="Source\Animation\Win\WinFrame21.gif" />
-    <Content Include="Source\Animation\Win\WinFrame22.gif" />
-    <Content Include="Source\Animation\Win\WinFrame23.gif" />
-    <Content Include="Source\Animation\Win\WinFrame24.gif" />
-    <Content Include="Source\Animation\Win\WinFrame25.gif" />
-    <Content Include="Source\Animation\Win\WinFrame26.gif" />
-    <Content Include="Source\Animation\Win\WinFrame27.gif" />
-    <Content Include="Source\Animation\Win\WinFrame28.gif" />
-    <Content Include="Source\Animation\Win\WinFrame29.gif" />
-    <Content Include="Source\Animation\Win\WinFrame3.gif" />
-    <Content Include="Source\Animation\Win\WinFrame30.gif" />
-    <Content Include="Source\Animation\Win\WinFrame31.gif" />
-    <Content Include="Source\Animation\Win\WinFrame32.gif" />
-    <Content Include="Source\Animation\Win\WinFrame4.gif" />
-    <Content Include="Source\Animation\Win\WinFrame5.gif" />
-    <Content Include="Source\Animation\Win\WinFrame6.gif" />
-    <Content Include="Source\Animation\Win\WinFrame7.gif" />
-    <Content Include="Source\Animation\Win\WinFrame8.gif" />
-    <Content Include="Source\Animation\Win\WinFrame9.gif" />
-    <Content Include="Source\Menu\BackgroundMenu.jpg" />
-    <Content Include="Source\Menu\ButtonMenu.png" />
-    <Content Include="Source\Menu\ButtonMenuWheel.png" />
-    <Content Include="Source\Menu\GarageCarInfo.png" />
-    <Content Include="Source\Menu\GarageCarSprite.png" />
-    <Content Include="Source\Music\Game.wav" />
-    <Content Include="Source\Music\GameOver.wav" />
-    <Content Include="Source\Music\Garage.wav" />
-    <Content Include="Source\Music\MainMenu.wav" />
-    <Content Include="Source\Music\Win.wav" />
-    <Content Include="Source\Road\FinishLine.jpg" />
-    <Content Include="Source\Road\RoadDefault.png" />
-    <Content Include="Source\Sound\BackAndRotate.wav" />
-    <Content Include="Source\Sound\BoostCar.wav" />
-    <Content Include="Source\Sound\BrokenCar.wav" />
-    <Content Include="Source\Sound\Car01.wav" />
-    <Content Include="Source\Sound\Car02.wav" />
-    <Content Include="Source\Sound\Car03.wav" />
-    <Content Include="Source\Sound\Car04.wav" />
-    <Content Include="Source\Sound\Car05.wav" />
-    <Content Include="Source\Sound\TurnSignalCar.wav" />
-    <Content Include="Source\Voice\GameOver.wav" />
-    <Content Include="Source\Voice\Garage.wav" />
-    <Content Include="Source\Voice\Go.wav" />
-    <Content Include="Source\Voice\Winner.wav" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">

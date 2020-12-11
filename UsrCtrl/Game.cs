@@ -217,6 +217,21 @@ namespace Gonki_by_Dadadam
 
         private void enemy_state_machine(string State)
         {
+            if (!_car_enemy.is_out_screen())
+            {
+                SoundManager.reset_volume_sound(_car_enemy.Car.Id + "_ForwardEnemy");
+                SoundManager.reset_volume_sound("BackEnemy");
+                SoundManager.reset_volume_sound("TurnSignalCarEnemy");
+                SoundManager.reset_volume_sound("BoostCarEnemy");
+            }
+            else
+            {
+                SoundManager.change_volume_sound(_car_enemy.Car.Id + "_ForwardEnemy", 0);
+                SoundManager.change_volume_sound("BackEnemy", 0);
+                SoundManager.change_volume_sound("TurnSignalCarEnemy", 0);
+                SoundManager.change_volume_sound("BoostCarEnemy", 0);
+            }
+
             if (State == "PlusSpeed")
             {
                 AnimationManager.group_visible(false, _car_enemy.Car.Id);
@@ -275,7 +290,7 @@ namespace Gonki_by_Dadadam
                 SoundManager.stop_sound("BoostCarEnemy");
             }
 
-            if (State == "AtOvertake") 
+            if (State == "AtOvertake")
             {
                 SoundManager.stop_sound("BoostCarEnemy");
                 AnimationManager.set_visible(false, "PropBoostEnemy");

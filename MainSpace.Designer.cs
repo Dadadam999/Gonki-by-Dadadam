@@ -29,28 +29,44 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainSpace));
+            this.PreLoad = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.PreLoad)).BeginInit();
             this.SuspendLayout();
+            // 
+            // PreLoad
+            // 
+            this.PreLoad.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PreLoad.Image = global::Gonki_by_Dadadam.Properties.Resources.Load;
+            this.PreLoad.Location = new System.Drawing.Point(0, 0);
+            this.PreLoad.Name = "PreLoad";
+            this.PreLoad.Size = new System.Drawing.Size(784, 561);
+            this.PreLoad.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PreLoad.TabIndex = 1;
+            this.PreLoad.TabStop = false;
             // 
             // MainSpace
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 561);
+            this.Controls.Add(this.PreLoad);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.Name = "MainSpace";
             this.Text = "Gonki by Dadadam";
-            this.Load += new System.EventHandler(this.MainSpace_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainSpace_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.MainSpace_KeyUp);
             this.Resize += new System.EventHandler(this.MainSpace_Resize);
+            ((System.ComponentModel.ISupportInitialize)(this.PreLoad)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
+
+        private System.Windows.Forms.PictureBox PreLoad;
     }
 }
 

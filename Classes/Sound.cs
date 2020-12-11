@@ -23,7 +23,15 @@ namespace Gonki_by_Dadadam
             Volume = volume;
             Path_File = path_file;
             _player.MediaEnded += new EventHandler(MediaEnded);
+            _player.MediaOpened += _player_MediaOpened;
+            _player.Volume = 0;
             _player.Open(Path_File);
+        }
+
+        private void _player_MediaOpened(object sender, EventArgs e)
+        {
+            MainSpace.selfref.load();
+            Debug.selfref.add_input($"Load {Name}");
         }
 
         public void play_sound() 
@@ -48,6 +56,16 @@ namespace Gonki_by_Dadadam
         {
             Is_Playing = false;
             _player.Stop();
+        }
+
+        public void change_volume(double Volume)
+        {
+            _player.Volume = Volume;
+        }
+
+        public void reset_volume()
+        {
+            _player.Volume = Volume;
         }
     }
 }

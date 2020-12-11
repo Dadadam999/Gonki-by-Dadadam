@@ -27,32 +27,41 @@ namespace Gonki_by_Dadadam
         public string MusicFolder = AppDomain.CurrentDomain.BaseDirectory + @"Music\";
         public string Pressed_Key = "";
 
+        private int _load_count = 1;
+
         public static MainSpace selfref { get; set; }
 
         public Debug db = new Debug();
+
         public MainSpace()
         {
             InitializeComponent();
             selfref = this;
 
             db.Show();
-
+            
             init_cars();
-            Debug.selfref.add_input("car_load");
             init_sound();
-            Debug.selfref.add_input("sound_load");
 
             Game = new Game();
             MenuGame = new Menu();
             Garage = new Garage();
-
             Controls.AddRange(new Control[] { MenuGame, Game, Garage });
-            show_menu();
+            MenuGame.Hide();
+            Game.Hide();
+            Garage.Hide();
+
         }
 
-        private void MainSpace_Load(object sender, EventArgs e)
-        {
-            Debug.selfref.add_input("form_load");
+        public void load() {
+            if (_load_count >= 17) // колличество инициализированных треков 
+            {
+                show_menu();
+                PreLoad.Visible = false;
+                Controls.Remove(PreLoad);
+            }
+            else
+                _load_count++;
         }
 
         private void MainSpace_KeyDown(object sender, KeyEventArgs e)
@@ -186,17 +195,6 @@ namespace Gonki_by_Dadadam
         }
 
         private void init_sound() {
-            MusicManager.Musics.Add("MainMenu", new Uri(MusicFolder + "MainMenu.wav"));
-            MusicManager.Musics.Add("Garage", new Uri(MusicFolder + "Garage.wav"));
-            MusicManager.Musics.Add("Game", new Uri(MusicFolder + "Game.wav"));
-            MusicManager.Musics.Add("Win", new Uri(MusicFolder + "Win.wav"));
-            MusicManager.Musics.Add("GameOver", new Uri(MusicFolder + "GameOver.wav"));
-
-            VoiceManager.Voices.Add("Winner", new Uri(VoiceFolder + "Winner.wav"));
-            VoiceManager.Voices.Add("GameOver", new Uri(VoiceFolder + "GameOver.wav"));
-            VoiceManager.Voices.Add("Go", new Uri(VoiceFolder + "Go.wav"));
-            VoiceManager.Voices.Add("Garage", new Uri(VoiceFolder + "Garage.wav"));
-
             SoundManager.sounds.Add(new Sound("Car01_Forward", new Uri(SoundFolder + "Car01Forward.wav"), true, 0.4));
             SoundManager.sounds.Add(new Sound("Car02_Forward", new Uri(SoundFolder + "Car02Forward.wav"), true, 0.4));
             SoundManager.sounds.Add(new Sound("Car03_Forward", new Uri(SoundFolder + "Car03Forward.wav"), true, 0.4));
@@ -214,8 +212,19 @@ namespace Gonki_by_Dadadam
             SoundManager.sounds.Add(new Sound("BoostCarEnemy", new Uri(SoundFolder + "BoostCar.wav"), false, 0.4));
             SoundManager.sounds.Add(new Sound("BackEnemy", new Uri(SoundFolder + "Back.wav"), false, 0.4));
             SoundManager.sounds.Add(new Sound("TurnSignalCarEnemy", new Uri(SoundFolder + "TurnSignalCar.wav"), false, 0.2));
-            
+
             SoundManager.sounds.Add(new Sound("BrokenCar", new Uri(SoundFolder + "BrokenCar.wav"), false, 0.5));
+
+            MusicManager.Musics.Add("MainMenu", new Uri(MusicFolder + "MainMenu.wav"));
+            MusicManager.Musics.Add("Garage", new Uri(MusicFolder + "Garage.wav"));
+            MusicManager.Musics.Add("Game", new Uri(MusicFolder + "Game.wav"));
+            MusicManager.Musics.Add("Win", new Uri(MusicFolder + "Win.wav"));
+            MusicManager.Musics.Add("GameOver", new Uri(MusicFolder + "GameOver.wav"));
+            
+            VoiceManager.Voices.Add("Winner", new Uri(VoiceFolder + "Winner.wav"));
+            VoiceManager.Voices.Add("GameOver", new Uri(VoiceFolder + "GameOver.wav"));
+            VoiceManager.Voices.Add("Go", new Uri(VoiceFolder + "Go.wav"));
+            VoiceManager.Voices.Add("Garage", new Uri(VoiceFolder + "Garage.wav"));
         }
     }
 }

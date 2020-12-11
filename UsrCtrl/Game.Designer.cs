@@ -39,7 +39,7 @@
             // 
             // Game_Loop
             // 
-            this.Game_Loop.Interval = 30;
+            this.Game_Loop.Interval = 16;
             this.Game_Loop.Tick += new System.EventHandler(this.Game_Loop_Tick);
             // 
             // Instruction

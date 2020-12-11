@@ -9,7 +9,7 @@ using static System.Net.Mime.MediaTypeNames;
 
 namespace Gonki_by_Dadadam
 {
-    public class VoiceManager
+    public static class VoiceManager
     {
         public static Dictionary<string, Uri> Voices { get; set; } = new Dictionary<string, Uri>();
         private static MediaPlayer _player_voice { get; set; } = new MediaPlayer();
