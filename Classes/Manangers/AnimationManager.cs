@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Gonki_by_Dadadam
 {
@@ -10,39 +7,40 @@ namespace Gonki_by_Dadadam
     {
         public static List<AnimationSprite> Animations { get; set; } = new List<AnimationSprite>();
 
-        public static void update_animations() {
+        public static void Update_Animations()
+        {
             if (Animations.Count > 0)
                 foreach (AnimationSprite anim in Animations)
-                  if(anim.Visible)
-                      anim.nextframe();
+                    if (anim.Visible)
+                        anim.Next_Frame();
         }
 
-        public static void set_transform(float Left, float Top, float Width, float Height, params string[] Names) 
+        public static void Set_Transform(float left, float top, float width, float height, params string[] names)
         {
             foreach (AnimationSprite anim in Animations)
-                if (Names.Contains(anim.Name))
-                    anim.transform(Left, Top, Width, Height);
+                if (names.Contains(anim.Name))
+                    anim.Transform(left, top, width, height);
         }
 
-        public static void set_visible(bool Visible, params string[] Names)
+        public static void Set_Visible(bool visible, params string[] names)
         {
             foreach (AnimationSprite anim in Animations)
-                if (Names.Contains(anim.Name))
-                    anim.Visible = Visible;
+                if (names.Contains(anim.Name))
+                    anim.Visible = visible;
         }
 
-        public static void group_transform(float Left, float Top, float Width, float Height, string Group)
+        public static void Group_Transform(float left, float top, float width, float height, string group)
         {
             foreach (AnimationSprite anim in Animations)
-                if (Group == anim.Group)
-                    anim.transform(Left, Top, Width, Height);
+                if (group == anim.Group)
+                    anim.Transform(left, top, width, height);
         }
 
-        public static void group_visible(bool Visible, string Group)
+        public static void Group_Visible(bool visible, string group)
         {
             foreach (AnimationSprite anim in Animations)
-                if (Group == anim.Group)
-                    anim.Visible = Visible;
+                if (group == anim.Group)
+                    anim.Visible = visible;
         }
     }
 }

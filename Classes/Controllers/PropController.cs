@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Gonki_by_Dadadam
+﻿namespace Gonki_by_Dadadam
 {
     public class PropController
     {
@@ -16,29 +10,25 @@ namespace Gonki_by_Dadadam
         public PropController(PlayerController playerController, EnemyController enemyController)
         {
             PropBoostPlayer = new PropBoost(playerController)
-            {
-                Name = "PropBoostPlayer"
-            };
-            
+            { Name = "PropBoostPlayer" };
+
             PropBoostEnemy = new PropBoost(enemyController)
-            {
-                Name = "PropBoostEnemy"
-            };
+            { Name = "PropBoostEnemy" };
 
             PropStopPlayer = new PropStopTrack(playerController);
             PropStopEnemy = new PropStopTrack(enemyController);
         }
 
-        public void update(float WidthScreen) 
+        public void Update(float widthScreen)
         {
-            PropBoostPlayer.current_position();
-            PropBoostEnemy.current_position();
+            PropBoostPlayer.Current_Position();
+            PropBoostEnemy.Current_Position();
 
-            PropStopPlayer.remove(WidthScreen);
-            PropStopEnemy.remove(WidthScreen);
+            PropStopPlayer.Remove(widthScreen);
+            PropStopEnemy.Remove(widthScreen);
 
-            PropStopPlayer.update(PropStopPlayer.Controller.Car.Current_Speed * -1);
-            PropStopEnemy.update(PropStopPlayer.Controller.Car.Current_Speed * -1);
+            PropStopPlayer.Update(PropStopPlayer.Controller.Car.CurrentSpeed * -1);
+            PropStopEnemy.Update(PropStopPlayer.Controller.Car.CurrentSpeed * -1);
         }
     }
 }

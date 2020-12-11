@@ -38,6 +38,7 @@
             this.Garage_Back.BackgroundImage = global::Gonki_by_Dadadam.Properties.Resources.ButtonMenu;
             this.Garage_Back.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.Garage_Back.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.Garage_Back.FlatAppearance.BorderSize = 0;
             this.Garage_Back.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.Garage_Back.Font = new System.Drawing.Font("Showcard Gothic", 14.25F, System.Drawing.FontStyle.Bold);
             this.Garage_Back.ForeColor = System.Drawing.Color.SkyBlue;

@@ -1,39 +1,38 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 //using System.Windows.Forms;
 
 namespace Gonki_by_Dadadam
 {
     public static class CollisionManager
     {
-        public delegate void InteractCollision(string Name1, string Name2);
+        public delegate void InteractCollision(string name1, string name2);
         public static event InteractCollision Interact;
+
         public static List<Collision> Collisions { get; set; } = new List<Collision>();
         public static bool Work { get; set; } = false;
-        static Rectangle rectangle1 = new Rectangle();
-        static Rectangle rectangle2 = new Rectangle();
 
-        public static void check()
+        private static Rectangle _rectangle1 = new Rectangle();
+        private static Rectangle _rectangle2 = new Rectangle();
+
+        public static void Check()
         {
             if (Collisions.Count > 0 && Work)
                 foreach (Collision collision1 in Collisions)
                     foreach (Collision collision2 in Collisions)
                     {
-                        rectangle1.X = Convert.ToInt32(collision1.Left);
-                        rectangle1.Y = Convert.ToInt32(collision1.Top);
-                        rectangle1.Width = Convert.ToInt32(collision1.Width);
-                        rectangle1.Height = Convert.ToInt32(collision1.Height);
+                        _rectangle1.X = Convert.ToInt32(collision1.Left);
+                        _rectangle1.Y = Convert.ToInt32(collision1.Top);
+                        _rectangle1.Width = Convert.ToInt32(collision1.Width);
+                        _rectangle1.Height = Convert.ToInt32(collision1.Height);
 
-                        rectangle2.X = Convert.ToInt32(collision2.Left);
-                        rectangle2.Y = Convert.ToInt32(collision2.Top);
-                        rectangle2.Width = Convert.ToInt32(collision2.Width);
-                        rectangle2.Height = Convert.ToInt32(collision2.Height);
+                        _rectangle2.X = Convert.ToInt32(collision2.Left);
+                        _rectangle2.Y = Convert.ToInt32(collision2.Top);
+                        _rectangle2.Width = Convert.ToInt32(collision2.Width);
+                        _rectangle2.Height = Convert.ToInt32(collision2.Height);
 
-                        if (rectangle1.IntersectsWith(rectangle2) && !collision1.Equals(collision2))
+                        if (_rectangle1.IntersectsWith(_rectangle2) && !collision1.Equals(collision2))
                             Interact?.Invoke(collision1.Name, collision2.Name);
                     }
         }

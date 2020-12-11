@@ -1,27 +1,23 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
 using System.Data;
+using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Gonki_by_Dadadam
 {
     public partial class Game : UserControl
     {
-        private static Random _rand = new Random();
-        private bool _play_game = false;
+        private static readonly Random _rand = new Random();
+        private bool _playGame = false;
 
         private RoadController _road;
-        private EnemyController _car_enemy;
-        private PlayerController _car_player;
-        private EnemyAI _enemy_ai;
+        private EnemyController _carEnemy;
+        private PlayerController _carPlayer;
+        private EnemyAI _enemyAi;
         private Finish _finish;
-        private PropController _prop_controller;
-        private PostProcessing _post_processing;
+        private PropController _propController;
+        private PostProcessing _postProcessing;
 
         public Game()
         {
@@ -30,41 +26,39 @@ namespace Gonki_by_Dadadam
             Size = new Size(Width, Width * 3 / 4);
         }
 
-        public void init_game() 
+        public void Init_Game()
         {
             CollisionManager.Collisions.Clear();
             CollisionManager.Work = true;
-            CollisionManager.Interact += new CollisionManager.InteractCollision(collision_handler);
+            CollisionManager.Interact += new CollisionManager.InteractCollision(Collision_Handler);
 
             AnimationManager.Animations.Clear();
 
             _road = new RoadController(Width, Height);
 
-            _car_player = new PlayerController(Width, Height);
-            _car_player.init_car(MainSpace.selfref.CarPlayerExmp.Clone());
-            _car_player.State += new PlayerController.StateMachine(player_state_machine);
+            _carPlayer = new PlayerController(Width, Height);
+            _carPlayer.Init_Car(MainSpace.SelfRef.CarPlayerExmp.Clone());
+            _carPlayer.State += new PlayerController.StateMachine(Player_State_Machine);
 
-            _car_enemy = new EnemyController(Width, Height);
-            _car_enemy.init_car(MainSpace.selfref.TemplateCars[_rand.Next(0, MainSpace.selfref.TemplateCars.Count - 1)].Clone());
-            _car_enemy.State += new EnemyController.StateMachine(enemy_state_machine);
+            _carEnemy = new EnemyController(Width, Height);
+            _carEnemy.Init_Car(MainSpace.SelfRef.TemplateCars[_rand.Next(0, MainSpace.SelfRef.TemplateCars.Count - 1)].Clone());
+            _carEnemy.State += new EnemyController.StateMachine(Enemy_State_Machine);
 
-            _enemy_ai = new EnemyAI();
-            _enemy_ai.Car_Enemy = _car_enemy;
-            _enemy_ai.Car_Player = _car_player;
+            _enemyAi = new EnemyAI { CarEnemy = _carEnemy, CarPlayer = _carPlayer };
 
-            _finish = new Finish(_rand.Next(100,300), Width, Height);
+            _finish = new Finish(_rand.Next(100, 300), Width, Height);
 
-            _prop_controller = new PropController(_car_player, _car_enemy);
+            _propController = new PropController(_carPlayer, _carEnemy);
 
-            _post_processing = new PostProcessing(Width, Height);
+            _postProcessing = new PostProcessing(Width, Height);
 
             Focus();
-            start_resize();
+            Start_Resize();
 
             Game_Loop.Start();
         }
 
-        void start_resize() 
+        void Start_Resize()
         {
             Pause_Label.Left = Width / 2 - Pause_Label.Width / 2;
             Pause_Label.Top = Height / 5 * 4;
@@ -72,19 +66,19 @@ namespace Gonki_by_Dadadam
             EndGame_Label.Left = Width / 2 - EndGame_Label.Width / 2;
             EndGame_Label.Top = Height - EndGame_Label.Height * 2;
 
-            _car_player.set_start_position();
-            _car_enemy.set_start_position();
+            _carPlayer.Set_Start_Position();
+            _carEnemy.Set_Start_Position();
         }
 
         private void Game_Loop_Tick(object sender, EventArgs e)
         {
-            string pressed_key = MainSpace.selfref.Pressed_Key;
-            if (pressed_key == "R") 
+            string pressed_key = MainSpace.SelfRef.PressedKey;
+            if (pressed_key == "R")
             {
                 Instruction.Visible = true;
                 Pause_Label.Visible = false;
-                _play_game = true;
-                VoiceManager.change_voice("Go");
+                _playGame = true;
+                VoiceManager.Change_Voice("Go");
             }
 
             if (pressed_key == "Escape")
@@ -93,37 +87,37 @@ namespace Gonki_by_Dadadam
                 Instruction.Visible = false;
                 Pause_Label.Visible = true;
                 EndGame_Label.Visible = false;
-                _play_game = false;
-                SoundManager.stop_all_sound();
-                MainSpace.selfref.show_menu();
+                _playGame = false;
+                SoundManager.Stop_All_Sound();
+                MainSpace.SelfRef.Show_Menu();
             }
 
-            if (_play_game)
+            if (_playGame)
             {
-                _car_player.key_event(pressed_key);
-                _car_player.update();
+                _carPlayer.Key_Event(pressed_key);
+                _carPlayer.Update();
 
-                _enemy_ai.behavior();
-                _car_enemy.move_enemy(_car_player.Car.Current_Speed);
-                _car_enemy.update();
+                _enemyAi.Behavior();
+                _carEnemy.Move_Enemy(_carPlayer.Car.CurrentSpeed);
+                _carEnemy.Update();
 
-                _prop_controller.update(Width);
+                _propController.Update(Width);
 
-                _road.remove_road_parts();
-                _road.prolong_road_parts();
-                _road.move_road_parts(_car_player.Car.Current_Speed);
+                _road.Remove_Road_Parts();
+                _road.Prolong_Road_Parts();
+                _road.Move_Road_Parts(_carPlayer.Car.CurrentSpeed);
 
-                _finish.check_win(_car_player.Car.Cover_Distance, _car_enemy.Car.Cover_Distance);
-                _finish.move(_car_player.Car.Current_Speed);
+                _finish.Check_Win(_carPlayer.Car.CoverDistance, _carEnemy.Car.CoverDistance);
+                _finish.Move(_carPlayer.Car.CurrentSpeed);
 
 
-                CollisionManager.check();
+                CollisionManager.Check();
 
-                AnimationManager.update_animations();
+                AnimationManager.Update_Animations();
 
-                Speed_Info.Text = $"Скорость: {_car_player.Car.Current_Speed} test: {_car_enemy.Car.Current_Speed}\nНитро: {_car_player.Car.Curent_Boost_Charge}\ndist {_finish.Distance * Width}\nplayer {_car_player.Car.Cover_Distance }\nenemy {_car_enemy.Car.Cover_Distance}\nf_pos {_finish.Sprite.Left } ";
-               
-                if (!String.IsNullOrEmpty(_finish.Result) && EndGame_Label.Visible == false)
+                Speed_Info.Text = $"Скорость: {_carPlayer.Car.CurrentSpeed} test: {_carEnemy.Car.CurrentSpeed}\nНитро: {_carPlayer.Car.CurentBoostCharge}\ndist {_finish.Distance * Width}\nplayer {_carPlayer.Car.CoverDistance }\nenemy {_carEnemy.Car.CoverDistance}\nf_pos {_finish.Sprite.Left } ";
+
+                if (!string.IsNullOrEmpty(_finish.Result) && (EndGame_Label.Visible == false))
                     EndGame_Label.Visible = true;
             }
             Repaint();
@@ -135,227 +129,221 @@ namespace Gonki_by_Dadadam
             using (Graphics gr = Graphics.FromImage(BackgroundImage))
             {
                 foreach (AnimationSprite anim in from animation in AnimationManager.Animations where animation.Visible orderby animation.Zindex select animation)
-                    gr.DrawImage(anim.nextframe(), anim.Left, anim.Top, anim.Width, anim.Height);
-
-
-
-                //test collision
-                foreach (Collision collision in CollisionManager.Collisions)
-                    gr.DrawRectangle(new Pen(Color.Red, 1), collision.Left, collision.Top, collision.Width, collision.Height);
+                    gr.DrawImage(anim.Next_Frame(), anim.Left, anim.Top, anim.Width, anim.Height);
             }
         }
 
-        private void player_state_machine(string State)
+        private void Player_State_Machine(string State)
         {
             if (State == "")
             {
-                SoundManager.stop_sound("TurnSignalCar");
-                SoundManager.stop_sound("BoostCar");
-                SoundManager.stop_sound("Back");
-                AnimationManager.group_visible(false, _car_player.Car.Id);
-                AnimationManager.set_visible(true, _car_player.Car.Id);
-                AnimationManager.set_visible(false, "PropBoostPlayer");
+                SoundManager.Stop_Sound("TurnSignalCar");
+                SoundManager.Stop_Sound("BoostCar");
+                SoundManager.Stop_Sound("Back");
+                AnimationManager.Group_Visible(false, _carPlayer.Car.Id);
+                AnimationManager.Set_Visible(true, _carPlayer.Car.Id);
+                AnimationManager.Set_Visible(false, "PropBoostPlayer");
             }
 
             if (State == "Move")
             {
-                SoundManager.play_sound(_car_player.Car.Id + "_Forward");
+                SoundManager.Play_Sound(_carPlayer.Car.Id + "_Forward");
             }
-            
+
             if (State == "Stop")
             {
-                SoundManager.stop_sound(_car_player.Car.Id + "_Forward");
+                SoundManager.Stop_Sound(_carPlayer.Car.Id + "_Forward");
             }
 
             if (State == "Back")
             {
-                SoundManager.play_sound("Back");
+                SoundManager.Play_Sound("Back");
 
-                if (_car_player.Car.Current_Speed > 0)
+                if (_carPlayer.Car.CurrentSpeed > 0)
                 {
-                    AnimationManager.group_visible(false, _car_player.Car.Id);
-                    AnimationManager.set_visible(true, _car_player.Car.Id + "Stop");
-                    _prop_controller.PropStopPlayer.paint();
+                    AnimationManager.Group_Visible(false, _carPlayer.Car.Id);
+                    AnimationManager.Set_Visible(true, _carPlayer.Car.Id + "Stop");
+                    _propController.PropStopPlayer.Paint();
                 }
                 else
                 {
-                    AnimationManager.group_visible(false, _car_player.Car.Id);
-                    AnimationManager.set_visible(true, _car_player.Car.Id + "Back");
+                    AnimationManager.Group_Visible(false, _carPlayer.Car.Id);
+                    AnimationManager.Set_Visible(true, _carPlayer.Car.Id + "Back");
                 }
             }
-            
+
             if (State == "Left")
             {
-                SoundManager.play_sound("TurnSignalCar");
-                AnimationManager.group_visible(false, _car_player.Car.Id);
-                AnimationManager.set_visible(true, _car_player.Car.Id + "Left");
-                _prop_controller.PropStopPlayer.paint();
+                SoundManager.Play_Sound("TurnSignalCar");
+                AnimationManager.Group_Visible(false, _carPlayer.Car.Id);
+                AnimationManager.Set_Visible(true, _carPlayer.Car.Id + "Left");
+                _propController.PropStopPlayer.Paint();
             }
 
             if (State == "Right")
             {
-                SoundManager.play_sound("TurnSignalCar");
-                AnimationManager.group_visible(false, _car_player.Car.Id);
-                AnimationManager.set_visible(true, _car_player.Car.Id + "Right");
-                _prop_controller.PropStopPlayer.paint();
+                SoundManager.Play_Sound("TurnSignalCar");
+                AnimationManager.Group_Visible(false, _carPlayer.Car.Id);
+                AnimationManager.Set_Visible(true, _carPlayer.Car.Id + "Right");
+                _propController.PropStopPlayer.Paint();
             }
 
             if (State == "Boost")
             {
-                if (_car_player.Car.Curent_Boost_Charge <= 0)
+                if (_carPlayer.Car.CurentBoostCharge <= 0)
                 {
-                    SoundManager.stop_sound("BoostCar");
-                    AnimationManager.set_visible(false, "PropBoostPlayer");
+                    SoundManager.Stop_Sound("BoostCar");
+                    AnimationManager.Set_Visible(false, "PropBoostPlayer");
                 }
                 else
                 {
-                    SoundManager.play_sound("BoostCar");
-                    AnimationManager.set_visible(true, "PropBoostPlayer");
+                    SoundManager.Play_Sound("BoostCar");
+                    AnimationManager.Set_Visible(true, "PropBoostPlayer");
                 }
             }
         }
 
-        private void enemy_state_machine(string State)
+        private void Enemy_State_Machine(string State)
         {
-            if (!_car_enemy.is_out_screen())
+            if (!_carEnemy.Is_Out_Screen())
             {
-                SoundManager.reset_volume_sound(_car_enemy.Car.Id + "_ForwardEnemy");
-                SoundManager.reset_volume_sound("BackEnemy");
-                SoundManager.reset_volume_sound("TurnSignalCarEnemy");
-                SoundManager.reset_volume_sound("BoostCarEnemy");
+                SoundManager.Reset_Volume_Sound(_carEnemy.Car.Id + "_ForwardEnemy");
+                SoundManager.Reset_Volume_Sound("BackEnemy");
+                SoundManager.Reset_Volume_Sound("TurnSignalCarEnemy");
+                SoundManager.Reset_Volume_Sound("BoostCarEnemy");
             }
             else
             {
-                SoundManager.change_volume_sound(_car_enemy.Car.Id + "_ForwardEnemy", 0);
-                SoundManager.change_volume_sound("BackEnemy", 0);
-                SoundManager.change_volume_sound("TurnSignalCarEnemy", 0);
-                SoundManager.change_volume_sound("BoostCarEnemy", 0);
+                SoundManager.Change_Volume_Sound(_carEnemy.Car.Id + "_ForwardEnemy", 0);
+                SoundManager.Change_Volume_Sound("BackEnemy", 0);
+                SoundManager.Change_Volume_Sound("TurnSignalCarEnemy", 0);
+                SoundManager.Change_Volume_Sound("BoostCarEnemy", 0);
             }
 
             if (State == "PlusSpeed")
             {
-                AnimationManager.group_visible(false, _car_enemy.Car.Id);
-                AnimationManager.set_visible(true, _car_enemy.Car.Id);
+                AnimationManager.Group_Visible(false, _carEnemy.Car.Id);
+                AnimationManager.Set_Visible(true, _carEnemy.Car.Id);
             }
 
             if (State == "Forward")
-                SoundManager.play_sound(_car_enemy.Car.Id + "_ForwardEnemy");
+                SoundManager.Play_Sound(_carEnemy.Car.Id + "_ForwardEnemy");
 
-            if (State == "Stop" || _car_enemy.is_out_screen())
-                SoundManager.stop_sound(_car_enemy.Car.Id + "_ForwardEnemy");
+            if (State == "Stop" || _carEnemy.Is_Out_Screen())
+                SoundManager.Stop_Sound(_carEnemy.Car.Id + "_ForwardEnemy");
 
 
             if (State == "Back")
             {
-                SoundManager.play_sound("BackEnemy");
+                SoundManager.Play_Sound("BackEnemy");
 
-                if (_car_enemy.Car.Current_Speed > 0)
+                if (_carEnemy.Car.CurrentSpeed > 0)
                 {
-                    AnimationManager.group_visible(false, _car_enemy.Car.Id);
-                    AnimationManager.set_visible(true, _car_enemy.Car.Id + "Stop");
-                    _prop_controller.PropStopEnemy.paint();
+                    AnimationManager.Group_Visible(false, _carEnemy.Car.Id);
+                    AnimationManager.Set_Visible(true, _carEnemy.Car.Id + "Stop");
+                    _propController.PropStopEnemy.Paint();
                 }
                 else
                 {
-                    AnimationManager.group_visible(false, _car_enemy.Car.Id);
-                    AnimationManager.set_visible(true, _car_enemy.Car.Id + "Back");
+                    AnimationManager.Group_Visible(false, _carEnemy.Car.Id);
+                    AnimationManager.Set_Visible(true, _carEnemy.Car.Id + "Back");
                 }
             }
 
             if (State == "Left")
             {
-                SoundManager.play_sound("TurnSignalCarEnemy");
-                AnimationManager.group_visible(false, _car_enemy.Car.Id);
-                AnimationManager.set_visible(true, _car_enemy.Car.Id + "Left");
-                _prop_controller.PropStopEnemy.paint();
+                SoundManager.Play_Sound("TurnSignalCarEnemy");
+                AnimationManager.Group_Visible(false, _carEnemy.Car.Id);
+                AnimationManager.Set_Visible(true, _carEnemy.Car.Id + "Left");
+                _propController.PropStopEnemy.Paint();
             }
 
             if (State == "Right")
             {
-                SoundManager.play_sound("TurnSignalCarEnemy");
-                AnimationManager.group_visible(false, _car_enemy.Car.Id);
-                AnimationManager.set_visible(true, _car_enemy.Car.Id + "Right");
-                _prop_controller.PropStopEnemy.paint();
+                SoundManager.Play_Sound("TurnSignalCarEnemy");
+                AnimationManager.Group_Visible(false, _carEnemy.Car.Id);
+                AnimationManager.Set_Visible(true, _carEnemy.Car.Id + "Right");
+                _propController.PropStopEnemy.Paint();
             }
 
             if (State == "Boost")
             {
-                AnimationManager.set_visible(true, "PropBoostEnemy");
-                SoundManager.play_sound("BoostCarEnemy");
+                AnimationManager.Set_Visible(true, "PropBoostEnemy");
+                SoundManager.Play_Sound("BoostCarEnemy");
             }
 
             if (State == "UnBoost")
             {
-                AnimationManager.set_visible(false, "PropBoostEnemy");
-                SoundManager.stop_sound("BoostCarEnemy");
+                AnimationManager.Set_Visible(false, "PropBoostEnemy");
+                SoundManager.Stop_Sound("BoostCarEnemy");
             }
 
             if (State == "AtOvertake")
             {
-                SoundManager.stop_sound("BoostCarEnemy");
-                AnimationManager.set_visible(false, "PropBoostEnemy");
+                SoundManager.Stop_Sound("BoostCarEnemy");
+                AnimationManager.Set_Visible(false, "PropBoostEnemy");
             }
         }
 
-        private void collision_handler(string Name1, string Name2) {
-            if (Name1 == "Player_Car" && Name2 == "Enemy_Car" )
+        private void Collision_Handler(string Name1, string Name2)
+        {
+            if ((Name1 == "Player_Car") && (Name2 == "Enemy_Car"))
             {
-                _play_game = false;
-                SoundManager.stop_all_sound();
+                _playGame = false;
+                SoundManager.Stop_All_Sound();
                 CollisionManager.Work = false;
                 Win_test.Text = "Crash car";
-                _finish.Lose_Anim.Visible = true;
-                _car_player.Freeze = true;
-                _car_enemy.Freeze = true;
+                _finish.LoseAnim.Visible = true;
+                _carPlayer.Freeze = true;
+                _carEnemy.Freeze = true;
                 EndGame_Label.Visible = true;
 
-                MusicManager.change_music("GameOver");
-                VoiceManager.change_voice("GameOver");
-                SoundManager.play_sound("BrokenCar");
+                MusicManager.Change_Music("GameOver");
+                VoiceManager.Change_Voice("GameOver");
+                SoundManager.Play_Sound("BrokenCar");
 
-                AnimationManager.group_visible(false, _car_player.Car.Id);
-                AnimationManager.set_visible(true, _car_player.Car.Id + "Breaking");
-                AnimationManager.group_visible(false, _car_enemy.Car.Id);
-                AnimationManager.set_visible(true, _car_enemy.Car.Id + "Breaking");
-
-                AnimationManager.set_visible(false, "PropBoostPlayer");
-                AnimationManager.set_visible(false, "PropBoostEnemy");
+                AnimationManager.Group_Visible(false, _carPlayer.Car.Id);
+                AnimationManager.Set_Visible(true, _carPlayer.Car.Id + "Breaking");
+                AnimationManager.Group_Visible(false, _carEnemy.Car.Id);
+                AnimationManager.Set_Visible(true, _carEnemy.Car.Id + "Breaking");
+                AnimationManager.Set_Visible(false, "PropBoostPlayer");
+                AnimationManager.Set_Visible(false, "PropBoostEnemy");
             }
 
-            if (Name1 == "Player_Car" && (Name2 == "Left_Board" || Name2 == "Right_Board"))
+            if ((Name1 == "Player_Car") && ((Name2 == "Left_Board") || (Name2 == "Right_Board")))
             {
-                _play_game = false;
-                SoundManager.stop_all_sound();
+                _playGame = false;
+                SoundManager.Stop_All_Sound();
                 CollisionManager.Work = false;
                 Win_test.Text = "Crash Player on border";
-                _finish.Lose_Anim.Visible = true;
-                _car_player.Freeze = true;
+                _finish.LoseAnim.Visible = true;
+                _carPlayer.Freeze = true;
                 EndGame_Label.Visible = true;
 
-                MusicManager.change_music("GameOver");
-                VoiceManager.change_voice("GameOver");
-                SoundManager.play_sound("BrokenCar");
-                
-                AnimationManager.group_visible(false, _car_player.Car.Id);
-                AnimationManager.set_visible(true, _car_player.Car.Id + "Breaking");
+                MusicManager.Change_Music("GameOver");
+                VoiceManager.Change_Voice("GameOver");
+                SoundManager.Play_Sound("BrokenCar");
+
+                AnimationManager.Group_Visible(false, _carPlayer.Car.Id);
+                AnimationManager.Set_Visible(true, _carPlayer.Car.Id + "Breaking");
             }
 
-            if (Name1 == "Enemy_Car" && (Name2 == "Left_Board" || Name2 == "Right_Board"))
+            if ((Name1 == "Enemy_Car") && ((Name2 == "Left_Board") || (Name2 == "Right_Board")))
             {
-                _play_game = false;
-                SoundManager.stop_all_sound();
+                _playGame = false;
+                SoundManager.Stop_All_Sound();
                 CollisionManager.Work = false;
                 Win_test.Text = "Crash Enemy on border";
-                _finish.Win_Anim.Visible = true;
-                _car_enemy.Freeze = true;
+                _finish.WinAnim.Visible = true;
+                _carEnemy.Freeze = true;
                 EndGame_Label.Visible = true;
 
-                MusicManager.change_music("Win");
-                VoiceManager.change_voice("Winner");
-                SoundManager.play_sound("BrokenCar");
+                MusicManager.Change_Music("Win");
+                VoiceManager.Change_Voice("Winner");
+                SoundManager.Play_Sound("BrokenCar");
 
-                AnimationManager.group_visible(false, _car_enemy.Car.Id);
-                AnimationManager.set_visible(true, _car_enemy.Car.Id + "Breaking");
+                AnimationManager.Group_Visible(false, _carEnemy.Car.Id);
+                AnimationManager.Set_Visible(true, _carEnemy.Car.Id + "Breaking");
             }
         }
     }

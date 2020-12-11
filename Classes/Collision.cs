@@ -1,33 +1,28 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Gonki_by_Dadadam
+﻿namespace Gonki_by_Dadadam
 {
-    public  class Collision
+    public class Collision
     {
         public string Name { get; set; }
         public float Left { get; set; }
         public float Top { get; set; }
         public float Width { get; set; }
         public float Height { get; set; }
-        public Collision(string Name, float Left, float Top, float Width, float Height)
+
+        public Collision(string name, float left, float top, float width, float height)
         {
-            this.Name = Name;
-            this.Left = Left;
-            this.Top = Top;
-            this.Width = Width;
-            this.Height = Height;
+            Name = name;
+            Left = left;
+            Top = top;
+            Width = width;
+            Height = height;
         }
 
-        public void update(float Left, float Top, float Width, float Height)
+        public void Update(float left, float top, float width, float height)
         {
-            this.Left = Left;
-            this.Top = Top;
-            this.Width = Width;
-            this.Height = Height;
+            Left = left;
+            Top = top;
+            Width = width;
+            Height = height;
         }
     }
 }

@@ -1,26 +1,21 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Gonki_by_Dadadam
 {
     public partial class Menu : UserControl
     {
-        public static Menu selfref { get; set; }
+        public static Menu SelfRef { get; set; }
+
         public Menu()
         {
             InitializeComponent();
-            selfref = this;
+            SelfRef = this;
             Dock = DockStyle.Fill;
-            resize_menubar();
+            ResizeMenubar();
         }
-        void resize_menubar()
+
+        private void ResizeMenubar()
         {
             MenuBar.Left = Width / 2 - MenuBar.Width / 2;
             MenuBar.Top = Height / 2 - MenuBar.Height / 2;
@@ -28,7 +23,7 @@ namespace Gonki_by_Dadadam
 
         private void Menu_Resize(object sender, EventArgs e)
         {
-            resize_menubar();
+            ResizeMenubar();
         }
 
         private void Menu_Exit_Click(object sender, EventArgs e)
@@ -38,15 +33,15 @@ namespace Gonki_by_Dadadam
 
         private void Menu_Garage_Click(object sender, EventArgs e)
         {
-            MainSpace.selfref.show_garage();
+            MainSpace.SelfRef.Show_Garage();
         }
 
         private void Menu_StartGame_Click(object sender, EventArgs e)
         {
-            if (MainSpace.selfref.CarPlayerExmp == null)
-                MainSpace.selfref.show_garage();
+            if (MainSpace.SelfRef.CarPlayerExmp == null)
+                MainSpace.SelfRef.Show_Garage();
             else
-                MainSpace.selfref.show_game();
+                MainSpace.SelfRef.Show_Game();
         }
     }
 }

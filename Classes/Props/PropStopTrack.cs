@@ -1,28 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Gonki_by_Dadadam
 {
     public class PropStopTrack
     {
         private List<AnimationSprite> _tracks { get; set; } = new List<AnimationSprite>();
-
         public CarController Controller { get; set; }
         public float Width { get; set; }
         public float Height { get; set; }
 
-        public PropStopTrack(CarController Controller)
+        private AnimationSprite _template;
+
+        public PropStopTrack(CarController controller)
         {
-            this.Controller = Controller;
+            Controller = controller;
         }
 
-        public void paint()
+        public void Paint()
         {
-            AnimationSprite template = new AnimationSprite()
+            _template = new AnimationSprite()
             {
                 Name = "TrackStop",
                 Group = "TrackStop",
@@ -33,17 +30,17 @@ namespace Gonki_by_Dadadam
                 Left = Controller.Left - Width,
                 Top = Controller.Top
             };
-            template.Frame.Add(new Bitmap(MainSpace.selfref.SpriteFolder + "RoadTrack.png"));
-            _tracks.Add(template);
-            AnimationManager.Animations.Add(template);
+            _template.Frame.Add(new Bitmap(MainSpace.SelfRef.SpriteFolder + "RoadTrack.png"));
+            _tracks.Add(_template);
+            AnimationManager.Animations.Add(_template);
         }
 
-        public void remove(float WidthScreen)
+        public void Remove(float widthScreen)
         {
             AnimationSprite left = null;
 
             foreach (AnimationSprite track in _tracks)
-                if (track.Left - WidthScreen < WidthScreen * -4)
+                if (track.Left - widthScreen < widthScreen * -4)
                     left = track;
 
             if (left != null)
@@ -53,10 +50,10 @@ namespace Gonki_by_Dadadam
             }
         }
 
-        public void update(float speed)
+        public void Update(float speed)
         {
             foreach (AnimationSprite track in _tracks)
-                track.transform(track.Left += speed, track.Top, track.Width, track.Height);
+                track.Transform(track.Left += speed, track.Top, track.Width, track.Height);
         }
     }
 }

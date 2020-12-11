@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Drawing;
 
 namespace Gonki_by_Dadadam
 {
@@ -24,7 +19,7 @@ namespace Gonki_by_Dadadam
                 Left = 0,
                 Top = 0
             };
-            PPLight.Frame.Add(new Bitmap(MainSpace.selfref.SpriteFolder + "PPLight.png"));
+            PPLight.Frame.Add(new Bitmap(MainSpace.SelfRef.SpriteFolder + "PPLight.png"));
             AnimationManager.Animations.Add(PPLight);
 
             PPeclipse = new AnimationSprite()
@@ -38,7 +33,7 @@ namespace Gonki_by_Dadadam
                 Left = 0,
                 Top = 0
             };
-            PPeclipse.Frame.Add(new Bitmap(MainSpace.selfref.SpriteFolder + "PPeclipse.png"));
+            PPeclipse.Frame.Add(new Bitmap(MainSpace.SelfRef.SpriteFolder + "PPeclipse.png"));
             AnimationManager.Animations.Add(PPeclipse);
         }
     }

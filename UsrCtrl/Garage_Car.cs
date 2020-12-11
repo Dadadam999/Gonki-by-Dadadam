@@ -1,33 +1,29 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Gonki_by_Dadadam
 {
     public partial class Garage_Car : UserControl
     {
-        public Car car { get; set; }
-        
-        public Garage_Car(Car car)
+        public Car TemplateCar { get; set; }
+
+        public Garage_Car(Car templateCar)
         {
             InitializeComponent();
-            this.car = car;
-            
-            Car_Sprite.Image = car.AnimationDefault.Frame[0];
-            Car_Info.Text = $"Name: {car.Name}\nMax_Speed: {car.Max_Speed}\nAcceleration: {car.Step_Speed}\nBoost: {car.Boost_Speed} Charge: {car.Max_Boost_Charge}";
+            TemplateCar = templateCar;
+
+            Car_Sprite.Image = TemplateCar.AnimationDefault.Frame[0];
+            Car_Info.Text = $"Name: {TemplateCar.Name}\n" +
+                            $"Max_Speed: {TemplateCar.MaxSpeed}\n" +
+                            $"Acceleration: {TemplateCar.StepSpeed}\n" +
+                            $"Boost: {TemplateCar.BoostSpeed} Charge: {TemplateCar.MaxBoostCharge}";
         }
 
         private void Car_Sprite_Click(object sender, EventArgs e)
         {
-            MainSpace.selfref.CarPlayerExmp = car.Clone();
-            Menu.selfref.Car_Selected_Info.Text = $"Selected car {car.Name}";
-            MainSpace.selfref.show_menu();
+            MainSpace.SelfRef.CarPlayerExmp = TemplateCar.Clone();
+            Menu.SelfRef.Car_Selected_Info.Text = $"Selected car {TemplateCar.Name}";
+            MainSpace.SelfRef.Show_Menu();
         }
     }
 }

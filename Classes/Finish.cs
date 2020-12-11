@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace Gonki_by_Dadadam
 {
@@ -12,68 +7,56 @@ namespace Gonki_by_Dadadam
     {
         public int Distance { get; set; }
         public string Result { get; set; }
-        private int _widthscrren { get; set; }
+        private int _widthScreen { get; set; }
         public AnimationSprite Sprite { get; set; }
-        public AnimationSprite Win_Anim { get; set; }
-        public AnimationSprite Lose_Anim { get; set; }
+        public AnimationSprite WinAnim { get; set; }
+        public AnimationSprite LoseAnim { get; set; }
 
         public Finish(int Distance, int WidthScreen, int HeightScreen)
         {
-            _widthscrren = WidthScreen;
+            _widthScreen = WidthScreen;
             this.Distance = Distance;
 
-            Sprite = new AnimationSprite(new Bitmap(MainSpace.selfref.SpriteFolder + "FinishLine.png"))
-            {
-                Name = "Finish",
-                Zindex = 1,
-                Visible = true
-            };
-            Sprite.transform(Distance * WidthScreen, 0, WidthScreen * 0.1F, HeightScreen);
+            Sprite = new AnimationSprite(new Bitmap(MainSpace.SelfRef.SpriteFolder + "FinishLine.png"))
+            { Name = "Finish", Zindex = 1, Visible = true };
+            Sprite.Transform(Distance * WidthScreen, 0, WidthScreen * 0.1F, HeightScreen);
             AnimationManager.Animations.Add(Sprite);
 
-            Win_Anim = new AnimationSprite()
-            {
-                Name = "WinAnim",
-                Zindex = 100,
-                Visible = false
-            };
+            WinAnim = new AnimationSprite()
+            { Name = "WinAnim", Zindex = 100, Visible = false };
             for (int i = 1; i < 33; i++)
-                Win_Anim.Frame.Add(new Bitmap(MainSpace.selfref.SpriteFolder + "WinFrame" + i + ".gif"));
-            Win_Anim.transform(0, 0, WidthScreen, HeightScreen);
-            AnimationManager.Animations.Add(Win_Anim);
+                WinAnim.Frame.Add(new Bitmap(MainSpace.SelfRef.SpriteFolder + "WinFrame" + i + ".gif"));
+            WinAnim.Transform(0, 0, WidthScreen, HeightScreen);
+            AnimationManager.Animations.Add(WinAnim);
 
-            Lose_Anim = new AnimationSprite()
-            {
-                Name = "LoseAnim",
-                Zindex = 100,
-                Visible = false
-            };
+            LoseAnim = new AnimationSprite()
+            { Name = "LoseAnim", Zindex = 100, Visible = false };
             for (int i = 1; i < 9; i++)
-                Lose_Anim.Frame.Add(new Bitmap(MainSpace.selfref.SpriteFolder + "LoseFrame" + i + ".gif"));
-            Lose_Anim.transform(0, 0, WidthScreen, HeightScreen);
-            AnimationManager.Animations.Add(Lose_Anim);
+                LoseAnim.Frame.Add(new Bitmap(MainSpace.SelfRef.SpriteFolder + "LoseFrame" + i + ".gif"));
+            LoseAnim.Transform(0, 0, WidthScreen, HeightScreen);
+            AnimationManager.Animations.Add(LoseAnim);
         }
 
-        public void check_win(float Player_Distance, float Enemy_Distance)
+        public void Check_Win(float Player_Distance, float Enemy_Distance)
         {
-            if (String.IsNullOrEmpty(Result) && Player_Distance > _widthscrren * Distance)
+            if (string.IsNullOrEmpty(Result) && (Player_Distance > _widthScreen * Distance))
             {
                 Result = "Player";
-                Win_Anim.Visible = true;
-                MusicManager.change_music("Win");
-                VoiceManager.change_voice("Winner");
+                WinAnim.Visible = true;
+                MusicManager.Change_Music("Win");
+                VoiceManager.Change_Voice("Winner");
             }
 
-            if (String.IsNullOrEmpty(Result) && Enemy_Distance > _widthscrren * Distance)
+            if (string.IsNullOrEmpty(Result) && (Enemy_Distance > _widthScreen * Distance))
             {
                 Result = "Enemy ";
-                Lose_Anim.Visible = true;
-                MusicManager.change_music("GameOver");
-                VoiceManager.change_voice("GameOver");
+                LoseAnim.Visible = true;
+                MusicManager.Change_Music("GameOver");
+                VoiceManager.Change_Voice("GameOver");
             }
         }
 
-        public void move(float speed)
+        public void Move(float speed)
         {
             Sprite.Left += speed * -1; //инвертироать скорость фона
         }

@@ -1,41 +1,35 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Media;
+﻿using System.Collections.Generic;
 
 namespace Gonki_by_Dadadam
 {
     public static class SoundManager
     {
-        public static List<Sound> sounds { get; set; } = new List<Sound>();
+        public static List<Sound> Sounds { get; set; } = new List<Sound>();
 
-        public static void play_sound(string Name) 
+        public static void Play_Sound(string Name)
         {
-            sounds.Find(x => x.Name == Name)?.play_sound();
+            Sounds.Find(x => x.Name == Name)?.Play_Sound();
         }
 
-        public static void stop_sound(string Name)
+        public static void Stop_Sound(string Name)
         {
-            sounds.Find(x => x.Name == Name)?.stop_sound();
+            Sounds.Find(x => x.Name == Name)?.Stop_Sound();
         }
 
-        public static void change_volume_sound(string Name, double Volume)
+        public static void Change_Volume_Sound(string Name, double Volume)
         {
-            sounds.Find(x => x.Name == Name)?.change_volume(Volume);
+            Sounds.Find(x => x.Name == Name)?.Change_Volume(Volume);
         }
 
-        public static void reset_volume_sound(string Name)
+        public static void Reset_Volume_Sound(string Name)
         {
-            sounds.Find(x => x.Name == Name)?.reset_volume();
+            Sounds.Find(x => x.Name == Name)?.Reset_Volume();
         }
 
-
-        public static void stop_all_sound() 
+        public static void Stop_All_Sound()
         {
-            foreach (Sound sound in sounds)
-                sound.stop_sound();
+            foreach (Sound sound in Sounds)
+                sound.Stop_Sound();
         }
     }
 }

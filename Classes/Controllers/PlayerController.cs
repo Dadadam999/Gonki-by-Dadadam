@@ -1,29 +1,25 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Gonki_by_Dadadam
 {
     public class PlayerController : CarController
     {
-        public delegate void StateMachine(string State);
+        public delegate void StateMachine(string state);
         public event StateMachine State;
-        
-        private float _widthscreen { get; set; }
-        private float _heightscreen { get; set; }
+
+        private float _widthScreen { get; set; }
+        private float _heightScreen { get; set; }
 
         public PlayerController(int WidthScreen, int HeightScreen)
         {
-            _widthscreen = WidthScreen;
-            _heightscreen = HeightScreen;
+            _widthScreen = WidthScreen;
+            _heightScreen = HeightScreen;
 
-            collision = new Collision("Player_Car", Left, Top, Width, Height);
-            CollisionManager.Collisions.Add(collision);
+            CollisionObject = new Collision("Player_Car", Left, Top, Width, Height);
+            CollisionManager.Collisions.Add(CollisionObject);
         }
 
-        public override void init_car(Car car)
+        public override void Init_Car(Car car)
         {
             Car = car;
             Car.AnimationDefault.Visible = true;
@@ -35,83 +31,81 @@ namespace Gonki_by_Dadadam
             AnimationManager.Animations.Add(Car.AnimationBreaking);
         }
 
-        public override void set_start_position()
+        public override void Set_Start_Position()
         {
-            Left = _widthscreen / 3;
-            Top = _heightscreen / 3;
-
-            Width = _widthscreen / 7;
-            Height = _heightscreen / 9;
-
-            AnimationManager.group_transform(Left, Top, Width, Height, Car.Id);
+            Left = _widthScreen / 3;
+            Top = _heightScreen / 3;
+            Width = _widthScreen / 7;
+            Height = _heightScreen / 9;
+            AnimationManager.Group_Transform(Left, Top, Width, Height, Car.Id);
         }
 
-        public void key_event(string pressed_key)
+        public void Key_Event(string pressedKey)
         {
-            if (String.IsNullOrEmpty(pressed_key))
+            if (String.IsNullOrEmpty(pressedKey))
                 State?.Invoke("");
 
-            if (Car.Current_Speed == 0)
+            if (Car.CurrentSpeed == 0)
                 State?.Invoke("Stop");
             else
                 State?.Invoke("Move");
 
-            if (pressed_key == "W" && Car.Current_Speed <= Car.Max_Speed)
+            if ((pressedKey == "W") && (Car.CurrentSpeed <= Car.MaxSpeed))
             {
-                Car.Current_Speed += Car.Step_Speed;
+                Car.CurrentSpeed += Car.StepSpeed;
             }
 
-            if (pressed_key == "S" && Car.Current_Speed >= Car.Back_Speed * -1)
+            if ((pressedKey == "S") && (Car.CurrentSpeed >= Car.BackSpeed * -1))
             {
-                Car.Current_Speed -= Car.Step_Speed;
+                Car.CurrentSpeed -= Car.StepSpeed;
                 State?.Invoke("Back");
             }
 
-            if (pressed_key == "A" && Car.Current_Speed != 0)
+            if ((pressedKey == "A") && (Car.CurrentSpeed != 0))
             {
-                Top -= Car.Rotate_Left_Speed;
+                Top -= Car.RotateLeftSpeed;
                 State?.Invoke("Left");
             }
 
-            if (pressed_key == "D" && Car.Current_Speed != 0)
+            if ((pressedKey == "D") && (Car.CurrentSpeed != 0))
             {
-                Top += Car.Rotate_Right_Speed;
+                Top += Car.RotateRightSpeed;
                 State?.Invoke("Right");
             }
 
-            if (pressed_key != "ShiftKey" && Car.Curent_Boost_Charge <= Car.Max_Boost_Charge)
-                Car.Curent_Boost_Charge++;
+            if ((pressedKey != "ShiftKey") && (Car.CurentBoostCharge <= Car.MaxBoostCharge))
+                Car.CurentBoostCharge++;
 
-            if (pressed_key == "ShiftKey" && Car.Curent_Boost_Charge > 0 && Car.Current_Speed > 0)
+            if ((pressedKey == "ShiftKey") && (Car.CurentBoostCharge > 0) && (Car.CurrentSpeed > 0))
             {
-                Car.Curent_Boost_Charge--;
-                if (Car.Current_Speed < Car.Max_Speed + Car.Boost_Speed)
-                    Car.Current_Speed += Car.Boost_Speed;
+                Car.CurentBoostCharge--;
+                if (Car.CurrentSpeed < Car.MaxSpeed + Car.BoostSpeed)
+                    Car.CurrentSpeed += Car.BoostSpeed;
 
-                if (Car.Curent_Boost_Charge <= 0)
-                    Car.Current_Speed = Car.Max_Speed;
+                if (Car.CurentBoostCharge <= 0)
+                    Car.CurrentSpeed = Car.MaxSpeed;
 
                 State?.Invoke("Boost");
             }
-            if (pressed_key != "ShiftKey" && Car.Current_Speed >= Car.Max_Speed)
-                Car.Current_Speed = Car.Max_Speed;
+            if (pressedKey != "ShiftKey" && Car.CurrentSpeed >= Car.MaxSpeed)
+                Car.CurrentSpeed = Car.MaxSpeed;
         }
 
-        public void update()
+        public void Update()
         {
-            Car.Cover_Distance += Car.Current_Speed;
+            Car.CoverDistance += Car.CurrentSpeed;
 
-            if (Car.Current_Speed != 0 &&
-                Car.Current_Speed > Car.Back_Speed * -1 &&
-                Car.Current_Speed < Car.Max_Speed)
-                    Left = _widthscreen / 3 + Car.Current_Speed; // Width / 3 - стартовая позиция
+            if (Car.CurrentSpeed != 0 &&
+                Car.CurrentSpeed > Car.BackSpeed * -1 &&
+                Car.CurrentSpeed < Car.MaxSpeed)
+                Left = _widthScreen / 3 + Car.CurrentSpeed; // Width / 3 - стартовая позиция
 
             if (Freeze)
-                Car.Current_Speed = 0;
+                Car.CurrentSpeed = 0;
 
-            AnimationManager.group_transform(Left, Top, Width, Height, Car.Id);
+            AnimationManager.Group_Transform(Left, Top, Width, Height, Car.Id);
 
-            collision.update(Left + Width * 0.08F, Top + Height * 0.08F, Width - Width * 0.18F, Height - Height * 0.18F);
+            CollisionObject.Update(Left + Width * 0.08F, Top + Height * 0.08F, Width - Width * 0.18F, Height - Height * 0.18F);
         }
     }
 }

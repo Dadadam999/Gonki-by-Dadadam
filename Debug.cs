@@ -1,27 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 
 namespace Gonki_by_Dadadam
 {
     public partial class Debug : Form
     {
-        public static Debug selfref { get; set; }
+        public static Debug SelfRef { get; set; }
         public Debug()
         {
             InitializeComponent();
-            selfref = this;
+            SelfRef = this;
         }
 
-        public void add_input(string text)
+        public void Add_Input(string text)
         {
-            Output.Text += Output.Lines.Length + ":" + text + "\n" ;
+            Output.Text += Output.Lines.Length + ":" + text + "\n";
             Output.SelectionStart = Output.Text.Length;
             Output.ScrollToCaret();
         }

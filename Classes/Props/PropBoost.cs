@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Drawing;
 
 namespace Gonki_by_Dadadam
 {
@@ -11,28 +6,27 @@ namespace Gonki_by_Dadadam
     {
         public CarController Controller { get; set; }
 
-        public PropBoost(CarController Controller) 
+        public PropBoost(CarController controller)
         {
-            this.Controller = Controller;
+            Controller = controller;
             Group = "Boost";
             Visible = false;
             Zindex = 10;
 
             for (int i = 1; i <= 38; i++)
-               Frame.Add(new Bitmap(MainSpace.selfref.SpriteFolder + "BostFrame" + i + ".gif"));
-
+                Frame.Add(new Bitmap(MainSpace.SelfRef.SpriteFolder + "BostFrame" + i + ".gif"));
             AnimationManager.Animations.Add(this);
-            
-            current_position();
+
+            Current_Position();
         }
 
-        public void current_position() 
+        public void Current_Position()
         {
             Width = Controller.Width * 0.8F;
             Height = Controller.Height * 0.7F;
             Left = Controller.Left - Width + Controller.Width * 0.1F;
             Top = Controller.Top + Controller.Width / 2 - Width / 2;
-            transform(Left, Top, Width, Height);
+            Transform(Left, Top, Width, Height);
         }
     }
 }
