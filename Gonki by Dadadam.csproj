@@ -23,7 +23,7 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationRevision>1</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -58,7 +58,7 @@
     <ManifestKeyFile>Gonki by Dadadam_TemporaryKey.pfx</ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
-    <GenerateManifests>false</GenerateManifests>
+    <GenerateManifests>true</GenerateManifests>
   </PropertyGroup>
   <PropertyGroup>
     <SignManifests>true</SignManifests>
@@ -189,6 +189,182 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="car_wheel_PNG23302.ico" />
+    <Content Include="Source\Music\Game.wav" />
+    <Content Include="Source\Music\GameOver.wav" />
+    <Content Include="Source\Music\Garage.wav" />
+    <Content Include="Source\Music\MainMenu.wav" />
+    <Content Include="Source\Music\Win.wav" />
+    <Content Include="Source\README.txt" />
+    <Content Include="Source\Sound\Back.wav" />
+    <Content Include="Source\Sound\BoostCar.wav" />
+    <Content Include="Source\Sound\BrokenCar.wav" />
+    <Content Include="Source\Sound\Car01Forward.wav" />
+    <Content Include="Source\Sound\Car02Forward.wav" />
+    <Content Include="Source\Sound\Car03Forward.wav" />
+    <Content Include="Source\Sound\Car04Forward.wav" />
+    <Content Include="Source\Sound\Car05Forward.wav" />
+    <Content Include="Source\Sound\TurnSignalCar.wav" />
+    <Content Include="Source\Sprite\BostFrame1.gif" />
+    <Content Include="Source\Sprite\BostFrame10.gif" />
+    <Content Include="Source\Sprite\BostFrame11.gif" />
+    <Content Include="Source\Sprite\BostFrame12.gif" />
+    <Content Include="Source\Sprite\BostFrame13.gif" />
+    <Content Include="Source\Sprite\BostFrame14.gif" />
+    <Content Include="Source\Sprite\BostFrame15.gif" />
+    <Content Include="Source\Sprite\BostFrame16.gif" />
+    <Content Include="Source\Sprite\BostFrame17.gif" />
+    <Content Include="Source\Sprite\BostFrame18.gif" />
+    <Content Include="Source\Sprite\BostFrame19.gif" />
+    <Content Include="Source\Sprite\BostFrame2.gif" />
+    <Content Include="Source\Sprite\BostFrame20.gif" />
+    <Content Include="Source\Sprite\BostFrame21.gif" />
+    <Content Include="Source\Sprite\BostFrame22.gif" />
+    <Content Include="Source\Sprite\BostFrame23.gif" />
+    <Content Include="Source\Sprite\BostFrame24.gif" />
+    <Content Include="Source\Sprite\BostFrame25.gif" />
+    <Content Include="Source\Sprite\BostFrame26.gif" />
+    <Content Include="Source\Sprite\BostFrame27.gif" />
+    <Content Include="Source\Sprite\BostFrame28.gif" />
+    <Content Include="Source\Sprite\BostFrame29.gif" />
+    <Content Include="Source\Sprite\BostFrame3.gif" />
+    <Content Include="Source\Sprite\BostFrame30.gif" />
+    <Content Include="Source\Sprite\BostFrame31.gif" />
+    <Content Include="Source\Sprite\BostFrame32.gif" />
+    <Content Include="Source\Sprite\BostFrame33.gif" />
+    <Content Include="Source\Sprite\BostFrame34.gif" />
+    <Content Include="Source\Sprite\BostFrame35.gif" />
+    <Content Include="Source\Sprite\BostFrame36.gif" />
+    <Content Include="Source\Sprite\BostFrame37.gif" />
+    <Content Include="Source\Sprite\BostFrame38.gif" />
+    <Content Include="Source\Sprite\BostFrame4.gif" />
+    <Content Include="Source\Sprite\BostFrame5.gif" />
+    <Content Include="Source\Sprite\BostFrame6.gif" />
+    <Content Include="Source\Sprite\BostFrame7.gif" />
+    <Content Include="Source\Sprite\BostFrame8.gif" />
+    <Content Include="Source\Sprite\BostFrame9.gif" />
+    <Content Include="Source\Sprite\Car01.png" />
+    <Content Include="Source\Sprite\Car01Back.png" />
+    <Content Include="Source\Sprite\Car01Frame1.gif" />
+    <Content Include="Source\Sprite\Car01Frame2.gif" />
+    <Content Include="Source\Sprite\Car01Frame3.gif" />
+    <Content Include="Source\Sprite\Car01Frame4.gif" />
+    <Content Include="Source\Sprite\Car01Frame5.gif" />
+    <Content Include="Source\Sprite\Car01Frame6.gif" />
+    <Content Include="Source\Sprite\Car01Frame7.gif" />
+    <Content Include="Source\Sprite\Car01Frame8.gif" />
+    <Content Include="Source\Sprite\Car01Frame9.gif" />
+    <Content Include="Source\Sprite\Car01Left.png" />
+    <Content Include="Source\Sprite\Car01Right.png" />
+    <Content Include="Source\Sprite\Car01Stop.png" />
+    <Content Include="Source\Sprite\Car02.png" />
+    <Content Include="Source\Sprite\Car02Back.png" />
+    <Content Include="Source\Sprite\Car02Frame1.gif" />
+    <Content Include="Source\Sprite\Car02Frame2.gif" />
+    <Content Include="Source\Sprite\Car02Frame3.gif" />
+    <Content Include="Source\Sprite\Car02Frame4.gif" />
+    <Content Include="Source\Sprite\Car02Frame5.gif" />
+    <Content Include="Source\Sprite\Car02Frame6.gif" />
+    <Content Include="Source\Sprite\Car02Frame7.gif" />
+    <Content Include="Source\Sprite\Car02Frame8.gif" />
+    <Content Include="Source\Sprite\Car02Frame9.gif" />
+    <Content Include="Source\Sprite\Car02Left.png" />
+    <Content Include="Source\Sprite\Car02Right.png" />
+    <Content Include="Source\Sprite\Car02Stop.png" />
+    <Content Include="Source\Sprite\Car03.png" />
+    <Content Include="Source\Sprite\Car03Back.png" />
+    <Content Include="Source\Sprite\Car03Frame1.gif" />
+    <Content Include="Source\Sprite\Car03Frame2.gif" />
+    <Content Include="Source\Sprite\Car03Frame3.gif" />
+    <Content Include="Source\Sprite\Car03Frame4.gif" />
+    <Content Include="Source\Sprite\Car03Frame5.gif" />
+    <Content Include="Source\Sprite\Car03Frame6.gif" />
+    <Content Include="Source\Sprite\Car03Frame7.gif" />
+    <Content Include="Source\Sprite\Car03Frame8.gif" />
+    <Content Include="Source\Sprite\Car03Frame9.gif" />
+    <Content Include="Source\Sprite\Car03Left.png" />
+    <Content Include="Source\Sprite\Car03Right.png" />
+    <Content Include="Source\Sprite\Car03Stop.png" />
+    <Content Include="Source\Sprite\Car04.png" />
+    <Content Include="Source\Sprite\Car04Back.png" />
+    <Content Include="Source\Sprite\Car04Frame1.gif" />
+    <Content Include="Source\Sprite\Car04Frame2.gif" />
+    <Content Include="Source\Sprite\Car04Frame3.gif" />
+    <Content Include="Source\Sprite\Car04Frame4.gif" />
+    <Content Include="Source\Sprite\Car04Frame5.gif" />
+    <Content Include="Source\Sprite\Car04Frame6.gif" />
+    <Content Include="Source\Sprite\Car04Frame7.gif" />
+    <Content Include="Source\Sprite\Car04Frame8.gif" />
+    <Content Include="Source\Sprite\Car04Frame9.gif" />
+    <Content Include="Source\Sprite\Car04Left.png" />
+    <Content Include="Source\Sprite\Car04Right.png" />
+    <Content Include="Source\Sprite\Car04Stop.png" />
+    <Content Include="Source\Sprite\Car05.png" />
+    <Content Include="Source\Sprite\Car05Back.png" />
+    <Content Include="Source\Sprite\Car05Frame1.gif" />
+    <Content Include="Source\Sprite\Car05Frame2.gif" />
+    <Content Include="Source\Sprite\Car05Frame3.gif" />
+    <Content Include="Source\Sprite\Car05Frame4.gif" />
+    <Content Include="Source\Sprite\Car05Frame5.gif" />
+    <Content Include="Source\Sprite\Car05Frame6.gif" />
+    <Content Include="Source\Sprite\Car05Frame7.gif" />
+    <Content Include="Source\Sprite\Car05Frame8.gif" />
+    <Content Include="Source\Sprite\Car05Frame9.gif" />
+    <Content Include="Source\Sprite\Car05Left.png" />
+    <Content Include="Source\Sprite\Car05Right.png" />
+    <Content Include="Source\Sprite\Car05Stop.png" />
+    <Content Include="Source\Sprite\FinishLine.png" />
+    <Content Include="Source\Sprite\LoseFrame1.gif" />
+    <Content Include="Source\Sprite\LoseFrame2.gif" />
+    <Content Include="Source\Sprite\LoseFrame3.gif" />
+    <Content Include="Source\Sprite\LoseFrame4.gif" />
+    <Content Include="Source\Sprite\LoseFrame5.gif" />
+    <Content Include="Source\Sprite\LoseFrame6.gif" />
+    <Content Include="Source\Sprite\LoseFrame7.gif" />
+    <Content Include="Source\Sprite\LoseFrame8.gif" />
+    <Content Include="Source\Sprite\PPeclipse.png" />
+    <Content Include="Source\Sprite\PPLight.png" />
+    <Content Include="Source\Sprite\RoadBridge.png" />
+    <Content Include="Source\Sprite\RoadBuilder.png" />
+    <Content Include="Source\Sprite\RoadCross.png" />
+    <Content Include="Source\Sprite\RoadDefault.png" />
+    <Content Include="Source\Sprite\RoadStation.png" />
+    <Content Include="Source\Sprite\RoadTrack.png" />
+    <Content Include="Source\Sprite\WinFrame1.gif" />
+    <Content Include="Source\Sprite\WinFrame10.gif" />
+    <Content Include="Source\Sprite\WinFrame11.gif" />
+    <Content Include="Source\Sprite\WinFrame12.gif" />
+    <Content Include="Source\Sprite\WinFrame13.gif" />
+    <Content Include="Source\Sprite\WinFrame14.gif" />
+    <Content Include="Source\Sprite\WinFrame15.gif" />
+    <Content Include="Source\Sprite\WinFrame16.gif" />
+    <Content Include="Source\Sprite\WinFrame17.gif" />
+    <Content Include="Source\Sprite\WinFrame18.gif" />
+    <Content Include="Source\Sprite\WinFrame19.gif" />
+    <Content Include="Source\Sprite\WinFrame2.gif" />
+    <Content Include="Source\Sprite\WinFrame20.gif" />
+    <Content Include="Source\Sprite\WinFrame21.gif" />
+    <Content Include="Source\Sprite\WinFrame22.gif" />
+    <Content Include="Source\Sprite\WinFrame23.gif" />
+    <Content Include="Source\Sprite\WinFrame24.gif" />
+    <Content Include="Source\Sprite\WinFrame25.gif" />
+    <Content Include="Source\Sprite\WinFrame26.gif" />
+    <Content Include="Source\Sprite\WinFrame27.gif" />
+    <Content Include="Source\Sprite\WinFrame28.gif" />
+    <Content Include="Source\Sprite\WinFrame29.gif" />
+    <Content Include="Source\Sprite\WinFrame3.gif" />
+    <Content Include="Source\Sprite\WinFrame30.gif" />
+    <Content Include="Source\Sprite\WinFrame31.gif" />
+    <Content Include="Source\Sprite\WinFrame32.gif" />
+    <Content Include="Source\Sprite\WinFrame4.gif" />
+    <Content Include="Source\Sprite\WinFrame5.gif" />
+    <Content Include="Source\Sprite\WinFrame6.gif" />
+    <Content Include="Source\Sprite\WinFrame7.gif" />
+    <Content Include="Source\Sprite\WinFrame8.gif" />
+    <Content Include="Source\Sprite\WinFrame9.gif" />
+    <Content Include="Source\Voice\GameOver.wav" />
+    <Content Include="Source\Voice\Garage.wav" />
+    <Content Include="Source\Voice\Go.wav" />
+    <Content Include="Source\Voice\Winner.wav" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
